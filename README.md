@@ -1,4 +1,4 @@
-# FADI Code Lab
+# PYJS Code Lab
 
 Lokaler Python- und JavaScript-Playground in einer gemeinsamen Oberfläche.
 

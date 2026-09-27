@@ -7,7 +7,7 @@ import {autocompletion, completionKeymap, startCompletion} from "@codemirror/aut
 import {syntaxHighlighting, HighlightStyle, bracketMatching} from "@codemirror/language";
 import {tags} from "@lezer/highlight";
 
-const config = window.FADI_CONFIG || {productName: "FADI"};
+const config = window.TITLE_CONFIG || {productName: "PYJS"};
 document.querySelector("#productName").textContent = config.productName;
 document.title = `${config.productName} Code Lab`;
 

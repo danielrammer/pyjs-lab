@@ -2,18 +2,25 @@
 
 Lokaler Python- und JavaScript-Playground in einer gemeinsamen Oberfläche.
 
-## Start unter Omarchy/Linux
+## Start ohne Webserver
 
-1. Terminal in diesem Projektordner öffnen.
-2. Server starten:
+`index.html` im Dateimanager doppelt anklicken oder im Browser öffnen. Die Anwendung
+funktioniert direkt über `file://`; ein lokaler Webserver ist nicht erforderlich.
+
+CodeMirror ist vollständig im Projekt gebündelt. Eine Internetverbindung ist nur
+beim ersten Python-Start nötig, da die große Pyodide-Laufzeit vom offiziellen CDN
+bezogen wird. JavaScript und der Editor starten ohne diesen Download.
+
+## Optional: lokaler Webserver
+
+Falls ein Browser lokale Seiten besonders streng einschränkt, kann das Projekt
+weiterhin über einen lokalen Server geöffnet werden:
 
    ```bash
    python -m http.server 8000
    ```
 
-3. Im Browser `http://localhost:8000` öffnen.
-
-CodeMirror ist im Projekt gebündelt. Eine Internetverbindung ist beim ersten Python-Start nötig, da die große Pyodide-Laufzeit vom offiziellen CDN bezogen wird. JavaScript und der Editor funktionieren ohne diesen Download. Direktes Öffnen per `file://` wird nicht unterstützt.
+Danach im Browser `http://localhost:8000` öffnen.
 
 ## Name ändern
 

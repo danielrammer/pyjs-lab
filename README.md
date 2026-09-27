@@ -29,6 +29,7 @@ In `config.js` nur `productName` anpassen und die Browserseite neu laden.
 ## Bedienung
 
 - Sprache oben zwischen Python und JavaScript wechseln; beide Texte bleiben getrennt erhalten.
+- `Convert on switch` ist standardmäßig `OFF`. Bei `ON` wird der aktuelle Code beim Sprachwechsel bestmöglich in die Zielsprache übertragen und ersetzt dort den bisherigen Editorinhalt. Unterstützt werden typische Lernbeispiele; eine vollständig verlustfreie Übersetzung beliebiger Programme ist nicht möglich.
 - Mit dem Theme-Schalter zwischen dunkler und heller Darstellung wechseln.
 - Ausführen: Schaltfläche oder `Ctrl+Enter`.
 - Completion-Modus durch Anklicken zwischen `AUTO`, `MANUELL` und `AUS` wechseln.

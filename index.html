@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,27 +9,27 @@
 <body>
   <header class="topbar">
     <div class="brand"><span id="productName">PYJS</span><small>CODE LAB</small></div>
-    <nav class="language-switch" aria-label="Programmiersprache">
+    <nav class="language-switch" aria-label="Programming language">
       <button class="lang active" data-language="python">Python</button>
       <button class="lang" data-language="javascript">JavaScript</button>
     </nav>
     <div class="actions">
-      <button id="openButton">Öffnen</button>
-      <button id="saveButton">Speichern</button>
-      <button id="themeButton" title="Farbschema wechseln" aria-pressed="false">☀ Helles Theme</button>
-      <button id="completionButton" title="Vervollständigung umschalten">Completion: AUTO</button>
-      <button id="runButton" class="primary">▶ Ausführen <kbd>Ctrl↵</kbd></button>
+      <button id="openButton">Open</button>
+      <button id="saveButton">Save</button>
+      <button id="themeButton" title="Switch color theme" aria-pressed="false">☀ Light Theme</button>
+      <button id="completionButton" title="Switch completion mode">Completion: AUTO</button>
+      <button id="runButton" class="primary">▶ Run <kbd>Ctrl↵</kbd></button>
     </div>
   </header>
 
   <main>
     <section class="editor-panel">
-      <div class="panel-title"><span id="fileName">main.py</span><span id="status">Bereit</span></div>
+      <div class="panel-title"><span id="fileName">main.py</span><span id="status">Ready</span></div>
       <div id="editor"></div>
     </section>
     <section class="output-panel">
-      <div class="panel-title"><span>Ausgabe</span><button id="clearButton">Leeren</button></div>
-      <pre id="output" aria-live="polite">Bereit.</pre>
+      <div class="panel-title"><span>Output</span><button id="clearButton">Clear</button></div>
+      <pre id="output" aria-live="polite">Ready.</pre>
     </section>
   </main>
 

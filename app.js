@@ -12,8 +12,8 @@ document.querySelector("#productName").textContent = config.productName;
 document.title = `${config.productName} Code Lab`;
 
 const starter = {
-  python: `# ${config.productName} Python\nname = "Welt"\nprint(f"Hallo, {name}!")\n`,
-  javascript: `// ${config.productName} JavaScript\nconst name = "Welt";\nconsole.log(\`Hallo, \${name}!\`);\n`
+  python: `# ${config.productName} Python\nname = "World"\nprint(f"Hello, {name}!")\n`,
+  javascript: `// ${config.productName} JavaScript\nconst name = "World";\nconsole.log(\`Hello, \${name}!\`);\n`
 };
 const documents = {...starter};
 const filenames = {python:"main.py", javascript:"main.js"};
@@ -72,19 +72,19 @@ const lightEditorTheme = EditorView.theme({
 },{dark:false});
 
 function languageExtension(){return language === "python" ? python() : javascript();}
-function completionExtension(){return completionMode === "AUS" ? [] : autocompletion({activateOnTyping:completionMode === "AUTO"});}
+function completionExtension(){return completionMode === "OFF" ? [] : autocompletion({activateOnTyping:completionMode === "AUTO"});}
 function appearanceExtensions(){return colorTheme === "dark" ? [darkEditorTheme,syntaxHighlighting(darkHighlight)] : [lightEditorTheme,syntaxHighlighting(lightHighlight)];}
 
 const view = new EditorView({
   parent:document.querySelector("#editor"),
-  state:EditorState.create({doc:documents.python,extensions:[lineNumbers(),highlightActiveLine(),drawSelection(),history(),bracketMatching(),appearanceCompartment.of(appearanceExtensions()),languageCompartment.of(languageExtension()),completionCompartment.of(completionExtension()),keymap.of([{key:"Ctrl-Enter",run:()=>{runCode();return true}},{key:"Mod-Enter",run:()=>{runCode();return true}},{key:"Ctrl-Space",run:v=>completionMode !== "AUS" && startCompletion(v)},indentWithTab,...defaultKeymap,...historyKeymap,...completionKeymap]),EditorView.updateListener.of(u=>{if(u.docChanged)documents[language]=u.state.doc.toString()})]})
+  state:EditorState.create({doc:documents.python,extensions:[lineNumbers(),highlightActiveLine(),drawSelection(),history(),bracketMatching(),appearanceCompartment.of(appearanceExtensions()),languageCompartment.of(languageExtension()),completionCompartment.of(completionExtension()),keymap.of([{key:"Ctrl-Enter",run:()=>{runCode();return true}},{key:"Mod-Enter",run:()=>{runCode();return true}},{key:"Ctrl-Space",run:v=>completionMode !== "OFF" && startCompletion(v)},indentWithTab,...defaultKeymap,...historyKeymap,...completionKeymap]),EditorView.updateListener.of(u=>{if(u.docChanged)documents[language]=u.state.doc.toString()})]})
 });
 
 function setStatus(text){status.textContent=text}
-function append(text,isError=false){if(output.textContent==="Bereit.")output.textContent="";const span=document.createElement("span");span.textContent=String(text)+"\n";if(isError)span.className="error";output.append(span);output.scrollTop=output.scrollHeight}
+function append(text,isError=false){if(output.textContent==="Ready.")output.textContent="";const span=document.createElement("span");span.textContent=String(text)+"\n";if(isError)span.className="error";output.append(span);output.scrollTop=output.scrollHeight}
 
 async function runPython(code){
-  if(!pyodideInstance){setStatus("Lade Python …");append("Python wird beim ersten Start geladen …");pyodideInstance=await loadPyodide()}
+  if(!pyodideInstance){setStatus("Loading Python …");append("Python is loading for the first run …");pyodideInstance=await loadPyodide()}
   pyodideInstance.setStdout({batched:s=>append(s)});pyodideInstance.setStderr({batched:s=>append(s,true)});
   await pyodideInstance.runPythonAsync(code);
 }
@@ -95,20 +95,20 @@ async function runJavaScript(code){
 }
 function formatValue(v){if(typeof v==="string")return v;try{return JSON.stringify(v)}catch{return String(v)}}
 async function runCode(){
-  output.textContent="";setStatus("Wird ausgeführt …");document.querySelector("#runButton").disabled=true;
-  try{language === "python" ? await runPython(view.state.doc.toString()) : await runJavaScript(view.state.doc.toString());setStatus("Fertig")}catch(e){append(e?.message||e,true);setStatus("Fehler")}finally{document.querySelector("#runButton").disabled=false}
+  output.textContent="";setStatus("Running …");document.querySelector("#runButton").disabled=true;
+  try{language === "python" ? await runPython(view.state.doc.toString()) : await runJavaScript(view.state.doc.toString());setStatus("Done")}catch(e){append(e?.message||e,true);setStatus("Error")}finally{document.querySelector("#runButton").disabled=false}
 }
 
 function switchLanguage(next){
   if(next===language)return;documents[language]=view.state.doc.toString();language=next;
   view.dispatch({changes:{from:0,to:view.state.doc.length,insert:documents[language]},effects:languageCompartment.reconfigure(languageExtension())});
-  document.querySelectorAll(".lang").forEach(b=>b.classList.toggle("active",b.dataset.language===language));document.querySelector("#fileName").textContent=filenames[language];setStatus("Bereit");view.focus();
+  document.querySelectorAll(".lang").forEach(b=>b.classList.toggle("active",b.dataset.language===language));document.querySelector("#fileName").textContent=filenames[language];setStatus("Ready");view.focus();
 }
 document.querySelectorAll(".lang").forEach(b=>b.addEventListener("click",()=>switchLanguage(b.dataset.language)));
 document.querySelector("#runButton").addEventListener("click",runCode);
 document.querySelector("#clearButton").addEventListener("click",()=>{output.textContent=""});
-document.querySelector("#themeButton").addEventListener("click",()=>{colorTheme=colorTheme === "dark" ? "light" : "dark";document.body.dataset.theme=colorTheme;const button=document.querySelector("#themeButton");button.textContent=colorTheme === "dark" ? "☀ Helles Theme" : "☾ Dunkles Theme";button.setAttribute("aria-pressed",String(colorTheme === "light"));view.dispatch({effects:appearanceCompartment.reconfigure(appearanceExtensions())});view.focus()});
-document.querySelector("#completionButton").addEventListener("click",()=>{completionMode={AUTO:"MANUELL",MANUELL:"AUS",AUS:"AUTO"}[completionMode];document.querySelector("#completionButton").textContent=`Completion: ${completionMode}`;view.dispatch({effects:completionCompartment.reconfigure(completionExtension())});view.focus()});
+document.querySelector("#themeButton").addEventListener("click",()=>{colorTheme=colorTheme === "dark" ? "light" : "dark";document.body.dataset.theme=colorTheme;const button=document.querySelector("#themeButton");button.textContent=colorTheme === "dark" ? "☀ Light Theme" : "☾ Dark Theme";button.setAttribute("aria-pressed",String(colorTheme === "light"));view.dispatch({effects:appearanceCompartment.reconfigure(appearanceExtensions())});view.focus()});
+document.querySelector("#completionButton").addEventListener("click",()=>{completionMode={AUTO:"MANUAL",MANUAL:"OFF",OFF:"AUTO"}[completionMode];document.querySelector("#completionButton").textContent=`Completion: ${completionMode}`;view.dispatch({effects:completionCompartment.reconfigure(completionExtension())});view.focus()});
 document.querySelector("#openButton").addEventListener("click",()=>document.querySelector("#fileInput").click());
 document.querySelector("#fileInput").addEventListener("change",async e=>{const file=e.target.files[0];if(!file)return;const ext=file.name.split(".").pop().toLowerCase();if(ext==="py")switchLanguage("python");else if(["js","mjs"].includes(ext))switchLanguage("javascript");const text=await file.text();view.dispatch({changes:{from:0,to:view.state.doc.length,insert:text}});filenames[language]=file.name;document.querySelector("#fileName").textContent=file.name;e.target.value=""});
 document.querySelector("#saveButton").addEventListener("click",()=>{const blob=new Blob([view.state.doc.toString()],{type:"text/plain;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=filenames[language];a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});

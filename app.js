@@ -19,14 +19,16 @@ const documents = {...starter};
 const filenames = {python:"main.py", javascript:"main.js"};
 let language = "python";
 let completionMode = "AUTO";
+let colorTheme = "dark";
 let pyodideInstance = null;
 
 const languageCompartment = new Compartment();
 const completionCompartment = new Compartment();
+const appearanceCompartment = new Compartment();
 const output = document.querySelector("#output");
 const status = document.querySelector("#status");
 
-const highlight = HighlightStyle.define([
+const darkHighlight = HighlightStyle.define([
   {tag:tags.keyword,color:"#e7a3ff",fontWeight:"700"},
   {tag:[tags.name,tags.variableName],color:"#f4f1f6"},
   {tag:tags.function(tags.variableName),color:"#bde85b"},
@@ -38,7 +40,19 @@ const highlight = HighlightStyle.define([
   {tag:tags.propertyName,color:"#91d3ff"},
   {tag:tags.punctuation,color:"#dfdbe3"}
 ]);
-const theme = EditorView.theme({
+const lightHighlight = HighlightStyle.define([
+  {tag:tags.keyword,color:"#7b168e",fontWeight:"700"},
+  {tag:[tags.name,tags.variableName],color:"#211a25"},
+  {tag:tags.function(tags.variableName),color:"#476b00"},
+  {tag:[tags.string,tags.special(tags.string)],color:"#9a4d00"},
+  {tag:[tags.number,tags.bool,tags.null],color:"#875f00"},
+  {tag:tags.comment,color:"#6f6574",fontStyle:"italic"},
+  {tag:[tags.operator,tags.definitionOperator],color:"#006b8f"},
+  {tag:[tags.className,tags.typeName],color:"#814900"},
+  {tag:tags.propertyName,color:"#075c9b"},
+  {tag:tags.punctuation,color:"#4d4651"}
+]);
+const darkEditorTheme = EditorView.theme({
   "&":{backgroundColor:"#18161d",color:"#f4f1f6",fontSize:"14px"},
   ".cm-content":{fontFamily:"ui-monospace, SFMono-Regular, Consolas, monospace",caretColor:"#ffdc48",padding:"12px 0"},
   ".cm-gutters":{backgroundColor:"#131117",color:"#706a78",border:"none"},
@@ -47,13 +61,23 @@ const theme = EditorView.theme({
   ".cm-tooltip":{backgroundColor:"#25212c",border:"1px solid #4a4254"},
   ".cm-tooltip-autocomplete ul li[aria-selected]":{backgroundColor:"#6a2c91",color:"white"}
 },{dark:true});
+const lightEditorTheme = EditorView.theme({
+  "&":{backgroundColor:"#fff",color:"#211a25",fontSize:"14px"},
+  ".cm-content":{fontFamily:"ui-monospace, SFMono-Regular, Consolas, monospace",caretColor:"#6f9300",padding:"12px 0"},
+  ".cm-gutters":{backgroundColor:"#f4f0f6",color:"#746a79",border:"none"},
+  ".cm-activeLine,.cm-activeLineGutter":{backgroundColor:"#eee8f2"},
+  ".cm-selectionBackground,.cm-content ::selection":{backgroundColor:"#d8b9e9!important"},
+  ".cm-tooltip":{backgroundColor:"#fff",border:"1px solid #c9bdcf"},
+  ".cm-tooltip-autocomplete ul li[aria-selected]":{backgroundColor:"#763b9b",color:"white"}
+},{dark:false});
 
 function languageExtension(){return language === "python" ? python() : javascript();}
 function completionExtension(){return completionMode === "AUS" ? [] : autocompletion({activateOnTyping:completionMode === "AUTO"});}
+function appearanceExtensions(){return colorTheme === "dark" ? [darkEditorTheme,syntaxHighlighting(darkHighlight)] : [lightEditorTheme,syntaxHighlighting(lightHighlight)];}
 
 const view = new EditorView({
   parent:document.querySelector("#editor"),
-  state:EditorState.create({doc:documents.python,extensions:[lineNumbers(),highlightActiveLine(),drawSelection(),history(),bracketMatching(),theme,syntaxHighlighting(highlight),languageCompartment.of(languageExtension()),completionCompartment.of(completionExtension()),keymap.of([{key:"Ctrl-Enter",run:()=>{runCode();return true}},{key:"Mod-Enter",run:()=>{runCode();return true}},{key:"Ctrl-Space",run:v=>completionMode !== "AUS" && startCompletion(v)},indentWithTab,...defaultKeymap,...historyKeymap,...completionKeymap]),EditorView.updateListener.of(u=>{if(u.docChanged)documents[language]=u.state.doc.toString()})]})
+  state:EditorState.create({doc:documents.python,extensions:[lineNumbers(),highlightActiveLine(),drawSelection(),history(),bracketMatching(),appearanceCompartment.of(appearanceExtensions()),languageCompartment.of(languageExtension()),completionCompartment.of(completionExtension()),keymap.of([{key:"Ctrl-Enter",run:()=>{runCode();return true}},{key:"Mod-Enter",run:()=>{runCode();return true}},{key:"Ctrl-Space",run:v=>completionMode !== "AUS" && startCompletion(v)},indentWithTab,...defaultKeymap,...historyKeymap,...completionKeymap]),EditorView.updateListener.of(u=>{if(u.docChanged)documents[language]=u.state.doc.toString()})]})
 });
 
 function setStatus(text){status.textContent=text}
@@ -83,6 +107,7 @@ function switchLanguage(next){
 document.querySelectorAll(".lang").forEach(b=>b.addEventListener("click",()=>switchLanguage(b.dataset.language)));
 document.querySelector("#runButton").addEventListener("click",runCode);
 document.querySelector("#clearButton").addEventListener("click",()=>{output.textContent=""});
+document.querySelector("#themeButton").addEventListener("click",()=>{colorTheme=colorTheme === "dark" ? "light" : "dark";document.body.dataset.theme=colorTheme;const button=document.querySelector("#themeButton");button.textContent=colorTheme === "dark" ? "☀ Helles Theme" : "☾ Dunkles Theme";button.setAttribute("aria-pressed",String(colorTheme === "light"));view.dispatch({effects:appearanceCompartment.reconfigure(appearanceExtensions())});view.focus()});
 document.querySelector("#completionButton").addEventListener("click",()=>{completionMode={AUTO:"MANUELL",MANUELL:"AUS",AUS:"AUTO"}[completionMode];document.querySelector("#completionButton").textContent=`Completion: ${completionMode}`;view.dispatch({effects:completionCompartment.reconfigure(completionExtension())});view.focus()});
 document.querySelector("#openButton").addEventListener("click",()=>document.querySelector("#fileInput").click());
 document.querySelector("#fileInput").addEventListener("change",async e=>{const file=e.target.files[0];if(!file)return;const ext=file.name.split(".").pop().toLowerCase();if(ext==="py")switchLanguage("python");else if(["js","mjs"].includes(ext))switchLanguage("javascript");const text=await file.text();view.dispatch({changes:{from:0,to:view.state.doc.length,insert:text}});filenames[language]=file.name;document.querySelector("#fileName").textContent=file.name;e.target.value=""});

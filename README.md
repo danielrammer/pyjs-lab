@@ -22,6 +22,7 @@ In `config.js` nur `productName` anpassen und die Browserseite neu laden.
 ## Bedienung
 
 - Sprache oben zwischen Python und JavaScript wechseln; beide Texte bleiben getrennt erhalten.
+- Mit dem Theme-Schalter zwischen dunkler und heller Darstellung wechseln.
 - Ausführen: Schaltfläche oder `Ctrl+Enter`.
 - Completion-Modus durch Anklicken zwischen `AUTO`, `MANUELL` und `AUS` wechseln.
 - Manuelle Completion: `Ctrl+Space` (in AUTO und MANUELL).

@@ -1,40 +1,88 @@
 # PYJS Code Lab
 
-Lokaler Python- und JavaScript-Playground in einer gemeinsamen Oberfläche.
+A lightweight local playground for writing and running Python and JavaScript in
+the same browser interface.
 
-## Start ohne Webserver
+## Features
 
-`index.html` im Dateimanager doppelt anklicken oder im Browser öffnen. Die Anwendung
-funktioniert direkt über `file://`; ein lokaler Webserver ist nicht erforderlich.
+- Python execution in the browser with Pyodide
+- JavaScript execution without a backend
+- CodeMirror 6 editor with high-contrast syntax highlighting
+- Separate editor content for Python and JavaScript
+- Optional best-effort Python ↔ JavaScript conversion
+- Automatic, manual, or disabled code completion
+- Dark and light themes
+- Open and save local source files
+- Keyboard shortcuts for running code and opening completion
+- Configurable product or school name
 
-CodeMirror ist vollständig im Projekt gebündelt. Eine Internetverbindung ist nur
-beim ersten Python-Start nötig, da die große Pyodide-Laufzeit vom offiziellen CDN
-bezogen wird. JavaScript und der Editor starten ohne diesen Download.
+## Start without a web server
 
-## Optional: lokaler Webserver
+Open `index.html` in your browser, for example by double-clicking it in your file
+manager. The application supports direct `file://` use and does not require a
+local server.
 
-Falls ein Browser lokale Seiten besonders streng einschränkt, kann das Projekt
-weiterhin über einen lokalen Server geöffnet werden:
+From a Linux terminal, you can run:
 
-   ```bash
-   python -m http.server 8000
-   ```
+```bash
+xdg-open /path/to/pyjs-lab/index.html
+```
 
-Danach im Browser `http://localhost:8000` öffnen.
+CodeMirror is bundled with the project. An internet connection is only required
+when Python is started for the first time, because the Pyodide runtime is loaded
+from its CDN. The editor and JavaScript execution do not require that download.
 
-## Name ändern
+## Optional local server
 
-In `config.js` nur `productName` anpassen und die Browserseite neu laden.
+If your browser applies unusually strict restrictions to local pages, start a
+local server from the project directory:
 
-## Bedienung
+```bash
+python -m http.server 8000
+```
 
-- Sprache oben zwischen Python und JavaScript wechseln; beide Texte bleiben getrennt erhalten.
-- `Convert on switch` ist standardmäßig `OFF`. Bei `ON` wird der aktuelle Code beim Sprachwechsel bestmöglich in die Zielsprache übertragen und ersetzt dort den bisherigen Editorinhalt. Unterstützt werden typische Lernbeispiele; eine vollständig verlustfreie Übersetzung beliebiger Programme ist nicht möglich.
-- Mit dem Theme-Schalter zwischen dunkler und heller Darstellung wechseln.
-- Ausführen: Schaltfläche oder `Ctrl+Enter`.
-- Completion-Modus durch Anklicken zwischen `AUTO`, `MANUELL` und `AUS` wechseln.
-- Manuelle Completion: `Ctrl+Space` (in AUTO und MANUELL).
-- Öffnen und Speichern arbeiten mit lokalen `.py`-, `.js`-, `.mjs`- und Textdateien.
-- Python wird beim ersten Ausführen im Browser geladen; JavaScript startet sofort.
+Then open [http://localhost:8000](http://localhost:8000).
 
-Hinweis: JavaScript läuft direkt in der Seite. Öffne und führe daher nur vertrauenswürdigen Code aus.
+## Configuration
+
+Change the visible product or school name in `config.js`:
+
+```javascript
+window.TITLE_CONFIG = {
+  productName: "PYJS"
+};
+```
+
+Reload the page after changing the value. The main application code does not
+contain a fixed product name.
+
+## Usage
+
+- Switch between **Python** and **JavaScript** using the buttons in the header.
+- Click **Run** or press `Ctrl+Enter` to execute the current code.
+- Click **Clear** to clear the output panel.
+- Use **Open** and **Save** with `.py`, `.js`, `.mjs`, and text files.
+- Switch between the dark and light themes with the theme button.
+- Cycle completion through `AUTO`, `MANUAL`, and `OFF`.
+- Press `Ctrl+Space` to open completion in `AUTO` or `MANUAL` mode.
+
+### Optional code conversion
+
+`Convert on switch` is `OFF` by default. In this mode, Python and JavaScript
+documents remain separate when you switch languages.
+
+When it is set to `ON`, switching languages converts the current document and
+replaces the target editor content. The converter supports common educational
+examples, including variables, output statements, functions, conditions,
+`while` loops, simple `range`/`for` loops, booleans, and f-string/template-string
+interpolation.
+
+The converter is intentionally best effort. Python and JavaScript have different
+language semantics, so arbitrary programs, third-party libraries, asynchronous
+code, classes, and complex expressions may require manual corrections after
+conversion. Save important target code before converting over it.
+
+## Security note
+
+JavaScript runs directly in the page. Only open and execute source files you
+trust.

@@ -60,6 +60,7 @@ contain a fixed product name.
 
 - Switch between **Python** and **JavaScript** using the buttons in the header.
 - Click **Run** or press `Ctrl+Enter` to execute the current code.
+- In JavaScript, `print(...)` writes to the output panel like `console.log(...)`.
 - Click **Clear** to clear the output panel.
 - Use **Open** and **Save** with `.py`, `.js`, `.mjs`, and text files.
 - Switch between the dark and light themes with the theme button.
@@ -75,9 +76,13 @@ contain a fixed product name.
 
 ### Rebuild the editor bundle
 
-After editing `app.js`, run `pnpm install` and `pnpm build` to regenerate
+After editing `app.js` or `converter.js`, run `pnpm install` and `pnpm build` to regenerate
 `app.bundle.js`. Commit the generated bundle so opening `index.html` directly
 continues to work without installing dependencies.
+
+Run `pnpm test` for conversion tests. These execute the original, converted,
+and round-trip programs and compare their output. Python must be on your PATH;
+set the `PYTHON` environment variable to its executable path if needed.
 
 ### Optional code conversion
 
@@ -86,14 +91,26 @@ documents remain separate when you switch languages.
 
 When it is set to `ON`, switching languages converts the current document and
 replaces the target editor content. The converter supports common educational
-examples, including variables, output statements, functions, conditions,
-`while` loops, simple `range`/`for` loops, booleans, and f-string/template-string
-interpolation.
+examples, including variables, output statements, functions, nested conditions,
+`while` loops, array/list iteration, indexing, `push`/`append`, and `length`/`len`.
+Counter loops support `++`, `--`, integer steps, and inclusive or exclusive
+bounds. Python ranges support positive and negative integer steps and retain
+their endpoint evaluation and final loop-variable behavior. Strings and
+comments are preserved, including multiple interpolated output arguments.
+
+Try opening `examples/conversion.js` or `examples/conversion.py`, enable
+**Convert on switch**, switch languages, and run the result. Both examples
+include functions, arrays, nested loops, and descending counters, and are
+covered by execution and round-trip tests.
 
 The converter is intentionally best effort. Python and JavaScript have different
 language semantics, so arbitrary programs, third-party libraries, asynchronous
 code, classes, and complex expressions may require manual corrections after
-conversion. Save important target code before converting over it.
+conversion. Type coercion, truthiness, numeric operators, and printed values
+can also have different semantics. Counter loops whose bodies change their
+counter or bounds require manual conversion. Unsupported syntax stops
+conversion with a source line number and preserves both documents. Save
+important target code before a successful conversion replaces it.
 
 ## Security note
 

@@ -66,6 +66,8 @@ contain a fixed product name.
 - Switch between the dark and light themes with the theme button.
 - Cycle completion through `AUTO`, `MANUAL`, and `OFF`.
 - Press `Ctrl+Space` to open completion in `AUTO` or `MANUAL` mode.
+- Press `Ctrl+/` or `Ctrl+#` (German keyboard) to toggle comments on the current
+  line or selected lines. Python uses `#`; JavaScript uses `//`.
 - Press `Enter` or `Tab` to accept a visible completion. JavaScript completion
   includes `console` and its methods, such as `log`, `warn`, and `error`.
 - Indentation uses four spaces in Python and two spaces in JavaScript. Braces

@@ -1,6 +1,6 @@
 import {EditorState, Compartment} from "@codemirror/state";
 import {EditorView, keymap, lineNumbers, highlightActiveLine, drawSelection} from "@codemirror/view";
-import {defaultKeymap, history, historyKeymap, indentWithTab, indentSelection} from "@codemirror/commands";
+import {defaultKeymap, history, historyKeymap, indentWithTab, indentSelection, toggleComment} from "@codemirror/commands";
 import {python} from "@codemirror/lang-python";
 import {javascript, javascriptLanguage, scopeCompletionSource} from "@codemirror/lang-javascript";
 import {autocompletion, completionKeymap, startCompletion, acceptCompletion} from "@codemirror/autocomplete";
@@ -82,7 +82,7 @@ function appearanceExtensions(){return colorTheme === "dark" ? [darkEditorTheme,
 
 const view = new EditorView({
   parent:document.querySelector("#editor"),
-  state:EditorState.create({doc:documents.python,extensions:[lineNumbers(),highlightActiveLine(),drawSelection(),EditorView.editorAttributes.of(v=>({class:v.state.selection.ranges.some(range=>!range.empty)?"cm-hasSelection":""})),history(),bracketMatching(),indentOnInput(),appearanceCompartment.of(appearanceExtensions()),languageCompartment.of(languageExtension()),completionCompartment.of(completionExtension()),keymap.of([{key:"Ctrl-Enter",run:()=>{runCode();return true}},{key:"Mod-Enter",run:()=>{runCode();return true}},{key:"Ctrl-Space",run:v=>completionMode !== "OFF" && startCompletion(v)},{key:"Alt-Shift-f",run:indentSelection},{key:"Tab",run:v=>completionMode !== "OFF" && acceptCompletion(v)},...completionKeymap,indentWithTab,...defaultKeymap,...historyKeymap]),EditorView.updateListener.of(u=>{if(u.docChanged)documents[language]=u.state.doc.toString()})]})
+  state:EditorState.create({doc:documents.python,extensions:[lineNumbers(),highlightActiveLine(),drawSelection(),EditorView.editorAttributes.of(v=>({class:v.state.selection.ranges.some(range=>!range.empty)?"cm-hasSelection":""})),history(),bracketMatching(),indentOnInput(),appearanceCompartment.of(appearanceExtensions()),languageCompartment.of(languageExtension()),completionCompartment.of(completionExtension()),keymap.of([{key:"Ctrl-Enter",run:()=>{runCode();return true}},{key:"Mod-Enter",run:()=>{runCode();return true}},{key:"Ctrl-Space",run:v=>completionMode !== "OFF" && startCompletion(v)},{key:"Alt-Shift-f",run:indentSelection},{key:"Ctrl-#",run:toggleComment},{key:"Tab",run:v=>completionMode !== "OFF" && acceptCompletion(v)},...completionKeymap,indentWithTab,...defaultKeymap,...historyKeymap]),EditorView.updateListener.of(u=>{if(u.docChanged)documents[language]=u.state.doc.toString()})]})
 });
 
 function setStatus(text){status.textContent=text}

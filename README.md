@@ -65,6 +65,19 @@ contain a fixed product name.
 - Switch between the dark and light themes with the theme button.
 - Cycle completion through `AUTO`, `MANUAL`, and `OFF`.
 - Press `Ctrl+Space` to open completion in `AUTO` or `MANUAL` mode.
+- Press `Enter` or `Tab` to accept a visible completion. JavaScript completion
+  includes `console` and its methods, such as `log`, `warn`, and `error`.
+- Indentation uses four spaces in Python and two spaces in JavaScript. Braces
+  and other block endings align automatically as you type; `Tab` and
+  `Shift+Tab` indent and unindent the selected lines.
+- Press `Alt+Shift+F` to reindent the selected lines (select all first to
+  reindent the whole document).
+
+### Rebuild the editor bundle
+
+After editing `app.js`, run `pnpm install` and `pnpm build` to regenerate
+`app.bundle.js`. Commit the generated bundle so opening `index.html` directly
+continues to work without installing dependencies.
 
 ### Optional code conversion
 

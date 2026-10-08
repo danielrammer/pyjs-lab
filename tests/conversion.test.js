@@ -167,3 +167,23 @@ test("expression grouping stays correct through repeated normalization", () => {
     source = next;
   }
 });
+
+test("condition headers add only one pair of JavaScript parentheses", () => {
+  const original = '# FADI Python\nname = "World"\nprint(f"Hello, {name}!")\nif (name == "world"):\n    print("mhm")\nelif name == "World":\n    print("match")\ncount = 2\nwhile (count > 0):\n    count -= 1\n';
+  const expected = execute(original, "python");
+  let javascript = convertCode(original, "python", "javascript");
+  assert.match(javascript, /if \(name === "world"\) \{/);
+  assert.match(javascript, /else if \(name === "World"\) \{/);
+  assert.match(javascript, /while \(count > 0\) \{/);
+  assert.doesNotMatch(javascript, /(?:if|while) \(\(/);
+  for (let cycle = 0; cycle < 5; cycle++) {
+    assert.equal(execute(javascript, "javascript"), expected);
+    const python = convertCode(javascript, "javascript", "python");
+    assert.equal(execute(python, "python"), expected);
+    const next = convertCode(python, "python", "javascript");
+    assert.equal(next, javascript);
+    javascript = next;
+  }
+  const existing = 'let name; name = "world"; if ((name === "world")) { console.log("mhm"); }';
+  assert.match(convertCode(convertCode(existing, "javascript", "python"), "python", "javascript"), /if \(name === "world"\) \{/);
+});

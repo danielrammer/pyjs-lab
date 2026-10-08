@@ -200,7 +200,7 @@ class Converter {
       }
       case "IfStatement": {
         if (this.toPython) {
-          this.block(p[2], depth, `if ${this.expression(p[1])}`);
+          this.block(p[2], depth, `if ${this.expression(p[1], false)}`);
           if (p[3]?.name === "else") {
             if (p[4].name === "IfStatement") {
               const start = this.lines.length;
@@ -213,7 +213,7 @@ class Converter {
             const branch = p[index++];
             if (branch.name === "else") this.block(p[index++], depth, "else");
             else {
-              const condition = this.expression(p[index++]);
+              const condition = this.expression(p[index++], false);
               this.block(p[index++], depth, `${branch.name === "elif" ? "else if" : "if"} (${condition})`);
             }
           }
@@ -222,7 +222,7 @@ class Converter {
       }
       case "WhileStatement":
         if (p.length !== 3) this.fail(node, "while/else is not supported");
-        this.block(p[2], depth, this.toPython ? `while ${this.expression(p[1])}` : `while (${this.expression(p[1])})`);
+        this.block(p[2], depth, this.toPython ? `while ${this.expression(p[1], false)}` : `while (${this.expression(p[1], false)})`);
         return;
       case "ForStatement":
         return this.forStatement(node, depth);
@@ -342,7 +342,7 @@ class Converter {
     this.fail(node, `Unsupported operator ${value}`);
   }
 
-  expression(node) {
+  expression(node, grouped = true) {
     const p = parts(node);
     switch (node.name) {
       case "VariableName":
@@ -367,12 +367,16 @@ class Converter {
       case "ParenthesizedExpression":
         // Binary/unary emitters already preserve grouping. Recopying source
         // parentheses would add another layer on every round trip.
-        return this.expression(p[0]);
-      case "BinaryExpression":
+        return this.expression(p[0], grouped);
+      case "BinaryExpression": {
         if (p.length !== 3) this.fail(node, "Chained comparisons require manual conversion");
-        return `(${this.expression(p[0])} ${this.operator(p[1])} ${this.expression(p[2])})`;
-      case "UnaryExpression":
-        return `(${this.operator(p[0])} ${this.expression(p[1])})`;
+        const value = `${this.expression(p[0])} ${this.operator(p[1])} ${this.expression(p[2])}`;
+        return grouped ? `(${value})` : value;
+      }
+      case "UnaryExpression": {
+        const value = `${this.operator(p[0])} ${this.expression(p[1])}`;
+        return grouped ? `(${value})` : value;
+      }
       case "ArrayExpression":
         return `[${p.map(item => this.expression(item)).join(", ")}]`;
       case "MemberExpression": {

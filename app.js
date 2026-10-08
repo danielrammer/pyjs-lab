@@ -1,12 +1,13 @@
 import {EditorState, Compartment} from "@codemirror/state";
 import {EditorView, keymap, lineNumbers, highlightActiveLine, drawSelection} from "@codemirror/view";
 import {defaultKeymap, history, historyKeymap, indentWithTab, indentSelection, toggleComment} from "@codemirror/commands";
-import {python} from "@codemirror/lang-python";
+import {python, pythonLanguage} from "@codemirror/lang-python";
 import {javascript, javascriptLanguage, scopeCompletionSource} from "@codemirror/lang-javascript";
 import {autocompletion, completionKeymap, startCompletion, acceptCompletion} from "@codemirror/autocomplete";
 import {syntaxHighlighting, HighlightStyle, bracketMatching, indentOnInput, indentUnit} from "@codemirror/language";
 import {tags} from "@lezer/highlight";
 import {convertCode} from "./converter.js";
+import {pythonMemberCompletion} from "./python-completion.js";
 
 const config = window.TITLE_CONFIG || {productName: "PYJS"};
 document.querySelector("#productName").textContent = config.productName;
@@ -76,7 +77,8 @@ const lightEditorTheme = EditorView.theme({
 },{dark:false});
 
 const javaScriptGlobals = javascriptLanguage.data.of({autocomplete:scopeCompletionSource({console})});
-function languageExtension(){return language === "python" ? [python(),indentUnit.of("    ")] : [javascript(),indentUnit.of("  "),javaScriptGlobals];}
+const pythonMembers = pythonLanguage.data.of({autocomplete:pythonMemberCompletion});
+function languageExtension(){return language === "python" ? [python(),indentUnit.of("    "),pythonMembers] : [javascript(),indentUnit.of("  "),javaScriptGlobals];}
 function completionExtension(){return completionMode === "OFF" ? [] : autocompletion({activateOnTyping:completionMode === "AUTO"});}
 function appearanceExtensions(){return colorTheme === "dark" ? [darkEditorTheme,syntaxHighlighting(darkHighlight)] : [lightEditorTheme,syntaxHighlighting(lightHighlight)];}
 

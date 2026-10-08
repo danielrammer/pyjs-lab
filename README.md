@@ -70,6 +70,11 @@ contain a fixed product name.
   line or selected lines. Python uses `#`; JavaScript uses `//`.
 - Press `Enter` or `Tab` to accept a visible completion. JavaScript completion
   includes `console` and its methods, such as `log`, `warn`, and `error`.
+- Python completion includes methods on recognized strings, lists, and
+  dictionaries. For example, type `name.` after `name = "World"` to find
+  `lower()`, `upper()`, `strip()`, `split()`, and `replace()`. Accepting a method
+  inserts its parentheses. Recognition uses simple assignments, aliases,
+  built-in constructors, and parameter annotations; it does not execute code.
 - Indentation uses four spaces in Python and two spaces in JavaScript. Braces
   and other block endings align automatically as you type; `Tab` and
   `Shift+Tab` indent and unindent the selected lines.

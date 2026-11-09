@@ -4,39 +4,63 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PYJS Code Lab</title>
+  <script>try { const theme=localStorage.getItem("pyjs.theme"); if(theme==="light" || theme==="dark")document.documentElement.dataset.theme=theme; } catch {}</script>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><span id="productName">PYJS</span><small>CODE LAB</small></div>
+    <div class="brand"><img class="brand-logo" src="logo.svg" width="38" height="38" alt=""><div class="brand-name"><span id="productName">PYJS</span><small>CODE LAB</small></div></div>
     <nav class="language-switch" aria-label="Programming language">
       <button class="lang active" data-language="python">Python</button>
       <button class="lang" data-language="javascript">JavaScript</button>
+      <span id="conversionIndicator" hidden title="Conversion on language switch is enabled" aria-label="Conversion on language switch is enabled">↔</span>
     </nav>
-    <div class="actions">
-      <button id="openButton">Open</button>
-      <button id="saveButton">Save</button>
-      <button id="themeButton" title="Switch color theme" aria-pressed="false">☀ Light Theme</button>
-      <button id="completionButton" title="Switch completion mode">Completion: AUTO</button>
-      <button id="convertButton" title="Convert the current code when switching languages (best effort)" aria-pressed="false">Convert on switch: OFF</button>
+    <div class="workspace-actions" role="group" aria-label="Workspace actions">
+      <button id="learnButton">Learn</button>
+      <div class="file-buttons" role="group" aria-label="Files"><button id="openButton">Load</button><button id="saveButton">Save</button></div>
       <button id="runButton" class="primary">▶ Run <kbd>Ctrl↵</kbd></button>
     </div>
+    <div class="utility-actions">
+      <select id="uiLanguage" aria-label="Sprache / Language"><option value="de">DE</option><option value="en">EN</option></select>
+      <button id="themeButton" class="icon-button" title="☀ Light Theme" aria-label="☀ Light Theme" aria-pressed="false"><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></svg></button>
+      <button id="settingsButton" class="icon-button" popovertarget="editorSettings" title="Editor settings" aria-label="Editor settings" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></svg></button>
+      <div class="account-area"><button id="accountButton">Konto</button><small id="accountSyncStatus" role="status" hidden></small></div>
+    </div>
   </header>
+  <div id="editorSettings" popover role="dialog" aria-labelledby="editorSettingsHeading"><h2 id="editorSettingsHeading">Editor settings</h2><button id="completionButton" title="Switch completion mode">Completion: AUTO</button><button id="convertButton" title="Convert the current code when switching languages (best effort)" aria-pressed="false">Convert Py ↔ JS: OFF</button><p>Conversion applies when switching between Python and JavaScript.</p></div>
 
   <main>
-    <section class="editor-panel">
-      <div class="panel-title"><span id="fileName">main.py</span><span id="status">Ready</span></div>
+    <section id="editorPanel" class="editor-panel">
+      <div class="panel-title"><span id="fileName">main.py</span><span id="status" data-no-i18n>Ready</span></div>
+      <div id="challengeBar" hidden><div><strong id="challengeTitle"></strong><span id="challengeMessage" role="status" aria-live="polite"></span></div><div class="challenge-actions"><button id="challengeSave" class="primary">Ergebnis speichern</button><button id="challengeNext">Nächste Challenge</button><button id="challengeLearn">Learn öffnen</button></div></div>
       <div id="editor"></div>
     </section>
-    <section class="output-panel">
-      <div class="panel-title"><span>Output</span><button id="clearButton">Clear</button></div>
-      <pre id="output" aria-live="polite">Ready.</pre>
+    <div id="paneDivider" role="separator" tabindex="0" aria-label="Resize code and output" aria-controls="editorPanel outputPanel" aria-orientation="vertical" aria-valuemin="15" aria-valuemax="85" aria-valuenow="60" title="Drag to resize · Double-click to reset"></div>
+    <section id="outputPanel" class="output-panel">
+      <div class="panel-title"><div class="output-tabs" role="tablist" aria-label="Results"><button id="outputTab" role="tab" aria-selected="true" aria-controls="output">Output</button><button id="graphicsTab" role="tab" aria-selected="false" aria-controls="graphics" tabindex="-1">Graphics<span id="graphicsCount"></span></button><button id="bothTab" role="tab" aria-selected="false" aria-controls="output graphics" tabindex="-1">Both</button></div><button id="clearButton" title="Clear text and graphics">Clear</button></div>
+      <pre id="output" role="tabpanel" aria-labelledby="outputTab" aria-live="polite" tabindex="0">Ready.</pre>
+      <form id="pythonInputForm" hidden><label id="pythonInputLabel" for="pythonInputValue">Python input</label><div class="python-input-controls"><input id="pythonInputValue" type="text" autocomplete="off" maxlength="16000"><button type="submit" class="primary">Senden</button><button type="button" id="pythonInputCancel">Abbrechen</button></div></form>
+      <div id="graphics" role="tabpanel" aria-labelledby="graphicsTab" hidden>
+        <div class="graphics-tools"><span id="graphicsLanguage">Python graphics</span><button id="graphicsFullscreen">Full screen</button></div>
+        <div id="graphicsEmpty"><div class="graphics-empty-icon" aria-hidden="true">↗</div><h2>Bring your Python code to life</h2><p>Draw a chart with <code>matplotlib.pyplot</code> and run your code. Pan, zoom, and interact with Python sliders and buttons.</p><button id="graphicsExample">Load example</button><small>Loads a slider example into the editor. Undo restores your code.</small></div>
+        <div id="figures"></div>
+      </div>
     </section>
   </main>
 
   <input id="fileInput" type="file" accept=".py,.js,.mjs,.txt" hidden>
+  <dialog id="accountDialog" aria-labelledby="accountHeading"><div class="learn-heading"><h2 id="accountHeading">Konto</h2><button id="accountClose" aria-label="Close">✕</button></div><div id="accountContent"></div><p id="accountStatus" role="status" aria-live="polite"></p></dialog>
+  <input id="solutionsInput" type="file" accept=".json,application/json" hidden>
+  <dialog id="fileActionsDialog" aria-labelledby="fileActionsHeading"><div class="learn-heading"><h2 id="fileActionsHeading">Save</h2><button id="fileActionsClose" aria-label="Close file actions">✕</button></div><div id="fileActionsContent"></div><p id="fileActionsMessage" role="status" aria-live="polite"></p></dialog>
+  <dialog id="learnDialog" aria-labelledby="learnHeading">
+    <div class="learn-heading"><h2 id="learnHeading">Learn</h2><div class="learn-heading-actions"><select id="learnLanguage" aria-label="Learn language"><option value="python">Python</option><option value="javascript">JavaScript</option></select><button id="learnManage">Manage tasks</button><div id="learnAdminActions" class="learn-admin-actions"></div><button id="learnClose" aria-label="Close Learn">✕</button></div></div>
+    <p id="learnIntro">Übe Python mit diesen Challenges – von den Grundlagen bis zu den Expertenaufgaben.</p>
+    <p id="learnMessage" role="status" aria-live="polite"></p>
+    <div id="learnContent"></div>
+  </dialog>
   <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
   <script src="config.js"></script>
-  <script src="app.bundle.js"></script>
+  <script src="app.bundle.js?v=20261010-solutions-inline-input"></script>
 </body>
 </html>

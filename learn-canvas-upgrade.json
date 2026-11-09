@@ -1,0 +1,42 @@
+{
+  "shapes": {
+    "description": "7d7e7a38a9e3086d5a8eb14cb854eff888e95081a62b9af2d920993da36cf716",
+    "solution": "ba9c34d8a1c5ff70ae64d245cbddb3b59c3a51d42a1be612935603fc6d42fed1"
+  },
+  "drag-circles": {
+    "description": "698df84ea59bce94fa276dca8aa3deb8adfcbb4e82c6cb9fba6d08202c7f3480",
+    "solution": "09f3995aded736c329f25dc4bc08886049d39188536d97777748360502705b73"
+  },
+  "rotate-rectangle": {
+    "description": "97cd249c935801f5e369b06dda20302b51bf7483c53f67863ff17a96ebd5e09c",
+    "solution": "44e3b185e0c274457e75540ab56315914ddc111847dda1bc575589aedd64a7ad"
+  },
+  "bouncing-ball": {
+    "description": "a194821df0bb38cc91cc21c03769a6f43eb432c00ac6283326c70f0e53e0e7dd",
+    "solution": "97f9b0200184748363d2be96aed897792c25a51cf72c463ad7dd84520f06bc94"
+  },
+  "framerate": {
+    "description": "50acfd8496810f1e86368d1d81e42a9fd8769cc5ec1bc24b9d1eedec2b2b111c",
+    "solution": "add7318e75600991d5f6c2376dc09bc5640cdb94de2bc42e408966b7abca435d"
+  },
+  "js-shapes": {
+    "description": "7d7e7a38a9e3086d5a8eb14cb854eff888e95081a62b9af2d920993da36cf716",
+    "solution": "d6fba7be78cf3236e5c9d8de708859972acdf24790963452f97e99cc3a5d7419"
+  },
+  "js-drag-circles": {
+    "description": "698df84ea59bce94fa276dca8aa3deb8adfcbb4e82c6cb9fba6d08202c7f3480",
+    "solution": "895f193dd37c39720efb0b80959c167d9e72793fceb455644d33cce312ec23cd"
+  },
+  "js-rotate-rectangle": {
+    "description": "97cd249c935801f5e369b06dda20302b51bf7483c53f67863ff17a96ebd5e09c",
+    "solution": "db43d87d642564f061340ca38860045863bc8e5b8d68d974d4b194a99ee940ce"
+  },
+  "js-bouncing-ball": {
+    "description": "a194821df0bb38cc91cc21c03769a6f43eb432c00ac6283326c70f0e53e0e7dd",
+    "solution": "1508f6c0fce040d1330ff412c0d2601bc1fae443b2ee3fc68cdea3d3b8d21c53"
+  },
+  "js-framerate": {
+    "description": "50acfd8496810f1e86368d1d81e42a9fd8769cc5ec1bc24b9d1eedec2b2b111c",
+    "solution": "7344390e53e019572a240835095f6a2908d4307963323122585c2448e199e780"
+  }
+}

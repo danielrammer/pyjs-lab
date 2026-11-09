@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {EditorState} from "@codemirror/state";
 import {python} from "@codemirror/lang-python";
 import {CompletionContext} from "@codemirror/autocomplete";
-import {pythonMemberCompletion} from "../python-completion.js";
+import {pythonMemberCompletion,pythonCanvasCompletion} from "../python-completion.js";
 
 function completion(source) {
   const pos = source.indexOf("|");
@@ -12,6 +12,23 @@ function completion(source) {
 }
 
 const labels = source => completion(source).result?.options.map(option => option.label) || [];
+
+test("Canvas constructors, aliases, parameters and public drawing API",()=>{
+  for(const source of [
+    'from pyjs_canvas import Canvas\ncan = Canvas()\ncan.|',
+    'can = Canvas()\ncan.|',
+    'from pyjs_canvas import Canvas as Drawing\ncan = Drawing()\ncan.|',
+    'import pyjs_canvas as drawing\ncan = drawing.Canvas()\ncan.|',
+    'can = Canvas()\ncopy = can\ncopy.|',
+    'def draw(can: Canvas):\n    can.|',
+  ]){
+    for(const label of ["circle","rectangle","clear","on","slider","animate","set_fps","stop","close","width","height"])assert(labels(source).includes(label),source+label);
+    assert(!labels(source).includes("lower"));
+  }
+  assert(!labels('can = Canvas()\ncan = "text"\ncan.|').includes("circle"));
+  const state=EditorState.create({doc:"Can",extensions:[python()]});
+  assert.equal(pythonCanvasCompletion(new CompletionContext(state,3,true)).options[0].label,"Canvas");
+});
 
 test("string variables, literals, aliases, input(), and method chains", () => {
   for (const source of [

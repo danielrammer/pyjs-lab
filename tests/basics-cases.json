@@ -1,0 +1,490 @@
+[
+  {
+    "id": "basics-change-value",
+    "answers": [],
+    "output": [
+      "Blau",
+      "Grün"
+    ],
+    "output_en": [
+      "Blue",
+      "Green"
+    ]
+  },
+  {
+    "id": "js-basics-change-value",
+    "answers": [],
+    "output": [
+      "Blau",
+      "Grün"
+    ],
+    "output_en": [
+      "Blue",
+      "Green"
+    ]
+  },
+  {
+    "id": "basics-profile-message",
+    "answers": [],
+    "output": [
+      "Ich heiße Alex und bin 16."
+    ],
+    "output_en": [
+      "My name is Alex and I am 16."
+    ]
+  },
+  {
+    "id": "js-basics-profile-message",
+    "answers": [],
+    "output": [
+      "Ich heiße Alex und bin 16."
+    ],
+    "output_en": [
+      "My name is Alex and I am 16."
+    ]
+  },
+  {
+    "id": "basics-shopping-total",
+    "answers": [],
+    "output": [
+      "Gesamt: 6"
+    ],
+    "output_en": [
+      "Total: 6"
+    ]
+  },
+  {
+    "id": "js-basics-shopping-total",
+    "answers": [],
+    "output": [
+      "Gesamt: 6"
+    ],
+    "output_en": [
+      "Total: 6"
+    ]
+  },
+  {
+    "id": "basics-division-share",
+    "answers": [],
+    "output": [
+      "Anteil: 5.5"
+    ],
+    "output_en": [
+      "Share: 5.5"
+    ]
+  },
+  {
+    "id": "js-basics-division-share",
+    "answers": [],
+    "output": [
+      "Anteil: 5.5"
+    ],
+    "output_en": [
+      "Share: 5.5"
+    ]
+  },
+  {
+    "id": "basics-leftovers",
+    "answers": [],
+    "output": [
+      "Rest: 2"
+    ],
+    "output_en": [
+      "Remainder: 2"
+    ]
+  },
+  {
+    "id": "js-basics-leftovers",
+    "answers": [],
+    "output": [
+      "Rest: 2"
+    ],
+    "output_en": [
+      "Remainder: 2"
+    ]
+  },
+  {
+    "id": "basics-input-greeting",
+    "answers": [
+      "Alex"
+    ],
+    "output": [
+      "Hallo, Alex"
+    ],
+    "output_en": [
+      "Hello, Alex"
+    ]
+  },
+  {
+    "id": "js-basics-input-greeting",
+    "answers": [
+      "Alex"
+    ],
+    "output": [
+      "Hallo, Alex"
+    ],
+    "output_en": [
+      "Hello, Alex"
+    ]
+  },
+  {
+    "id": "basics-birthday",
+    "answers": [
+      "12"
+    ],
+    "output": [
+      "Nächstes Jahr: 13"
+    ],
+    "output_en": [
+      "Next year: 13"
+    ]
+  },
+  {
+    "id": "js-basics-birthday",
+    "answers": [
+      "12"
+    ],
+    "output": [
+      "Nächstes Jahr: 13"
+    ],
+    "output_en": [
+      "Next year: 13"
+    ]
+  },
+  {
+    "id": "basics-temperature",
+    "answers": [],
+    "output": [
+      "Warm."
+    ],
+    "output_en": [
+      "Warm."
+    ]
+  },
+  {
+    "id": "js-basics-temperature",
+    "answers": [],
+    "output": [
+      "Warm."
+    ],
+    "output_en": [
+      "Warm."
+    ]
+  },
+  {
+    "id": "basics-door",
+    "answers": [],
+    "output": [
+      "Tür offen."
+    ],
+    "output_en": [
+      "Door open."
+    ]
+  },
+  {
+    "id": "js-basics-door",
+    "answers": [],
+    "output": [
+      "Tür offen."
+    ],
+    "output_en": [
+      "Door open."
+    ]
+  },
+  {
+    "id": "basics-name-normalize",
+    "answers": [],
+    "output": [
+      "alex",
+      "ALEX"
+    ],
+    "output_en": [
+      "alex",
+      "ALEX"
+    ]
+  },
+  {
+    "id": "js-basics-name-normalize",
+    "answers": [],
+    "output": [
+      "alex",
+      "ALEX"
+    ],
+    "output_en": [
+      "alex",
+      "ALEX"
+    ]
+  },
+  {
+    "id": "basics-letters",
+    "answers": [],
+    "output": [
+      "A\nx\n4"
+    ],
+    "output_en": [
+      "A\nx\n4"
+    ]
+  },
+  {
+    "id": "js-basics-letters",
+    "answers": [],
+    "output": [
+      "A\nx\n4"
+    ],
+    "output_en": [
+      "A\nx\n4"
+    ]
+  },
+  {
+    "id": "basics-snacks",
+    "answers": [],
+    "output": [
+      "Milch\nApfel\n3"
+    ],
+    "output_en": [
+      "Milk\nApple\n3"
+    ]
+  },
+  {
+    "id": "js-basics-snacks",
+    "answers": [],
+    "output": [
+      "Milch\nApfel\n3"
+    ],
+    "output_en": [
+      "Milk\nApple\n3"
+    ]
+  },
+  {
+    "id": "basics-list-edit",
+    "answers": [],
+    "output": [
+      "Milch\nTee\n3"
+    ],
+    "output_en": [
+      "Milk\nTea\n3"
+    ]
+  },
+  {
+    "id": "js-basics-list-edit",
+    "answers": [],
+    "output": [
+      "Milch\nTee\n3"
+    ],
+    "output_en": [
+      "Milk\nTea\n3"
+    ]
+  },
+  {
+    "id": "basics-count-up",
+    "answers": [],
+    "output": [
+      "1\n2\n3\n4\n5"
+    ],
+    "output_en": [
+      "1\n2\n3\n4\n5"
+    ]
+  },
+  {
+    "id": "js-basics-count-up",
+    "answers": [],
+    "output": [
+      "1\n2\n3\n4\n5"
+    ],
+    "output_en": [
+      "1\n2\n3\n4\n5"
+    ]
+  },
+  {
+    "id": "basics-repeat-message",
+    "answers": [],
+    "output": [
+      "Ich übe!\nIch übe!\nIch übe!"
+    ],
+    "output_en": [
+      "I am practising!\nI am practising!\nI am practising!"
+    ]
+  },
+  {
+    "id": "js-basics-repeat-message",
+    "answers": [],
+    "output": [
+      "Ich übe!\nIch übe!\nIch übe!"
+    ],
+    "output_en": [
+      "I am practising!\nI am practising!\nI am practising!"
+    ]
+  },
+  {
+    "id": "basics-playlist",
+    "answers": [],
+    "output": [
+      "Rock\nPop\nJazz"
+    ],
+    "output_en": [
+      "Rock\nPop\nJazz"
+    ]
+  },
+  {
+    "id": "js-basics-playlist",
+    "answers": [],
+    "output": [
+      "Rock\nPop\nJazz"
+    ],
+    "output_en": [
+      "Rock\nPop\nJazz"
+    ]
+  },
+  {
+    "id": "basics-list-total",
+    "answers": [],
+    "output": [
+      "20"
+    ],
+    "output_en": [
+      "20"
+    ]
+  },
+  {
+    "id": "js-basics-list-total",
+    "answers": [],
+    "output": [
+      "20"
+    ],
+    "output_en": [
+      "20"
+    ]
+  },
+  {
+    "id": "basics-multiplication",
+    "answers": [],
+    "output": [
+      "1 x 7 = 7",
+      "5 x 7 = 35"
+    ],
+    "output_en": [
+      "1 x 7 = 7",
+      "5 x 7 = 35"
+    ]
+  },
+  {
+    "id": "js-basics-multiplication",
+    "answers": [],
+    "output": [
+      "1 x 7 = 7",
+      "5 x 7 = 35"
+    ],
+    "output_en": [
+      "1 x 7 = 7",
+      "5 x 7 = 35"
+    ]
+  },
+  {
+    "id": "basics-energy",
+    "answers": [],
+    "output": [
+      "Energie: 3\nEnergie: 2\nEnergie: 1\nPause."
+    ],
+    "output_en": [
+      "Energy: 3\nEnergy: 2\nEnergy: 1\nPause."
+    ]
+  },
+  {
+    "id": "js-basics-energy",
+    "answers": [],
+    "output": [
+      "Energie: 3\nEnergie: 2\nEnergie: 1\nPause."
+    ],
+    "output_en": [
+      "Energy: 3\nEnergy: 2\nEnergy: 1\nPause."
+    ]
+  },
+  {
+    "id": "basics-profile-card",
+    "answers": [],
+    "output": [
+      "Name: Alex",
+      "Alter: 16",
+      "Alter: 17"
+    ],
+    "output_en": [
+      "Name: Alex",
+      "Age: 16",
+      "Age: 17"
+    ]
+  },
+  {
+    "id": "js-basics-profile-card",
+    "answers": [],
+    "output": [
+      "Name: Alex",
+      "Alter: 16",
+      "Alter: 17"
+    ],
+    "output_en": [
+      "Name: Alex",
+      "Age: 16",
+      "Age: 17"
+    ]
+  },
+  {
+    "id": "basics-greet-function",
+    "answers": [],
+    "output": [
+      "Hallo!\nHallo!"
+    ],
+    "output_en": [
+      "Hello!\nHello!"
+    ]
+  },
+  {
+    "id": "js-basics-greet-function",
+    "answers": [],
+    "output": [
+      "Hallo!\nHallo!"
+    ],
+    "output_en": [
+      "Hello!\nHello!"
+    ]
+  },
+  {
+    "id": "basics-greet-person",
+    "answers": [],
+    "output": [
+      "Hallo, Alex\nHallo, Sam"
+    ],
+    "output_en": [
+      "Hello, Alex\nHello, Sam"
+    ]
+  },
+  {
+    "id": "js-basics-greet-person",
+    "answers": [],
+    "output": [
+      "Hallo, Alex\nHallo, Sam"
+    ],
+    "output_en": [
+      "Hello, Alex\nHello, Sam"
+    ]
+  },
+  {
+    "id": "basics-rectangle-area",
+    "answers": [],
+    "output": [
+      "12\n10"
+    ],
+    "output_en": [
+      "12\n10"
+    ]
+  },
+  {
+    "id": "js-basics-rectangle-area",
+    "answers": [],
+    "output": [
+      "12\n10"
+    ],
+    "output_en": [
+      "12\n10"
+    ]
+  }
+]

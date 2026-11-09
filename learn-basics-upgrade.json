@@ -1,0 +1,560 @@
+{
+  "additions": {
+    "basics-change-value": "about",
+    "js-basics-change-value": "js-about",
+    "basics-profile-message": "basics-change-value",
+    "js-basics-profile-message": "js-basics-change-value",
+    "basics-shopping-total": "calculator",
+    "js-basics-shopping-total": "js-calculator",
+    "basics-division-share": "basics-shopping-total",
+    "js-basics-division-share": "js-basics-shopping-total",
+    "basics-leftovers": "basics-division-share",
+    "js-basics-leftovers": "js-basics-division-share",
+    "basics-input-greeting": "basics-leftovers",
+    "js-basics-input-greeting": "js-basics-leftovers",
+    "basics-birthday": "basics-input-greeting",
+    "js-basics-birthday": "js-basics-input-greeting",
+    "basics-temperature": "basics-birthday",
+    "js-basics-temperature": "js-basics-birthday",
+    "basics-door": "level",
+    "js-basics-door": "js-level",
+    "basics-name-normalize": "password",
+    "js-basics-name-normalize": "js-password",
+    "basics-letters": "basics-name-normalize",
+    "js-basics-letters": "js-basics-name-normalize",
+    "basics-snacks": "basics-letters",
+    "js-basics-snacks": "js-basics-letters",
+    "basics-list-edit": "basics-snacks",
+    "js-basics-list-edit": "js-basics-snacks",
+    "basics-count-up": "basics-list-edit",
+    "js-basics-count-up": "js-basics-list-edit",
+    "basics-repeat-message": "basics-count-up",
+    "js-basics-repeat-message": "js-basics-count-up",
+    "basics-playlist": "countdown",
+    "js-basics-playlist": "js-countdown",
+    "basics-list-total": "basics-playlist",
+    "js-basics-list-total": "js-basics-playlist",
+    "basics-multiplication": "basics-list-total",
+    "js-basics-multiplication": "js-basics-list-total",
+    "basics-energy": "grades",
+    "js-basics-energy": "js-grades",
+    "basics-profile-card": "basics-energy",
+    "js-basics-profile-card": "js-basics-energy",
+    "basics-greet-function": "basics-profile-card",
+    "js-basics-greet-function": "js-basics-profile-card",
+    "basics-greet-person": "basics-greet-function",
+    "js-basics-greet-person": "js-basics-greet-function",
+    "basics-rectangle-area": "function",
+    "js-basics-rectangle-area": "js-function"
+  },
+  "descriptions": {
+    "hello": {
+      "description": {
+        "before": "9209c89de6a4774defddea8c0eb967b688959e2ed0d97962b48167a921bb363c",
+        "value": "Gib mit `print()` deinen Namen, einen Text und eine Zahl aus. [OUTPUT] [STRINGS]"
+      },
+      "description_en": {
+        "before": "52c3472a3e3e11b3cc1ec074a883c407186d46bf8653c7bf2f3e4df07f5be801",
+        "value": "Display your name, a text and a number using `print()`. [OUTPUT] [STRINGS]"
+      }
+    },
+    "about": {
+      "description": {
+        "before": "c0010166a22cf295bcd9caa69964b1302724f3696b5c2949a010f949e08657e3",
+        "value": "Speichere Name, Alter und Hobby in drei Variablen und gib sie aus. [VARIABLES]"
+      },
+      "description_en": {
+        "before": "e7ec5f59872bf544e40eafcd166a4714566a804b6793020ce3286337f5a389a6",
+        "value": "Store your name, age and hobby in three variables and display them. [VARIABLES]"
+      }
+    },
+    "score": {
+      "description": {
+        "before": "fda6d233929acb91a99e2ae003558f8b0daf91265833f8a2d87502d2b61c1974",
+        "value": "Starte mit 10 Punkten. Addiere 5, ziehe 3 ab und gib das Ergebnis aus. [OPERATORS]"
+      },
+      "description_en": {
+        "before": "39c47805429ec3c340f36e3e28ff899bd9050159406a5b937d86d1112b59367e",
+        "value": "Start with 10 points. Add 5, subtract 3 and display the result. [OPERATORS]"
+      }
+    },
+    "level": {
+      "description": {
+        "before": "a002a94f7ceebf245b9db311e9869992882be2947f1ee909f7308b021aada138",
+        "value": "Frage mit `input()` und `int()` nach der Punktezahl. Bei mindestens 10 Punkten gib LEVEL UP aus, sonst TRY AGAIN. Prüfe mit if/else. Akzeptiere nur ganze, nicht negative Zahlen; zeige bei anderen Eingaben eine verständliche Meldung. Teste 9, 10 und 12 Punkte. [VALIDATION]"
+      },
+      "description_en": {
+        "before": "e48352865a21c89b57d0b4fb21298fd1e6377ef65621b8920f08a2086bcd65b7",
+        "value": "Ask for a score using `input()` and `int()`. Display LEVEL UP for at least 10 points, otherwise TRY AGAIN. Use if/else. Accept only non-negative whole numbers; show a clear message for other inputs. Test 9, 10 and 12 points. [VALIDATION]"
+      }
+    },
+    "grades": {
+      "description": {
+        "before": "b9fdb280c484e9580c6c6d328580c054d84e9b916b1bcf7d421cd19c8fd4cbd1",
+        "value": "Wandle Punkte (0–100) mit `if/elif/else` in Schulnoten um. Lege sinnvolle Grenzen fest. [ELIF]"
+      },
+      "description_en": {
+        "before": "ffb1c611361f93ffb384d71eff582b566274fddf2475ec3047cfaa45d123421e",
+        "value": "Convert a score (0–100) to school grades using if/elif/else. Choose reasonable thresholds. [ELIF]"
+      }
+    },
+    "guessing": {
+      "description": {
+        "before": "95bb99f1d087ad271d891eb62e2aa5ab3fa06d865eea7794fbe7ea5272aef55b",
+        "value": "Lass eine Zahl erraten. Gib ZU HOCH, ZU NIEDRIG oder RICHTIG aus. Wiederhole bis zur richtigen Antwort. Beginne mit `import random`. [RANDOM]"
+      },
+      "description_en": {
+        "before": "cb7824dc38b10d620437065232db025df940db2fe8aa2dfbbed6ae3d878d52ac",
+        "value": "Let the user guess a number. Display TOO HIGH, TOO LOW or CORRECT. Repeat until the correct answer is entered. Start with `import random`. [RANDOM]"
+      }
+    },
+    "function": {
+      "description": {
+        "before": "b4c21cf1003037a2f1f46730f570b90e66cecbee3f70ebbbbe8ef13829761df8",
+        "value": "Schreibe `double(x)`, die eine Zahl verdoppelt und das Ergebnis mit `return` zurückgibt. [RETURN]"
+      },
+      "description_en": {
+        "before": "d1479ed3080e832e539e1c5908261efd294e7ea216dd5989557d9c47cb6ada07",
+        "value": "Write `double(x)`, which doubles a number and returns the result using `return`. [RETURN]"
+      }
+    },
+    "shapes": {
+      "description": {
+        "before": "ebd09cf6783eb6d31e0654491fd4b65d4f6fe44ba66cfea2d402844c32df8f48",
+        "value": "Zeichne in Graphics zwei farbige Vierecke und zwei Kreise auf einer gemeinsamen Zeichenfläche. Verwende unterschiedliche Farben und Größen. Alle Formen sollen vollständig sichtbar bleiben. Zeige die Grafik mit Run. Hinweis: Verwende `from pyjs_canvas import Canvas`. Zeichne mit `canvas.rectangle()` und `canvas.circle()`; alle Koordinaten sind Pixel, y zeigt nach unten. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. [CANVAS]"
+      },
+      "description_en": {
+        "before": "f9687bf435f79e59acaca96fa6f95c51ba9c7f7dbc849364c5bdee5754b46f8d",
+        "value": "Draw two coloured rectangles and two circles in Graphics on one canvas. Use different colours and sizes. Keep all shapes fully visible. Display the drawing with Run. Import Canvas from pyjs_canvas. Use canvas.rectangle() and canvas.circle(); coordinates are pixels and y points down. The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. [CANVAS]"
+      }
+    },
+    "drag-circles": {
+      "description": {
+        "before": "698df84ea59bce94fa276dca8aa3deb8adfcbb4e82c6cb9fba6d08202c7f3480",
+        "value": "Zeichne zwei Kreise. Beim Drücken auf einen Kreis wähle genau diesen aus, ziehe ihn mit Maus oder Finger und lasse ihn beim Loslassen an der neuen Stelle. Die Kreismitte darf dem Zeiger direkt folgen; ein einfacher Treffercheck genügt. Klicke außerhalb der Kreise: Es darf sich nichts bewegen. Beide Kreise müssen innerhalb der Zeichenfläche bleiben. Hinweis: Drücken → Bewegen → Loslassen, ohne Pan oder Zoom zu aktivieren. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. `canvas.on(\"press\", press)`, move und release sind bereits verbunden; die Funktionen erhalten Pixelkoordinaten x und y. [EVENTS]"
+      },
+      "description_en": {
+        "before": "af97d299e0cfb37329a440234987a25883ece97e440c4891c27fabcd2fd8ca70",
+        "value": "Draw two circles. Press a circle to select only that circle, drag it with the mouse or a finger, and release it at its new position. The centre may follow the pointer directly; a simple hit check is enough. Clicking outside the circles must move nothing. Keep both circles inside the canvas. Hint: press → move → release, without enabling Pan or Zoom. The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. `canvas.on(\"press\", press)`, move and release are wired up; functions receive pixel coordinates x and y. [EVENTS]"
+      }
+    },
+    "rotate-rectangle": {
+      "description": {
+        "before": "7ca5c9a358650e7785ce0d7e5292d4cf43d6e17220d18b71bc94420426e7831b",
+        "value": "Zeichne ein farbiges Viereck und einen Regler für den Winkel von 0 bis 360 Grad. Beim Verändern des Reglers dreht sich das Viereck um seinen Mittelpunkt. Es darf nicht wegwandern; nach 360 Grad sieht es wie bei 0 Grad aus. Verwende `canvas.rectangle(..., angle=winkel)` und `canvas.slider()`. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. Der Winkel-Regler ruft `rotate(angle)` auf. [SLIDERS]"
+      },
+      "description_en": {
+        "before": "0615ecdb23aeeca1cb8f1edd234d962233a60320d3183e9cd25717cb53a61f26",
+        "value": "Draw a coloured rectangle and an angle slider from 0 to 360 degrees. Changing the slider rotates the rectangle around its centre. It must not drift; 360 degrees must look like 0 degrees. Use canvas.rectangle(..., angle=angle) and canvas.slider(). The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. The angle slider calls `rotate(angle)`. [SLIDERS]"
+      }
+    },
+    "bouncing-ball": {
+      "description": {
+        "before": "8ee89c35056c657b31c67547f94d4ebb8cebc346e0731e0c12809bf6e2713b26",
+        "value": "Ein Kreis wird zum Ball: Zeichne einen Ball und einen Boden. Ziehe den Ball mit Maus oder Finger hoch. Während des Ziehens bleibt die Physik pausiert. Beim Loslassen fällt er durch Schwerkraft und springt vom Boden ab. Jeder Sprung wird kleiner, bis er liegen bleibt. Beim erneuten Aufheben starte seine Fallgeschwindigkeit wieder bei 0. Eine einfache Simulation reicht: nur vertikale Geschwindigkeit, keine Wurfbewegung und keine Kollision mit anderen Bällen. Beispiel: Geschwindigkeit += Schwerkraft × Zeitschritt; Höhe += Geschwindigkeit × Zeitschritt. Am Boden die Richtung umkehren und mit 0.75 dämpfen. Verwende `Canvas` aus `pyjs_canvas` und `canvas.animate(update, fps=20)`. In dieser ersten Version ist der Zeitschritt fest: 0.05 Sekunden; die Folgeaufgabe verbessert das. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. `canvas.on(\"press\", press)`, move und release sind bereits verbunden; die Funktionen erhalten Pixelkoordinaten x und y. `canvas.animate()` ruft `update(dt)` auf; dt ist die vergangene Zeit in Sekunden. [ANIMATION]"
+      },
+      "description_en": {
+        "before": "bc49fe87280737201c791b06b9dae1b6ade0cbf9ae8b6d60d3300a2520dfb8f4",
+        "value": "Turn a circle into a ball: draw a ball and a floor. Drag the ball upwards with the mouse or a finger. Pause physics while dragging. On release, gravity makes it fall and bounce off the floor. Each bounce becomes smaller until it rests. Picking it up again resets its falling speed to 0. A simple simulation is enough: vertical speed only, no throwing and no collisions with other balls. Update speed and position with the time step; reverse the direction at the floor and damp it by 0.75. Use Canvas from pyjs_canvas and canvas.animate(update, fps=20). This first version uses a fixed 0.05-second step; the next challenge improves it. The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. `canvas.on(\"press\", press)`, move and release are wired up; functions receive pixel coordinates x and y. `canvas.animate()` calls `update(dt)`; dt is elapsed seconds. [ANIMATION]"
+      }
+    },
+    "framerate": {
+      "description": {
+        "before": "14c23acc4b64277fbd6d5caca3d49d89265c76335504627788cfb045668bd53c",
+        "value": "Erweitere die vorherige Ball-Simulation: Berücksichtige unterschiedliche Frameraten, damit der Ball bei 10, 30 und 60 Bildern pro Sekunde ungefähr gleich schnell fällt. Nutze die seit dem letzten Physik-Update vergangene Zeit dt in Sekunden und verwende Geschwindigkeit += Schwerkraft * dt sowie Position += Geschwindigkeit * dt. Füge einen FPS-Regler (10–60) hinzu und vergleiche dieselbe Fallhöhe bei verschiedenen Einstellungen. Weniger FPS dürfen die Bewegung ruckeliger machen, aber nicht einfach langsamer. Die Zeitmessung muss auch beim Festhalten weiterlaufen. Lange Browserpausen sollen keine riesigen Positionssprünge verursachen. Kleine Unterschiede beim Aufprall sind bei dieser einfachen Simulation erlaubt. Hinweis: `canvas.animate()` liefert dt in Sekunden und begrenzt lange Pausen bereits. Mit `canvas.set_fps()` stellst du die Framerate ein. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. `canvas.on(\"press\", press)`, move und release sind bereits verbunden; die Funktionen erhalten Pixelkoordinaten x und y. `canvas.animate()` ruft `update(dt)` auf; dt ist die vergangene Zeit in Sekunden. [DELTA TIME]"
+      },
+      "description_en": {
+        "before": "e68cd901d258b6fbc2bb19711201782cb2cc5d3d6f3cf5fb2e06a9bab971c6d2",
+        "value": "Extend the previous ball simulation to handle different frame rates so the ball falls at roughly the same speed at 10, 30 and 60 frames per second. Use elapsed time dt in seconds: velocity += gravity * dt; position += velocity * dt. Add an FPS slider (10–60) and compare drops from the same height. Lower FPS may look less smooth, but must not simply slow the motion down. Keep the clock running while dragging and prevent huge position jumps after long browser pauses. Small differences at impact are acceptable in this simple simulation. canvas.animate() already supplies dt and caps long pauses. Use canvas.set_fps() to set the frame rate. The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. `canvas.on(\"press\", press)`, move and release are wired up; functions receive pixel coordinates x and y. `canvas.animate()` calls `update(dt)`; dt is elapsed seconds. [DELTA TIME]"
+      }
+    },
+    "collision": {
+      "description": {
+        "before": "c6be1798201ab77b034c716fecfd6398d1bc38f35a93f543a208503735504c12",
+        "value": "Erweitere den Ball aus der Framerate-Aufgabe um Kollisionen: Zeichne ein langes, schmales Viereck, das um etwa 20 Grad geneigt ist. Ziehe den Ball über die Plattform und lasse ihn fallen. Er soll an der schrägen Fläche und ihren Kanten abprallen, statt hindurchzufallen. Verwende jetzt eine Geschwindigkeit für x und y; nach dem Aufprall bewegt sich der Ball auch seitlich. Ziehen pausiert die Physik und setzt beide Geschwindigkeiten auf 0. Boden und Seitenränder begrenzen die Bewegung. Hinweis: Drehe den Ballpunkt in die ungedrehten Koordinaten des Vierecks, suche den nächsten Punkt auf dessen Oberfläche und spiegle die Geschwindigkeit an der Kollisionsrichtung. Dämpfe jeden Aufprall. Kleine Physik-Teilschritte verhindern Durchfallen bei niedrigen FPS. Teste Mitte, Kanten und Ecken der Plattform. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. `canvas.on(\"press\", press)`, move und release sind bereits verbunden; die Funktionen erhalten Pixelkoordinaten x und y. `canvas.animate()` ruft `update(dt)` auf; dt ist die vergangene Zeit in Sekunden. [COLLISION]"
+      },
+      "description_en": {
+        "before": "2f45af777b3506112b40ee06f1fc56c29ae4a73d87ce7d867d6ad5c768a3cdf7",
+        "value": "Extend the ball from the frame-rate challenge with collisions. Draw a long, thin rectangle tilted by about 20 degrees. Drag the ball above the platform and let it fall. It must bounce off the sloped surface and its edges instead of passing through. Use both x and y velocity; after impact the ball also moves sideways. Dragging pauses physics and resets both velocities to 0. The floor and side walls bound the motion. Hint: transform the ball into the rectangle's unrotated coordinates, find the nearest surface point, then reflect its velocity along the collision direction. Dampen each bounce. Small physics substeps prevent tunnelling at low FPS. Test the middle, edges and corners of the platform. The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. `canvas.on(\"press\", press)`, move and release are wired up; functions receive pixel coordinates x and y. `canvas.animate()` calls `update(dt)`; dt is elapsed seconds. [COLLISION]"
+      }
+    },
+    "js-hello": {
+      "description": {
+        "before": "bfa6d6eb9614488cae6d77c563da1305c41a52fc5cb1e0b1e09201ec45d81231",
+        "value": "Gib mit `console.log()` deinen Namen, einen Text und eine Zahl aus. [OUTPUT] [STRINGS]"
+      },
+      "description_en": {
+        "before": "8e0afd431f2682a8098405e429155137a649aeefc161f6ff3fabc6233d4f479e",
+        "value": "Display your name, a text and a number using `console.log()`. [OUTPUT] [STRINGS]"
+      }
+    },
+    "js-about": {
+      "description": {
+        "before": "c0010166a22cf295bcd9caa69964b1302724f3696b5c2949a010f949e08657e3",
+        "value": "Speichere Name, Alter und Hobby in drei Variablen und gib sie aus. [VARIABLES]"
+      },
+      "description_en": {
+        "before": "e7ec5f59872bf544e40eafcd166a4714566a804b6793020ce3286337f5a389a6",
+        "value": "Store your name, age and hobby in three variables and display them. [VARIABLES]"
+      }
+    },
+    "js-score": {
+      "description": {
+        "before": "fda6d233929acb91a99e2ae003558f8b0daf91265833f8a2d87502d2b61c1974",
+        "value": "Starte mit 10 Punkten. Addiere 5, ziehe 3 ab und gib das Ergebnis aus. [OPERATORS]"
+      },
+      "description_en": {
+        "before": "39c47805429ec3c340f36e3e28ff899bd9050159406a5b937d86d1112b59367e",
+        "value": "Start with 10 points. Add 5, subtract 3 and display the result. [OPERATORS]"
+      }
+    },
+    "js-level": {
+      "description": {
+        "before": "7eff7521c2b089d6bb817f21d964b31ce513a39fa4ed6aefaeb5d436b2705d1d",
+        "value": "Frage mit `prompt()` und `Number()` nach der Punktezahl. Bei mindestens 10 Punkten gib LEVEL UP aus, sonst TRY AGAIN. Prüfe mit if/else. Akzeptiere nur ganze, nicht negative Zahlen; zeige bei anderen Eingaben eine verständliche Meldung. Teste 9, 10 und 12 Punkte. [VALIDATION]"
+      },
+      "description_en": {
+        "before": "d60350a4450b23d521293e3f97c566e43cd6cf39f25a10ee5ebe378bac899a9a",
+        "value": "Ask for a score using `prompt()` and `Number()`. Display LEVEL UP for at least 10 points, otherwise TRY AGAIN. Use if/else. Accept only non-negative whole numbers; show a clear message for other inputs. Test 9, 10 and 12 points. [VALIDATION]"
+      }
+    },
+    "js-grades": {
+      "description": {
+        "before": "599da8e3c2b66e5af7dd4e6b750fd6ed5b7310fdc1f99e67017c348b217775d1",
+        "value": "Wandle Punkte (0–100) mit `if/else if/else` in Schulnoten um. Lege sinnvolle Grenzen fest. [ELSE IF]"
+      },
+      "description_en": {
+        "before": "55cdf800007c7f19ddda7061c0569865b0b6283a2c7ce51c8f5a4d4eecacb0e7",
+        "value": "Convert a score (0–100) to school grades using if/else if/else. Choose reasonable thresholds. [ELSE IF]"
+      }
+    },
+    "js-guessing": {
+      "description": {
+        "before": "95bb99f1d087ad271d891eb62e2aa5ab3fa06d865eea7794fbe7ea5272aef55b",
+        "value": "Lass eine Zahl erraten. Gib ZU HOCH, ZU NIEDRIG oder RICHTIG aus. Wiederhole bis zur richtigen Antwort. [RANDOM]"
+      },
+      "description_en": {
+        "before": "cb7824dc38b10d620437065232db025df940db2fe8aa2dfbbed6ae3d878d52ac",
+        "value": "Let the user guess a number. Display TOO HIGH, TOO LOW or CORRECT. Repeat until the correct answer is entered. [RANDOM]"
+      }
+    },
+    "js-function": {
+      "description": {
+        "before": "d984841337a069cd9616fc8b324168ac786829dc56a79b7458a6aedc37aeb5db",
+        "value": "Schreibe `function double(x)`, die eine Zahl verdoppelt und das Ergebnis mit `return` zurückgibt. [RETURN]"
+      },
+      "description_en": {
+        "before": "d1479ed3080e832e539e1c5908261efd294e7ea216dd5989557d9c47cb6ada07",
+        "value": "Write `double(x)`, which doubles a number and returns the result using `return`. [RETURN]"
+      }
+    },
+    "js-shapes": {
+      "description": {
+        "before": "62a99be6806bee0029d54d0ee2157be4c5309dad85f1d245414eb6ca63cec567",
+        "value": "Zeichne in Graphics zwei farbige Vierecke und zwei Kreise auf einer gemeinsamen Zeichenfläche. Verwende unterschiedliche Farben und Größen. Alle Formen sollen vollständig sichtbar bleiben. Zeige die Grafik mit Run. Hinweis: Verwende `graphics.canvas()` und die Methoden `fillRect()`, `arc()` und `fill()`. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. [CANVAS]"
+      },
+      "description_en": {
+        "before": "78fa1a6d6b1394a2e27cd34a38ddc0a2d01af3d4b2babee0e44cc2accc6fca38",
+        "value": "Draw two coloured rectangles and two circles in Graphics on one canvas. Use different colours and sizes. Keep all shapes fully visible. Display the drawing with Run. Use graphics.canvas(), fillRect(), arc() and fill(). The starter already creates the canvas and its 2D context. [CANVAS]"
+      }
+    },
+    "js-drag-circles": {
+      "description": {
+        "before": "698df84ea59bce94fa276dca8aa3deb8adfcbb4e82c6cb9fba6d08202c7f3480",
+        "value": "Zeichne zwei Kreise. Beim Drücken auf einen Kreis wähle genau diesen aus, ziehe ihn mit Maus oder Finger und lasse ihn beim Loslassen an der neuen Stelle. Die Kreismitte darf dem Zeiger direkt folgen; ein einfacher Treffercheck genügt. Klicke außerhalb der Kreise: Es darf sich nichts bewegen. Beide Kreise müssen innerhalb der Zeichenfläche bleiben. Hinweis: Drücken → Bewegen → Loslassen, ohne Pan oder Zoom zu aktivieren. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. pointerdown, pointermove und pointerup sind mit press, move und release verbunden. `point(event)` liefert Pixelkoordinaten. [EVENTS]"
+      },
+      "description_en": {
+        "before": "af97d299e0cfb37329a440234987a25883ece97e440c4891c27fabcd2fd8ca70",
+        "value": "Draw two circles. Press a circle to select only that circle, drag it with the mouse or a finger, and release it at its new position. The centre may follow the pointer directly; a simple hit check is enough. Clicking outside the circles must move nothing. Keep both circles inside the canvas. Hint: press → move → release, without enabling Pan or Zoom. The starter already creates the canvas and its 2D context. pointerdown, pointermove and pointerup are wired to press, move and release. `point(event)` supplies pixel coordinates. [EVENTS]"
+      }
+    },
+    "js-rotate-rectangle": {
+      "description": {
+        "before": "95faae28f11be83be2eed0bfabb4ef1152f534acb476454bff57524b77879303",
+        "value": "Zeichne ein farbiges Viereck und einen Regler für den Winkel von 0 bis 360 Grad. Beim Verändern des Reglers dreht sich das Viereck um seinen Mittelpunkt. Es darf nicht wegwandern; nach 360 Grad sieht es wie bei 0 Grad aus. Verwende `translate()`, `rotate()`, `save()` und `restore()`. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. Der Winkel-Regler ruft `rotate(angle)` auf. [SLIDERS]"
+      },
+      "description_en": {
+        "before": "bb0865621a15e9db824de51875157770c2039cc3ee789f0d9bbbe7d1f0611013",
+        "value": "Draw a coloured rectangle and an angle slider from 0 to 360 degrees. Changing the slider rotates the rectangle around its centre. It must not drift; 360 degrees must look like 0 degrees. Use translate(), rotate(), save() and restore(). The starter already creates the canvas and its 2D context. The angle slider calls `rotate(angle)`. [SLIDERS]"
+      }
+    },
+    "js-bouncing-ball": {
+      "description": {
+        "before": "fdab2158ace37f0059f03dd0443bb0cf96d84b5c9180816474ceaf090a26e635",
+        "value": "Ein Kreis wird zum Ball: Zeichne einen Ball und einen Boden. Ziehe den Ball mit Maus oder Finger hoch. Während des Ziehens bleibt die Physik pausiert. Beim Loslassen fällt er durch Schwerkraft und springt vom Boden ab. Jeder Sprung wird kleiner, bis er liegen bleibt. Beim erneuten Aufheben starte seine Fallgeschwindigkeit wieder bei 0. Eine einfache Simulation reicht: nur vertikale Geschwindigkeit, keine Wurfbewegung und keine Kollision mit anderen Bällen. Beispiel: Geschwindigkeit += Schwerkraft × Zeitschritt; Höhe += Geschwindigkeit × Zeitschritt. Am Boden die Richtung umkehren und mit 0.75 dämpfen. Verwende `graphics.canvas()` und `canvas.animate()`. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. pointerdown, pointermove und pointerup sind mit press, move und release verbunden. `point(event)` liefert Pixelkoordinaten. `canvas.animate()` ruft `update(dt)` mit der vergangenen Zeit in Sekunden auf. [ANIMATION]"
+      },
+      "description_en": {
+        "before": "692ae76a063b23b637f034a08ee8c0a9bf314e2a10e8a76c1b1b46cb5950f9ec",
+        "value": "Turn a circle into a ball: draw a ball and a floor. Drag the ball upwards with the mouse or a finger. Pause physics while dragging. On release, gravity makes it fall and bounce off the floor. Each bounce becomes smaller until it rests. Picking it up again resets its falling speed to 0. A simple simulation is enough: vertical speed only, no throwing and no collisions with other balls. Update speed and position with the time step; reverse the direction at the floor and damp it by 0.75. Use graphics.canvas() and canvas.animate(). The starter already creates the canvas and its 2D context. pointerdown, pointermove and pointerup are wired to press, move and release. `point(event)` supplies pixel coordinates. `canvas.animate()` calls `update(dt)` with elapsed seconds. [ANIMATION]"
+      }
+    },
+    "js-framerate": {
+      "description": {
+        "before": "88897cd44b2d6d042c11f827e718f2492f29219db8a58ab99980f30424f97cf8",
+        "value": "Erweitere die vorherige Ball-Simulation: Berücksichtige unterschiedliche Frameraten, damit der Ball bei 10, 30 und 60 Bildern pro Sekunde ungefähr gleich schnell fällt. Nutze die seit dem letzten Physik-Update vergangene Zeit dt in Sekunden und verwende Geschwindigkeit += Schwerkraft * dt sowie Position += Geschwindigkeit * dt. Füge einen FPS-Regler (10–60) hinzu und vergleiche dieselbe Fallhöhe bei verschiedenen Einstellungen. Weniger FPS dürfen die Bewegung ruckeliger machen, aber nicht einfach langsamer. Die Zeitmessung muss auch beim Festhalten weiterlaufen. Lange Browserpausen sollen keine riesigen Positionssprünge verursachen. Kleine Unterschiede beim Aufprall sind bei dieser einfachen Simulation erlaubt. Hinweis: `canvas.animate()` liefert dt in Sekunden und begrenzt lange Pausen bereits. Sammle dt zwischen den Frames, bis der gewünschte FPS-Abstand erreicht ist. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. pointerdown, pointermove und pointerup sind mit press, move und release verbunden. `point(event)` liefert Pixelkoordinaten. `canvas.animate()` ruft `update(dt)` mit der vergangenen Zeit in Sekunden auf. [DELTA TIME]"
+      },
+      "description_en": {
+        "before": "26d22fb3df66df0cc2a009e5c6075d56852788752bf39643f55bcf314e0c5777",
+        "value": "Extend the previous ball simulation to handle different frame rates so the ball falls at roughly the same speed at 10, 30 and 60 frames per second. Use elapsed time dt in seconds: velocity += gravity * dt; position += velocity * dt. Add an FPS slider (10–60) and compare drops from the same height. Lower FPS may look less smooth, but must not simply slow the motion down. Keep the clock running while dragging and prevent huge position jumps after long browser pauses. Small differences at impact are acceptable in this simple simulation. canvas.animate() already supplies dt and caps long pauses. Accumulate frame time until the selected FPS interval has elapsed. The starter already creates the canvas and its 2D context. pointerdown, pointermove and pointerup are wired to press, move and release. `point(event)` supplies pixel coordinates. `canvas.animate()` calls `update(dt)` with elapsed seconds. [DELTA TIME]"
+      }
+    },
+    "js-collision": {
+      "description": {
+        "before": "c6be1798201ab77b034c716fecfd6398d1bc38f35a93f543a208503735504c12",
+        "value": "Erweitere den Ball aus der Framerate-Aufgabe um Kollisionen: Zeichne ein langes, schmales Viereck, das um etwa 20 Grad geneigt ist. Ziehe den Ball über die Plattform und lasse ihn fallen. Er soll an der schrägen Fläche und ihren Kanten abprallen, statt hindurchzufallen. Verwende jetzt eine Geschwindigkeit für x und y; nach dem Aufprall bewegt sich der Ball auch seitlich. Ziehen pausiert die Physik und setzt beide Geschwindigkeiten auf 0. Boden und Seitenränder begrenzen die Bewegung. Hinweis: Drehe den Ballpunkt in die ungedrehten Koordinaten des Vierecks, suche den nächsten Punkt auf dessen Oberfläche und spiegle die Geschwindigkeit an der Kollisionsrichtung. Dämpfe jeden Aufprall. Kleine Physik-Teilschritte verhindern Durchfallen bei niedrigen FPS. Teste Mitte, Kanten und Ecken der Plattform. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. pointerdown, pointermove und pointerup sind mit press, move und release verbunden. `point(event)` liefert Pixelkoordinaten. `canvas.animate()` ruft `update(dt)` mit der vergangenen Zeit in Sekunden auf. [COLLISION]"
+      },
+      "description_en": {
+        "before": "2f45af777b3506112b40ee06f1fc56c29ae4a73d87ce7d867d6ad5c768a3cdf7",
+        "value": "Extend the ball from the frame-rate challenge with collisions. Draw a long, thin rectangle tilted by about 20 degrees. Drag the ball above the platform and let it fall. It must bounce off the sloped surface and its edges instead of passing through. Use both x and y velocity; after impact the ball also moves sideways. Dragging pauses physics and resets both velocities to 0. The floor and side walls bound the motion. Hint: transform the ball into the rectangle's unrotated coordinates, find the nearest surface point, then reflect its velocity along the collision direction. Dampen each bounce. Small physics substeps prevent tunnelling at low FPS. Test the middle, edges and corners of the platform. The starter already creates the canvas and its 2D context. pointerdown, pointermove and pointerup are wired to press, move and release. `point(event)` supplies pixel coordinates. `canvas.animate()` calls `update(dt)` with elapsed seconds. [COLLISION]"
+      }
+    },
+    "codebreaker": {
+      "description": {
+        "before": "18d8b364a9843c06faabe92b681ea6a34a516a3415aaf9d4e41f5122efde59e0",
+        "value": "Programmiere ein Codebreaker-Spiel: Der Computer wählt vier unterschiedliche Ziffern von 0 bis 9; eine führende Null ist erlaubt. Nach jedem Tipp zeige den Tipp und zwei Zahlen: Ziffern an der richtigen Position sowie richtige Ziffern an einer anderen Position. Beispiel: Geheimcode 4271, Tipp 1234 → 1 richtige Position (2) und 2 richtige Ziffern an anderer Position (1 und 4). Der echte Geheimcode bleibt bis zum Spielende verborgen. Tipp zum Start: Probiere 0123, dann bisher ungetestete Ziffern und verändere danach ihre Positionen. Maximal 10 gültige Tipps; falsche Länge, Nicht-Ziffern oder doppelte Ziffern kosten keinen Versuch. Bei richtigem Code gewinnst du; nach 10 gültigen Fehlversuchen zeige den Geheimcode. Beginne mit `import random`."
+      },
+      "description_en": {
+        "before": "c2cd9aa7a59033c2f76a5aae969a54539638513b3b99e27c26df0daf3d826e73",
+        "value": "Build a Codebreaker game: the computer chooses four different digits from 0 to 9; a leading zero is allowed. After each guess, show the guess and two counts: digits in the correct position and correct digits in a different position. Example: secret 4271, guess 1234 → 1 correct position (2) and 2 correct digits elsewhere (1 and 4). Keep the real secret hidden until the end. Start with 0123, try previously untested digits, then rearrange them based on the feedback. Allow at most 10 valid guesses; wrong length, non-digits and repeated digits do not use an attempt. Win when the code matches; reveal the secret after 10 valid wrong guesses. Start with `import random`."
+      }
+    }
+  },
+  "starters": {
+    "guessing": {
+      "starter_code": "import random\n",
+      "starter_code_en": "import random\n"
+    },
+    "codebreaker": {
+      "starter_code": "import random\n",
+      "starter_code_en": "import random\n"
+    },
+    "shapes": {
+      "starter_code": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n",
+      "starter_code_en": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n"
+    },
+    "drag-circles": {
+      "starter_code": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Figur auswählen und Ziehen beginnen.\n    pass\n\ndef move(x, y):\n    # TODO: Die ausgewählte Figur verschieben.\n    pass\n\ndef release(x, y):\n    # TODO: Ziehen beenden.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n",
+      "starter_code_en": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Select a shape and start dragging.\n    pass\n\ndef move(x, y):\n    # TODO: Move the selected shape.\n    pass\n\ndef release(x, y):\n    # TODO: End the drag.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n"
+    },
+    "rotate-rectangle": {
+      "starter_code": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef rotate(angle):\n    # TODO: Viereck mit diesem Winkel neu zeichnen.\n    pass\n\ncanvas.slider(\"Winkel\", 0, 360, 0, rotate)\nrotate(0)\n",
+      "starter_code_en": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef rotate(angle):\n    # TODO: Redraw the rectangle at this angle.\n    pass\n\ncanvas.slider(\"Angle\", 0, 360, 0, rotate)\nrotate(0)\n"
+    },
+    "bouncing-ball": {
+      "starter_code": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Figur auswählen und Ziehen beginnen.\n    pass\n\ndef move(x, y):\n    # TODO: Die ausgewählte Figur verschieben.\n    pass\n\ndef release(x, y):\n    # TODO: Ziehen beenden.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Bewegung berechnen und den Ball neu zeichnen.\n    pass\n\ncanvas.animate(update, fps=20)\n",
+      "starter_code_en": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Select a shape and start dragging.\n    pass\n\ndef move(x, y):\n    # TODO: Move the selected shape.\n    pass\n\ndef release(x, y):\n    # TODO: End the drag.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Calculate movement and redraw the ball.\n    pass\n\ncanvas.animate(update, fps=20)\n"
+    },
+    "framerate": {
+      "starter_code": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Figur auswählen und Ziehen beginnen.\n    pass\n\ndef move(x, y):\n    # TODO: Die ausgewählte Figur verschieben.\n    pass\n\ndef release(x, y):\n    # TODO: Ziehen beenden.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Bewegung berechnen und den Ball neu zeichnen.\n    pass\n\ncanvas.slider(\"FPS\", 10, 60, 30, canvas.set_fps)\n\ncanvas.animate(update, fps=30)\n",
+      "starter_code_en": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Select a shape and start dragging.\n    pass\n\ndef move(x, y):\n    # TODO: Move the selected shape.\n    pass\n\ndef release(x, y):\n    # TODO: End the drag.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Calculate movement and redraw the ball.\n    pass\n\ncanvas.slider(\"FPS\", 10, 60, 30, canvas.set_fps)\n\ncanvas.animate(update, fps=30)\n"
+    },
+    "collision": {
+      "starter_code": "from pyjs_canvas import Canvas\nfrom math import cos, sin, radians, hypot\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Figur auswählen und Ziehen beginnen.\n    pass\n\ndef move(x, y):\n    # TODO: Die ausgewählte Figur verschieben.\n    pass\n\ndef release(x, y):\n    # TODO: Ziehen beenden.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Bewegung berechnen und den Ball neu zeichnen.\n    pass\n\ncanvas.animate(update, fps=30)\n",
+      "starter_code_en": "from pyjs_canvas import Canvas\nfrom math import cos, sin, radians, hypot\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Select a shape and start dragging.\n    pass\n\ndef move(x, y):\n    # TODO: Move the selected shape.\n    pass\n\ndef release(x, y):\n    # TODO: End the drag.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Calculate movement and redraw the ball.\n    pass\n\ncanvas.animate(update, fps=30)\n"
+    },
+    "js-shapes": {
+      "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n",
+      "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n"
+    },
+    "js-drag-circles": {
+      "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Figur auswählen und Ziehen beginnen.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Die ausgewählte Figur verschieben.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: Ziehen beenden.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n",
+      "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Select a shape and start dragging.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Move the selected shape.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: End the drag.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n"
+    },
+    "js-rotate-rectangle": {
+      "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction rotate(angle) {\n  // TODO: Viereck mit diesem Winkel neu zeichnen.\n}\ncanvas.slider({label: \"Winkel\", min: 0, max: 360, value: 0, onChange: rotate});\nrotate(0);\n",
+      "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction rotate(angle) {\n  // TODO: Redraw the rectangle at this angle.\n}\ncanvas.slider({label: \"Angle\", min: 0, max: 360, value: 0, onChange: rotate});\nrotate(0);\n"
+    },
+    "js-bouncing-ball": {
+      "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Figur auswählen und Ziehen beginnen.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Die ausgewählte Figur verschieben.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: Ziehen beenden.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nfunction update(dt) {\n  // TODO: Bewegung berechnen und den Ball neu zeichnen.\n}\ncanvas.animate(update);\n",
+      "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Select a shape and start dragging.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Move the selected shape.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: End the drag.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nfunction update(dt) {\n  // TODO: Calculate movement and redraw the ball.\n}\ncanvas.animate(update);\n"
+    },
+    "js-framerate": {
+      "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Figur auswählen und Ziehen beginnen.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Die ausgewählte Figur verschieben.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: Ziehen beenden.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nlet fps = 30;\ncanvas.slider({label: \"FPS\", min: 10, max: 60, step: 1, value: 30, onChange: value => {fps = value;}});\n\nfunction update(dt) {\n  // TODO: Bewegung berechnen und den Ball neu zeichnen.\n}\ncanvas.animate(update);\n",
+      "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Select a shape and start dragging.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Move the selected shape.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: End the drag.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nlet fps = 30;\ncanvas.slider({label: \"FPS\", min: 10, max: 60, step: 1, value: 30, onChange: value => {fps = value;}});\n\nfunction update(dt) {\n  // TODO: Calculate movement and redraw the ball.\n}\ncanvas.animate(update);\n"
+    },
+    "js-collision": {
+      "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Figur auswählen und Ziehen beginnen.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Die ausgewählte Figur verschieben.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: Ziehen beenden.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nfunction update(dt) {\n  // TODO: Bewegung berechnen und den Ball neu zeichnen.\n}\ncanvas.animate(update);\n",
+      "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Select a shape and start dragging.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Move the selected shape.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: End the drag.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nfunction update(dt) {\n  // TODO: Calculate movement and redraw the ball.\n}\ncanvas.animate(update);\n"
+    }
+  },
+  "level_updates": {
+    "level": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "basics-door": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "basics-count-up": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "basics-repeat-message": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "basics-playlist": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "basics-list-total": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "basics-multiplication": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "even": {
+      "before": "Aufbau",
+      "value": "Grundlagen"
+    },
+    "basics-energy": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "basics-profile-card": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "basics-greet-function": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "basics-greet-person": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "function": {
+      "before": "Fortgeschritten",
+      "value": "Aufbau"
+    },
+    "basics-rectangle-area": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-level": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-basics-door": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-basics-count-up": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-basics-repeat-message": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-basics-playlist": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-basics-list-total": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-basics-multiplication": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-even": {
+      "before": "Aufbau",
+      "value": "Grundlagen"
+    },
+    "js-basics-energy": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-basics-profile-card": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-basics-greet-function": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-basics-greet-person": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "js-function": {
+      "before": "Fortgeschritten",
+      "value": "Aufbau"
+    },
+    "js-basics-rectangle-area": {
+      "before": "Grundlagen",
+      "value": "Aufbau"
+    },
+    "codebreaker": {
+      "before": "Expertenbonus",
+      "value": "Experten"
+    },
+    "shapes": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    },
+    "drag-circles": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    },
+    "rotate-rectangle": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    },
+    "js-codebreaker": {
+      "before": "Expertenbonus",
+      "value": "Experten"
+    },
+    "js-shapes": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    },
+    "js-drag-circles": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    },
+    "js-rotate-rectangle": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    }
+  },
+  "graphics_level_updates": {
+    "codebreaker": {
+      "before": "Expertenbonus",
+      "value": "Experten"
+    },
+    "shapes": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    },
+    "drag-circles": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    },
+    "rotate-rectangle": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    },
+    "js-codebreaker": {
+      "before": "Expertenbonus",
+      "value": "Experten"
+    },
+    "js-shapes": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    },
+    "js-drag-circles": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    },
+    "js-rotate-rectangle": {
+      "before": "Experten",
+      "value": "Fortgeschritten"
+    }
+  }
+}

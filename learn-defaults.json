@@ -1,0 +1,814 @@
+[
+  {
+    "id": "hello",
+    "title": "Hello Python",
+    "description": "Gib mit `print()` deinen Namen, einen Text und eine Zahl aus. [OUTPUT] [STRINGS]",
+    "level": "Grundlagen",
+    "language": "python",
+    "title_en": "Hello Python",
+    "description_en": "Display your name, a text and a number using `print()`. [OUTPUT] [STRINGS]"
+  },
+  {
+    "id": "about",
+    "title": "About Me",
+    "description": "Speichere Name, Alter und Hobby in drei Variablen und gib sie aus. [VARIABLES]",
+    "level": "Grundlagen",
+    "language": "python",
+    "title_en": "About Me",
+    "description_en": "Store your name, age and hobby in three variables and display them. [VARIABLES]"
+  },
+  {
+    "id": "basics-change-value",
+    "title": "Lieblingsfarbe ändern",
+    "title_en": "Change Your Favourite Colour",
+    "description": "Speichere Blau in `colour` und gib den Wert aus. Ersetze den Wert durch Grün und gib ihn erneut aus. Verwende dieselbe Variable.",
+    "description_en": "Store Blue in `colour` and display it. Replace its value with Green and display it again. Use the same variable.",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-profile-message",
+    "title": "Mein Steckbrief als Satz",
+    "title_en": "My Profile as a Sentence",
+    "description": "Speichere Alex und 16 in `name` und `age`. Gib einen Satz aus, der beide Werte enthält. Python: Verwende einen f-String. JavaScript: Verwende einen Template-String mit Backticks. [STRING FORMATTING]",
+    "description_en": "Store Alex and 16 in `name` and `age`. Display a sentence containing both values. Python: use an f-string. JavaScript: use a template string with backticks. [STRING FORMATTING]",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "score",
+    "title": "Score Counter",
+    "description": "Starte mit 10 Punkten. Addiere 5, ziehe 3 ab und gib das Ergebnis aus. [OPERATORS]",
+    "level": "Grundlagen",
+    "language": "python",
+    "title_en": "Score Counter",
+    "description_en": "Start with 10 points. Add 5, subtract 3 and display the result. [OPERATORS]"
+  },
+  {
+    "id": "calculator",
+    "title": "Mini-Rechner",
+    "description": "Erstelle `a = 12` und `b = 4`. Berechne Summe, Differenz und Produkt.",
+    "level": "Grundlagen",
+    "language": "python",
+    "title_en": "Mini Calculator",
+    "description_en": "Create a = 12 and b = 4. Calculate the sum, difference and product."
+  },
+  {
+    "id": "basics-shopping-total",
+    "title": "Einkauf berechnen",
+    "title_en": "Calculate a Shopping Total",
+    "description": "Ein Heft kostet 2 Euro. Du kaufst 3 Hefte. Speichere Preis und Anzahl in Variablen, berechne den Gesamtpreis und gib ihn aus. Ändere danach die Anzahl auf 5 und teste erneut.",
+    "description_en": "One notebook costs 2 euros. You buy 3 notebooks. Store the price and quantity, calculate the total and display it. Then change the quantity to 5 and test again.",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-division-share",
+    "title": "Fair teilen",
+    "title_en": "Share Fairly",
+    "description": "Vier Personen teilen eine Rechnung von 22 Euro gleichmäßig. Speichere beide Zahlen, berechne mit `/` den Anteil pro Person und gib ihn aus. Erwartet: 5.5. [DIVISION]",
+    "description_en": "Four people share a bill of 22 euros equally. Store both numbers, calculate each person's share using `/` and display it. Expected: 5.5. [DIVISION]",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-leftovers",
+    "title": "Was bleibt übrig?",
+    "title_en": "What Is Left Over?",
+    "description": "Verteile 17 Bonbons auf 5 Personen. Berechne mit `%`, wie viele Bonbons nach dem Verteilen gleicher Mengen übrig bleiben. Gib den Rest aus. Erwartet: 2. [MODULO]",
+    "description_en": "Share 17 sweets among 5 people. Use `%` to find how many remain after giving everyone the same amount. Display the remainder. Expected: 2. [MODULO]",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-input-greeting",
+    "title": "Begrüßung mit Eingabe",
+    "title_en": "Greeting with User Input",
+    "description": "Frage mit `input()` nach einem Namen. Speichere die Eingabe und begrüße die Person mit `print()`. Teste mit Alex und mit deinem eigenen Namen. [INPUT]",
+    "description_en": "Ask for a name using `input()`. Store the input and greet the person using `print()`. Test with Alex and with your own name. [INPUT]",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-birthday",
+    "title": "Alter nächstes Jahr",
+    "title_en": "Age Next Year",
+    "description": "Frage mit `input()` nach dem Alter. Wandle den Text mit `int()` in eine Zahl um, addiere 1 und gib das Alter im nächsten Jahr aus. Teste mit 12. Verwende zunächst nur gültige ganze Zahlen. [TYPE CONVERSION]",
+    "description_en": "Ask for an age using `input()`. Convert the text to a number using `int()`, add 1 and display the age next year. Test with 12. For now, enter valid whole numbers only. [TYPE CONVERSION]",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-temperature",
+    "title": "Warm oder kühl?",
+    "title_en": "Warm or Cool?",
+    "description": "Setze `temperature = 28`. Bei mindestens 25 Grad gib Warm aus, sonst Kühl. Verwende `if/else` und den Vergleich `>=`. Teste danach mit 20 und mit genau 25 Grad. [COMPARISONS] [IF]",
+    "description_en": "Set `temperature = 28`. Display Warm for at least 25 degrees, otherwise Cool. Use `if/else` and the `>=` comparison. Then test with 20 and exactly 25 degrees. [COMPARISONS] [IF]",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "level",
+    "title": "Level Check",
+    "description": "Frage mit `input()` und `int()` nach der Punktezahl. Bei mindestens 10 Punkten gib LEVEL UP aus, sonst TRY AGAIN. Prüfe mit if/else. Akzeptiere nur ganze, nicht negative Zahlen; zeige bei anderen Eingaben eine verständliche Meldung. Teste 9, 10 und 12 Punkte. [VALIDATION]",
+    "level": "Aufbau",
+    "language": "python",
+    "title_en": "Level Check",
+    "description_en": "Ask for a score using `input()` and `int()`. Display LEVEL UP for at least 10 points, otherwise TRY AGAIN. Use if/else. Accept only non-negative whole numbers; show a clear message for other inputs. Test 9, 10 and 12 points. [VALIDATION]"
+  },
+  {
+    "id": "basics-door",
+    "title": "Zwei Bedingungen",
+    "title_en": "Two Conditions",
+    "description": "Speichere in `has_key` und `is_member`, ob jemand einen Schlüssel hat und Mitglied ist. Verwende Wahrheitswerte: Python `True/False`, JavaScript `true/false`. Nur wenn beide Werte wahr sind, gib Tür offen aus, sonst Tür zu. Verbinde die Bedingungen mit Python `and` bzw. JavaScript `&&`. Teste alle vier Kombinationen. [BOOLEANS] [AND]",
+    "description_en": "Store whether someone has a key and is a member in `has_key` and `is_member`. Use booleans: Python `True/False`, JavaScript `true/false`. Display Door open only when both are true, otherwise Door closed. Combine conditions using Python `and` or JavaScript `&&`. Test all four combinations. [BOOLEANS] [AND]",
+    "level": "Aufbau",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "password",
+    "title": "Passwort-Check",
+    "description": "Frage mit `input()` ein Testpasswort ab. Bei `python123` erscheint ZUGANG ERLAUBT, sonst ZUGANG VERWEIGERT.",
+    "level": "Grundlagen",
+    "language": "python",
+    "title_en": "Password Check",
+    "description_en": "Ask for a test password using `input()`. Display ACCESS GRANTED for `python123`, otherwise ACCESS DENIED."
+  },
+  {
+    "id": "basics-name-normalize",
+    "title": "Namen aufräumen",
+    "title_en": "Clean Up a Name",
+    "description": "Speichere den Text `  ALEx  ` einschließlich der Leerzeichen. Entferne mit `strip()` die äußeren Leerzeichen und wandle den Text mit `lower()` in Kleinbuchstaben um. Gib alex aus. Gib danach mit `upper()` die Großbuchstaben-Version aus. [STRING METHODS]",
+    "description_en": "Store `  ALEx  ` including its spaces. Remove surrounding spaces using `strip()` and convert to lowercase using `lower()`. Display alex. Then display the uppercase version using `upper()`. [STRING METHODS]",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-letters",
+    "title": "Erstes und letztes Zeichen",
+    "title_en": "First and Last Character",
+    "description": "Speichere Alex in `name`. Gib das erste Zeichen, das letzte Zeichen und die Textlänge aus. Die erste Position ist 0. Letztes Zeichen: Python `name[-1]`, JavaScript `name[name.length - 1]`. Für die Länge verwende `len()`. Erwartet: A, x und 4. [INDEXING] [LENGTH]",
+    "description_en": "Store Alex in `name`. Display its first character, last character and length. The first position is 0. Last character: Python `name[-1]`, JavaScript `name[name.length - 1]`. Use `len()` for the length. Expected: A, x and 4. [INDEXING] [LENGTH]",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-snacks",
+    "title": "Meine Einkaufsliste",
+    "title_en": "My Shopping List",
+    "description": "Erstelle `items` mit Milch, Brot und Apfel in eckigen Klammern. Gib den ersten Eintrag, den dritten Eintrag und die Anzahl der Einträge aus. Denk daran: Die erste Position ist 0. [LISTS]",
+    "description_en": "Create `items` containing Milk, Bread and Apple in square brackets. Display the first item, third item and item count. Remember: the first position is 0. [LISTS]",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-list-edit",
+    "title": "Liste verändern",
+    "title_en": "Change a List",
+    "description": "Starte mit Wasser und Saft in `items`. Hänge mit `append()` Tee an. Ersetze dann den ersten Eintrag durch Milch. Gib den ersten und letzten Eintrag sowie die neue Anzahl aus. Erwartet: Milch, Tee, 3. [LIST METHODS]",
+    "description_en": "Start with Water and Juice in `items`. Append Tea using `append()`. Replace the first item with Milk. Display the first and last items and the new count. Expected: Milk, Tea, 3. [LIST METHODS]",
+    "level": "Grundlagen",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-count-up",
+    "title": "Von 1 bis 5",
+    "title_en": "Count from 1 to 5",
+    "description": "Gib mit einer `for`-Schleife die Zahlen 1 bis 5 aus, jede in einer eigenen Zeile. Python: Verwende `range(1, 6)`, weil die obere Grenze nicht mitgezählt wird. JavaScript: Starte bei 1 und wiederhole solange die Zahl `<= 5` ist. [FOR]",
+    "description_en": "Use a `for` loop to display 1 through 5 on separate lines. Python: use `range(1, 6)`, because the upper endpoint is excluded. JavaScript: start at 1 and repeat while the number is `<= 5`. [FOR]",
+    "level": "Aufbau",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-repeat-message",
+    "title": "Dreimal üben",
+    "title_en": "Practise Three Times",
+    "description": "Gib Ich übe! genau dreimal aus. Verwende eine `for`-Schleife statt drei einzelne Ausgabebefehle. Verändere danach die Wiederholungszahl auf 5.",
+    "description_en": "Display I am practising! exactly three times. Use a `for` loop instead of three separate output statements. Then change the repeat count to 5.",
+    "level": "Aufbau",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "countdown",
+    "title": "Countdown",
+    "description": "Gib mit `for` und `range()` die Zahlen von 10 bis 1 aus.",
+    "level": "Aufbau",
+    "language": "python",
+    "title_en": "Countdown",
+    "description_en": "Display the numbers from 10 down to 1 using `for` and `range()`."
+  },
+  {
+    "id": "basics-playlist",
+    "title": "Playlist ausgeben",
+    "title_en": "Display a Playlist",
+    "description": "Speichere Rock, Pop und Jazz in `songs`. Gib alle Einträge mit einer Schleife aus. Python: `for song in songs`. JavaScript: `for (const song of songs)`. Hänge einen vierten Eintrag an und prüfe, ob er automatisch mit ausgegeben wird.",
+    "description_en": "Store Rock, Pop and Jazz in `songs`. Display every entry with a loop. Python: `for song in songs`. JavaScript: `for (const song of songs)`. Append a fourth entry and check that the loop displays it automatically.",
+    "level": "Aufbau",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-list-total",
+    "title": "Zahlen aufsummieren",
+    "title_en": "Add Up Numbers",
+    "description": "Speichere 2, 4, 6 und 8 in `numbers`. Starte `total` bei 0 und addiere in einer Schleife jeden Eintrag dazu. Gib erst nach der Schleife das Ergebnis 20 aus. Verwende keine eingebaute Summenfunktion.",
+    "description_en": "Store 2, 4, 6 and 8 in `numbers`. Start `total` at 0 and add each item in a loop. Display 20 after the loop. Do not use a built-in sum function.",
+    "level": "Aufbau",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-multiplication",
+    "title": "Kleine Einmaleins-Tabelle",
+    "title_en": "A Small Times Table",
+    "description": "Gib die ersten fünf Aufgaben der 7er-Reihe aus: 1 x 7 = 7 bis 5 x 7 = 35. Verwende eine Schleife und berechne jedes Ergebnis. Speichere die 7 in einer Variable, damit du leicht die 3er-Reihe testen kannst.",
+    "description_en": "Display the first five entries of the 7 times table: 1 x 7 = 7 through 5 x 7 = 35. Use a loop and calculate each result. Store 7 in a variable so you can easily test the 3 times table.",
+    "level": "Aufbau",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "even",
+    "title": "Gerade oder ungerade?",
+    "description": "Prüfe mit `%`, ob eine Zahl gerade oder ungerade ist. Hinweis: Rest bei Division durch 2.",
+    "level": "Grundlagen",
+    "language": "python",
+    "title_en": "Even or Odd?",
+    "description_en": "Use `%` to check whether a number is even or odd. Hint: look at the remainder when dividing by 2."
+  },
+  {
+    "id": "grades",
+    "title": "Noten-Rechner",
+    "description": "Wandle Punkte (0–100) mit `if/elif/else` in Schulnoten um. Lege sinnvolle Grenzen fest. [ELIF]",
+    "level": "Aufbau",
+    "language": "python",
+    "title_en": "Grade Calculator",
+    "description_en": "Convert a score (0–100) to school grades using if/elif/else. Choose reasonable thresholds. [ELIF]"
+  },
+  {
+    "id": "basics-energy",
+    "title": "Energie verbrauchen",
+    "title_en": "Use Up Energy",
+    "description": "Starte mit `energy = 3`. Solange die Energie größer als 0 ist, gib sie aus und verringere sie um 1. Verwende `while`. Gib danach Pause. aus. Wichtig: Ändere die Energie in der Schleife, damit sie endet. [WHILE]",
+    "description_en": "Start with `energy = 3`. While energy is greater than 0, display it and decrease it by 1. Use `while`. Display Pause. afterwards. Change energy inside the loop so it terminates. [WHILE]",
+    "level": "Aufbau",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-profile-card",
+    "title": "Daten mit Namen",
+    "title_en": "Data with Named Keys",
+    "description": "Speichere Name Alex und Alter 16 gemeinsam in `profile`. Python: `{\"name\": \"Alex\", \"age\": 16}`. JavaScript: `{name: \"Alex\", age: 16}`. Gib beide Werte über ihre Schlüssel aus und ändere danach das Alter auf 17. [DICTIONARIES]",
+    "description_en": "Store Alex and age 16 together in `profile`. Python: `{\"name\": \"Alex\", \"age\": 16}`. JavaScript: `{name: \"Alex\", age: 16}`. Display both values by key, then change the age to 17. [DICTIONARIES]",
+    "level": "Aufbau",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-greet-function",
+    "title": "Meine erste Funktion",
+    "title_en": "My First Function",
+    "description": "Schreibe eine Funktion `say_hello`, die Hallo! ausgibt. Rufe sie danach zweimal auf. Python: Beginne mit `def say_hello():`. JavaScript: Beginne mit `function say_hello()`. Die Ausgabe soll beim Aufrufen erfolgen. [FUNCTIONS]",
+    "description_en": "Write a function `say_hello` that displays Hello! Call it twice afterwards. Python: start with `def say_hello():`. JavaScript: start with `function say_hello()`. Output should happen when the function is called. [FUNCTIONS]",
+    "level": "Aufbau",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "basics-greet-person",
+    "title": "Funktion mit Name",
+    "title_en": "A Function with a Name",
+    "description": "Schreibe `greet(name)`. Die Funktion soll die übergebene Person begrüßen. Rufe sie mit Alex und mit Sam auf. Verwende den Parameter statt eines fest eingebauten Namens. [PARAMETERS]",
+    "description_en": "Write `greet(name)`. The function should greet the person passed to it. Call it with Alex and Sam. Use the parameter instead of a hard-coded name. [PARAMETERS]",
+    "level": "Aufbau",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "guessing",
+    "title": "Zahlenraten",
+    "description": "Lass eine Zahl erraten. Gib ZU HOCH, ZU NIEDRIG oder RICHTIG aus. Wiederhole bis zur richtigen Antwort. Beginne mit `import random`. [RANDOM]",
+    "level": "Fortgeschritten",
+    "language": "python",
+    "title_en": "Guess the Number",
+    "description_en": "Let the user guess a number. Display TOO HIGH, TOO LOW or CORRECT. Repeat until the correct answer is entered. Start with `import random`. [RANDOM]",
+    "starter_code": "import random\n",
+    "starter_code_en": "import random\n"
+  },
+  {
+    "id": "function",
+    "title": "Eigene Funktion",
+    "description": "Schreibe `double(x)`, die eine Zahl verdoppelt und das Ergebnis mit `return` zurückgibt. [RETURN]",
+    "level": "Aufbau",
+    "language": "python",
+    "title_en": "Your Own Function",
+    "description_en": "Write `double(x)`, which doubles a number and returns the result using `return`. [RETURN]"
+  },
+  {
+    "id": "basics-rectangle-area",
+    "title": "Fläche als Rückgabewert",
+    "title_en": "Area as a Return Value",
+    "description": "Schreibe `area(width, height)`, die Breite mal Höhe mit `return` zurückgibt. Gib die Ergebnisse von `area(3, 4)` und `area(2, 5)` außerhalb der Funktion aus. Erwartet: 12 und 10.",
+    "description_en": "Write `area(width, height)` that returns width times height using `return`. Display `area(3, 4)` and `area(2, 5)` outside the function. Expected: 12 and 10.",
+    "level": "Aufbau",
+    "language": "python",
+    "visible": true
+  },
+  {
+    "id": "codebreaker",
+    "title": "Codebreaker",
+    "description": "Programmiere ein Codebreaker-Spiel: Der Computer wählt vier unterschiedliche Ziffern von 0 bis 9; eine führende Null ist erlaubt. Nach jedem Tipp zeige den Tipp und zwei Zahlen: Ziffern an der richtigen Position sowie richtige Ziffern an einer anderen Position. Beispiel: Geheimcode 4271, Tipp 1234 → 1 richtige Position (2) und 2 richtige Ziffern an anderer Position (1 und 4). Der echte Geheimcode bleibt bis zum Spielende verborgen. Tipp zum Start: Probiere 0123, dann bisher ungetestete Ziffern und verändere danach ihre Positionen. Maximal 10 gültige Tipps; falsche Länge, Nicht-Ziffern oder doppelte Ziffern kosten keinen Versuch. Bei richtigem Code gewinnst du; nach 10 gültigen Fehlversuchen zeige den Geheimcode. Beginne mit `import random`.",
+    "level": "Experten",
+    "language": "python",
+    "title_en": "Codebreaker",
+    "description_en": "Build a Codebreaker game: the computer chooses four different digits from 0 to 9; a leading zero is allowed. After each guess, show the guess and two counts: digits in the correct position and correct digits in a different position. Example: secret 4271, guess 1234 → 1 correct position (2) and 2 correct digits elsewhere (1 and 4). Keep the real secret hidden until the end. Start with 0123, try previously untested digits, then rearrange them based on the feedback. Allow at most 10 valid guesses; wrong length, non-digits and repeated digits do not use an attempt. Win when the code matches; reveal the secret after 10 valid wrong guesses. Start with `import random`.",
+    "starter_code": "import random\n",
+    "starter_code_en": "import random\n"
+  },
+  {
+    "id": "shapes",
+    "title": "Formen zeichnen",
+    "description": "Zeichne in Graphics zwei farbige Vierecke und zwei Kreise auf einer gemeinsamen Zeichenfläche. Verwende unterschiedliche Farben und Größen. Alle Formen sollen vollständig sichtbar bleiben. Zeige die Grafik mit Run. Hinweis: Verwende `from pyjs_canvas import Canvas`. Zeichne mit `canvas.rectangle()` und `canvas.circle()`; alle Koordinaten sind Pixel, y zeigt nach unten. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. [CANVAS]",
+    "level": "Fortgeschritten",
+    "language": "python",
+    "title_en": "Draw Shapes",
+    "description_en": "Draw two coloured rectangles and two circles in Graphics on one canvas. Use different colours and sizes. Keep all shapes fully visible. Display the drawing with Run. Import Canvas from pyjs_canvas. Use canvas.rectangle() and canvas.circle(); coordinates are pixels and y points down. The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. [CANVAS]",
+    "starter_code": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n",
+    "starter_code_en": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n"
+  },
+  {
+    "id": "drag-circles",
+    "title": "Kreise verschieben",
+    "description": "Zeichne zwei Kreise. Beim Drücken auf einen Kreis wähle genau diesen aus, ziehe ihn mit Maus oder Finger und lasse ihn beim Loslassen an der neuen Stelle. Die Kreismitte darf dem Zeiger direkt folgen; ein einfacher Treffercheck genügt. Klicke außerhalb der Kreise: Es darf sich nichts bewegen. Beide Kreise müssen innerhalb der Zeichenfläche bleiben. Hinweis: Drücken → Bewegen → Loslassen, ohne Pan oder Zoom zu aktivieren. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. `canvas.on(\"press\", press)`, move und release sind bereits verbunden; die Funktionen erhalten Pixelkoordinaten x und y. [EVENTS]",
+    "level": "Fortgeschritten",
+    "language": "python",
+    "title_en": "Drag Circles",
+    "description_en": "Draw two circles. Press a circle to select only that circle, drag it with the mouse or a finger, and release it at its new position. The centre may follow the pointer directly; a simple hit check is enough. Clicking outside the circles must move nothing. Keep both circles inside the canvas. Hint: press → move → release, without enabling Pan or Zoom. The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. `canvas.on(\"press\", press)`, move and release are wired up; functions receive pixel coordinates x and y. [EVENTS]",
+    "starter_code": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Figur auswählen und Ziehen beginnen.\n    pass\n\ndef move(x, y):\n    # TODO: Die ausgewählte Figur verschieben.\n    pass\n\ndef release(x, y):\n    # TODO: Ziehen beenden.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n",
+    "starter_code_en": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Select a shape and start dragging.\n    pass\n\ndef move(x, y):\n    # TODO: Move the selected shape.\n    pass\n\ndef release(x, y):\n    # TODO: End the drag.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n"
+  },
+  {
+    "id": "rotate-rectangle",
+    "title": "Viereck drehen",
+    "description": "Zeichne ein farbiges Viereck und einen Regler für den Winkel von 0 bis 360 Grad. Beim Verändern des Reglers dreht sich das Viereck um seinen Mittelpunkt. Es darf nicht wegwandern; nach 360 Grad sieht es wie bei 0 Grad aus. Verwende `canvas.rectangle(..., angle=winkel)` und `canvas.slider()`. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. Der Winkel-Regler ruft `rotate(angle)` auf. [SLIDERS]",
+    "level": "Fortgeschritten",
+    "language": "python",
+    "title_en": "Rotate a Rectangle",
+    "description_en": "Draw a coloured rectangle and an angle slider from 0 to 360 degrees. Changing the slider rotates the rectangle around its centre. It must not drift; 360 degrees must look like 0 degrees. Use canvas.rectangle(..., angle=angle) and canvas.slider(). The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. The angle slider calls `rotate(angle)`. [SLIDERS]",
+    "starter_code": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef rotate(angle):\n    # TODO: Viereck mit diesem Winkel neu zeichnen.\n    pass\n\ncanvas.slider(\"Winkel\", 0, 360, 0, rotate)\nrotate(0)\n",
+    "starter_code_en": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef rotate(angle):\n    # TODO: Redraw the rectangle at this angle.\n    pass\n\ncanvas.slider(\"Angle\", 0, 360, 0, rotate)\nrotate(0)\n"
+  },
+  {
+    "id": "bouncing-ball",
+    "title": "Ball mit Schwerkraft",
+    "description": "Ein Kreis wird zum Ball: Zeichne einen Ball und einen Boden. Ziehe den Ball mit Maus oder Finger hoch. Während des Ziehens bleibt die Physik pausiert. Beim Loslassen fällt er durch Schwerkraft und springt vom Boden ab. Jeder Sprung wird kleiner, bis er liegen bleibt. Beim erneuten Aufheben starte seine Fallgeschwindigkeit wieder bei 0. Eine einfache Simulation reicht: nur vertikale Geschwindigkeit, keine Wurfbewegung und keine Kollision mit anderen Bällen. Beispiel: Geschwindigkeit += Schwerkraft × Zeitschritt; Höhe += Geschwindigkeit × Zeitschritt. Am Boden die Richtung umkehren und mit 0.75 dämpfen. Verwende `Canvas` aus `pyjs_canvas` und `canvas.animate(update, fps=20)`. In dieser ersten Version ist der Zeitschritt fest: 0.05 Sekunden; die Folgeaufgabe verbessert das. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. `canvas.on(\"press\", press)`, move und release sind bereits verbunden; die Funktionen erhalten Pixelkoordinaten x und y. `canvas.animate()` ruft `update(dt)` auf; dt ist die vergangene Zeit in Sekunden. [ANIMATION]",
+    "level": "Experten",
+    "language": "python",
+    "title_en": "Ball with Gravity",
+    "description_en": "Turn a circle into a ball: draw a ball and a floor. Drag the ball upwards with the mouse or a finger. Pause physics while dragging. On release, gravity makes it fall and bounce off the floor. Each bounce becomes smaller until it rests. Picking it up again resets its falling speed to 0. A simple simulation is enough: vertical speed only, no throwing and no collisions with other balls. Update speed and position with the time step; reverse the direction at the floor and damp it by 0.75. Use Canvas from pyjs_canvas and canvas.animate(update, fps=20). This first version uses a fixed 0.05-second step; the next challenge improves it. The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. `canvas.on(\"press\", press)`, move and release are wired up; functions receive pixel coordinates x and y. `canvas.animate()` calls `update(dt)`; dt is elapsed seconds. [ANIMATION]",
+    "starter_code": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Figur auswählen und Ziehen beginnen.\n    pass\n\ndef move(x, y):\n    # TODO: Die ausgewählte Figur verschieben.\n    pass\n\ndef release(x, y):\n    # TODO: Ziehen beenden.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Bewegung berechnen und den Ball neu zeichnen.\n    pass\n\ncanvas.animate(update, fps=20)\n",
+    "starter_code_en": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Select a shape and start dragging.\n    pass\n\ndef move(x, y):\n    # TODO: Move the selected shape.\n    pass\n\ndef release(x, y):\n    # TODO: End the drag.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Calculate movement and redraw the ball.\n    pass\n\ncanvas.animate(update, fps=20)\n"
+  },
+  {
+    "id": "framerate",
+    "title": "Ball: unterschiedliche Frameraten",
+    "description": "Erweitere die vorherige Ball-Simulation: Berücksichtige unterschiedliche Frameraten, damit der Ball bei 10, 30 und 60 Bildern pro Sekunde ungefähr gleich schnell fällt. Nutze die seit dem letzten Physik-Update vergangene Zeit dt in Sekunden und verwende Geschwindigkeit += Schwerkraft * dt sowie Position += Geschwindigkeit * dt. Füge einen FPS-Regler (10–60) hinzu und vergleiche dieselbe Fallhöhe bei verschiedenen Einstellungen. Weniger FPS dürfen die Bewegung ruckeliger machen, aber nicht einfach langsamer. Die Zeitmessung muss auch beim Festhalten weiterlaufen. Lange Browserpausen sollen keine riesigen Positionssprünge verursachen. Kleine Unterschiede beim Aufprall sind bei dieser einfachen Simulation erlaubt. Hinweis: `canvas.animate()` liefert dt in Sekunden und begrenzt lange Pausen bereits. Mit `canvas.set_fps()` stellst du die Framerate ein. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. `canvas.on(\"press\", press)`, move und release sind bereits verbunden; die Funktionen erhalten Pixelkoordinaten x und y. `canvas.animate()` ruft `update(dt)` auf; dt ist die vergangene Zeit in Sekunden. [DELTA TIME]",
+    "level": "Experten",
+    "language": "python",
+    "title_en": "Ball: Different Frame Rates",
+    "description_en": "Extend the previous ball simulation to handle different frame rates so the ball falls at roughly the same speed at 10, 30 and 60 frames per second. Use elapsed time dt in seconds: velocity += gravity * dt; position += velocity * dt. Add an FPS slider (10–60) and compare drops from the same height. Lower FPS may look less smooth, but must not simply slow the motion down. Keep the clock running while dragging and prevent huge position jumps after long browser pauses. Small differences at impact are acceptable in this simple simulation. canvas.animate() already supplies dt and caps long pauses. Use canvas.set_fps() to set the frame rate. The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. `canvas.on(\"press\", press)`, move and release are wired up; functions receive pixel coordinates x and y. `canvas.animate()` calls `update(dt)`; dt is elapsed seconds. [DELTA TIME]",
+    "starter_code": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Figur auswählen und Ziehen beginnen.\n    pass\n\ndef move(x, y):\n    # TODO: Die ausgewählte Figur verschieben.\n    pass\n\ndef release(x, y):\n    # TODO: Ziehen beenden.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Bewegung berechnen und den Ball neu zeichnen.\n    pass\n\ncanvas.slider(\"FPS\", 10, 60, 30, canvas.set_fps)\n\ncanvas.animate(update, fps=30)\n",
+    "starter_code_en": "from pyjs_canvas import Canvas\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Select a shape and start dragging.\n    pass\n\ndef move(x, y):\n    # TODO: Move the selected shape.\n    pass\n\ndef release(x, y):\n    # TODO: End the drag.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Calculate movement and redraw the ball.\n    pass\n\ncanvas.slider(\"FPS\", 10, 60, 30, canvas.set_fps)\n\ncanvas.animate(update, fps=30)\n"
+  },
+  {
+    "id": "collision",
+    "title": "Ball: schräge Plattform und Kollisionen",
+    "description": "Erweitere den Ball aus der Framerate-Aufgabe um Kollisionen: Zeichne ein langes, schmales Viereck, das um etwa 20 Grad geneigt ist. Ziehe den Ball über die Plattform und lasse ihn fallen. Er soll an der schrägen Fläche und ihren Kanten abprallen, statt hindurchzufallen. Verwende jetzt eine Geschwindigkeit für x und y; nach dem Aufprall bewegt sich der Ball auch seitlich. Ziehen pausiert die Physik und setzt beide Geschwindigkeiten auf 0. Boden und Seitenränder begrenzen die Bewegung. Hinweis: Drehe den Ballpunkt in die ungedrehten Koordinaten des Vierecks, suche den nächsten Punkt auf dessen Oberfläche und spiegle die Geschwindigkeit an der Kollisionsrichtung. Dämpfe jeden Aufprall. Kleine Physik-Teilschritte verhindern Durchfallen bei niedrigen FPS. Teste Mitte, Kanten und Ecken der Plattform. Der Startcode gibt `from pyjs_canvas import Canvas` und die Zeichenfläche vor. `canvas.on(\"press\", press)`, move und release sind bereits verbunden; die Funktionen erhalten Pixelkoordinaten x und y. `canvas.animate()` ruft `update(dt)` auf; dt ist die vergangene Zeit in Sekunden. [COLLISION]",
+    "level": "Experten",
+    "language": "python",
+    "title_en": "Ball: Tilted Platform and Collisions",
+    "description_en": "Extend the ball from the frame-rate challenge with collisions. Draw a long, thin rectangle tilted by about 20 degrees. Drag the ball above the platform and let it fall. It must bounce off the sloped surface and its edges instead of passing through. Use both x and y velocity; after impact the ball also moves sideways. Dragging pauses physics and resets both velocities to 0. The floor and side walls bound the motion. Hint: transform the ball into the rectangle's unrotated coordinates, find the nearest surface point, then reflect its velocity along the collision direction. Dampen each bounce. Small physics substeps prevent tunnelling at low FPS. Test the middle, edges and corners of the platform. The starter supplies `from pyjs_canvas import Canvas` and the drawing surface. `canvas.on(\"press\", press)`, move and release are wired up; functions receive pixel coordinates x and y. `canvas.animate()` calls `update(dt)`; dt is elapsed seconds. [COLLISION]",
+    "starter_code": "from pyjs_canvas import Canvas\nfrom math import cos, sin, radians, hypot\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Figur auswählen und Ziehen beginnen.\n    pass\n\ndef move(x, y):\n    # TODO: Die ausgewählte Figur verschieben.\n    pass\n\ndef release(x, y):\n    # TODO: Ziehen beenden.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Bewegung berechnen und den Ball neu zeichnen.\n    pass\n\ncanvas.animate(update, fps=30)\n",
+    "starter_code_en": "from pyjs_canvas import Canvas\nfrom math import cos, sin, radians, hypot\n\ncanvas = Canvas(600, 360)\n\ndef press(x, y):\n    # TODO: Select a shape and start dragging.\n    pass\n\ndef move(x, y):\n    # TODO: Move the selected shape.\n    pass\n\ndef release(x, y):\n    # TODO: End the drag.\n    pass\n\ncanvas.on(\"press\", press)\ncanvas.on(\"move\", move)\ncanvas.on(\"release\", release)\n\ndef update(dt):\n    # TODO: Calculate movement and redraw the ball.\n    pass\n\ncanvas.animate(update, fps=30)\n"
+  },
+  {
+    "id": "js-hello",
+    "title": "Hello JavaScript",
+    "description": "Gib mit `console.log()` deinen Namen, einen Text und eine Zahl aus. [OUTPUT] [STRINGS]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "title_en": "Hello JavaScript",
+    "description_en": "Display your name, a text and a number using `console.log()`. [OUTPUT] [STRINGS]"
+  },
+  {
+    "id": "js-about",
+    "title": "About Me",
+    "description": "Speichere Name, Alter und Hobby in drei Variablen und gib sie aus. [VARIABLES]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "title_en": "About Me",
+    "description_en": "Store your name, age and hobby in three variables and display them. [VARIABLES]"
+  },
+  {
+    "id": "js-basics-change-value",
+    "title": "Lieblingsfarbe ändern",
+    "title_en": "Change Your Favourite Colour",
+    "description": "Speichere Blau in `colour` und gib den Wert aus. Ersetze den Wert durch Grün und gib ihn erneut aus. Verwende dieselbe Variable.",
+    "description_en": "Store Blue in `colour` and display it. Replace its value with Green and display it again. Use the same variable.",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-profile-message",
+    "title": "Mein Steckbrief als Satz",
+    "title_en": "My Profile as a Sentence",
+    "description": "Speichere Alex und 16 in `name` und `age`. Gib einen Satz aus, der beide Werte enthält. Python: Verwende einen f-String. JavaScript: Verwende einen Template-String mit Backticks. [STRING FORMATTING]",
+    "description_en": "Store Alex and 16 in `name` and `age`. Display a sentence containing both values. Python: use an f-string. JavaScript: use a template string with backticks. [STRING FORMATTING]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-score",
+    "title": "Score Counter",
+    "description": "Starte mit 10 Punkten. Addiere 5, ziehe 3 ab und gib das Ergebnis aus. [OPERATORS]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "title_en": "Score Counter",
+    "description_en": "Start with 10 points. Add 5, subtract 3 and display the result. [OPERATORS]"
+  },
+  {
+    "id": "js-calculator",
+    "title": "Mini-Rechner",
+    "description": "Erstelle `const a = 12` und `const b = 4`. Berechne Summe, Differenz und Produkt.",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "title_en": "Mini Calculator",
+    "description_en": "Create a = 12 and b = 4. Calculate the sum, difference and product."
+  },
+  {
+    "id": "js-basics-shopping-total",
+    "title": "Einkauf berechnen",
+    "title_en": "Calculate a Shopping Total",
+    "description": "Ein Heft kostet 2 Euro. Du kaufst 3 Hefte. Speichere Preis und Anzahl in Variablen, berechne den Gesamtpreis und gib ihn aus. Ändere danach die Anzahl auf 5 und teste erneut.",
+    "description_en": "One notebook costs 2 euros. You buy 3 notebooks. Store the price and quantity, calculate the total and display it. Then change the quantity to 5 and test again.",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-division-share",
+    "title": "Fair teilen",
+    "title_en": "Share Fairly",
+    "description": "Vier Personen teilen eine Rechnung von 22 Euro gleichmäßig. Speichere beide Zahlen, berechne mit `/` den Anteil pro Person und gib ihn aus. Erwartet: 5.5. [DIVISION]",
+    "description_en": "Four people share a bill of 22 euros equally. Store both numbers, calculate each person's share using `/` and display it. Expected: 5.5. [DIVISION]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-leftovers",
+    "title": "Was bleibt übrig?",
+    "title_en": "What Is Left Over?",
+    "description": "Verteile 17 Bonbons auf 5 Personen. Berechne mit `%`, wie viele Bonbons nach dem Verteilen gleicher Mengen übrig bleiben. Gib den Rest aus. Erwartet: 2. [MODULO]",
+    "description_en": "Share 17 sweets among 5 people. Use `%` to find how many remain after giving everyone the same amount. Display the remainder. Expected: 2. [MODULO]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-input-greeting",
+    "title": "Begrüßung mit Eingabe",
+    "title_en": "Greeting with User Input",
+    "description": "Frage mit `prompt()` nach einem Namen. Speichere die Eingabe und begrüße die Person mit `console.log()`. Teste mit Alex und mit deinem eigenen Namen. [INPUT]",
+    "description_en": "Ask for a name using `prompt()`. Store the input and greet the person using `console.log()`. Test with Alex and with your own name. [INPUT]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-birthday",
+    "title": "Alter nächstes Jahr",
+    "title_en": "Age Next Year",
+    "description": "Frage mit `prompt()` nach dem Alter. Wandle den Text mit `Number()` in eine Zahl um, addiere 1 und gib das Alter im nächsten Jahr aus. Teste mit 12. Verwende zunächst nur gültige ganze Zahlen. [TYPE CONVERSION]",
+    "description_en": "Ask for an age using `prompt()`. Convert the text to a number using `Number()`, add 1 and display the age next year. Test with 12. For now, enter valid whole numbers only. [TYPE CONVERSION]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-temperature",
+    "title": "Warm oder kühl?",
+    "title_en": "Warm or Cool?",
+    "description": "Setze `temperature = 28`. Bei mindestens 25 Grad gib Warm aus, sonst Kühl. Verwende `if/else` und den Vergleich `>=`. Teste danach mit 20 und mit genau 25 Grad. [COMPARISONS] [IF]",
+    "description_en": "Set `temperature = 28`. Display Warm for at least 25 degrees, otherwise Cool. Use `if/else` and the `>=` comparison. Then test with 20 and exactly 25 degrees. [COMPARISONS] [IF]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-level",
+    "title": "Level Check",
+    "description": "Frage mit `prompt()` und `Number()` nach der Punktezahl. Bei mindestens 10 Punkten gib LEVEL UP aus, sonst TRY AGAIN. Prüfe mit if/else. Akzeptiere nur ganze, nicht negative Zahlen; zeige bei anderen Eingaben eine verständliche Meldung. Teste 9, 10 und 12 Punkte. [VALIDATION]",
+    "level": "Aufbau",
+    "language": "javascript",
+    "title_en": "Level Check",
+    "description_en": "Ask for a score using `prompt()` and `Number()`. Display LEVEL UP for at least 10 points, otherwise TRY AGAIN. Use if/else. Accept only non-negative whole numbers; show a clear message for other inputs. Test 9, 10 and 12 points. [VALIDATION]"
+  },
+  {
+    "id": "js-basics-door",
+    "title": "Zwei Bedingungen",
+    "title_en": "Two Conditions",
+    "description": "Speichere in `has_key` und `is_member`, ob jemand einen Schlüssel hat und Mitglied ist. Verwende Wahrheitswerte: Python `True/False`, JavaScript `true/false`. Nur wenn beide Werte wahr sind, gib Tür offen aus, sonst Tür zu. Verbinde die Bedingungen mit Python `and` bzw. JavaScript `&&`. Teste alle vier Kombinationen. [BOOLEANS] [AND]",
+    "description_en": "Store whether someone has a key and is a member in `has_key` and `is_member`. Use booleans: Python `True/False`, JavaScript `true/false`. Display Door open only when both are true, otherwise Door closed. Combine conditions using Python `and` or JavaScript `&&`. Test all four combinations. [BOOLEANS] [AND]",
+    "level": "Aufbau",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-password",
+    "title": "Passwort-Check",
+    "description": "Frage mit `prompt()` ein Testpasswort ab. Bei `javascript123` erscheint ZUGANG ERLAUBT, sonst ZUGANG VERWEIGERT.",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "title_en": "Password Check",
+    "description_en": "Ask for a test password using `prompt()`. Display ACCESS GRANTED for `javascript123`, otherwise ACCESS DENIED."
+  },
+  {
+    "id": "js-basics-name-normalize",
+    "title": "Namen aufräumen",
+    "title_en": "Clean Up a Name",
+    "description": "Speichere den Text `  ALEx  ` einschließlich der Leerzeichen. Entferne mit `trim()` die äußeren Leerzeichen und wandle den Text mit `toLowerCase()` in Kleinbuchstaben um. Gib alex aus. Gib danach mit `toUpperCase()` die Großbuchstaben-Version aus. [STRING METHODS]",
+    "description_en": "Store `  ALEx  ` including its spaces. Remove surrounding spaces using `trim()` and convert to lowercase using `toLowerCase()`. Display alex. Then display the uppercase version using `toUpperCase()`. [STRING METHODS]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-letters",
+    "title": "Erstes und letztes Zeichen",
+    "title_en": "First and Last Character",
+    "description": "Speichere Alex in `name`. Gib das erste Zeichen, das letzte Zeichen und die Textlänge aus. Die erste Position ist 0. Letztes Zeichen: Python `name[-1]`, JavaScript `name[name.length - 1]`. Für die Länge verwende `.length`. Erwartet: A, x und 4. [INDEXING] [LENGTH]",
+    "description_en": "Store Alex in `name`. Display its first character, last character and length. The first position is 0. Last character: Python `name[-1]`, JavaScript `name[name.length - 1]`. Use `.length` for the length. Expected: A, x and 4. [INDEXING] [LENGTH]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-snacks",
+    "title": "Meine Einkaufsliste",
+    "title_en": "My Shopping List",
+    "description": "Erstelle `items` mit Milch, Brot und Apfel in eckigen Klammern. Gib den ersten Eintrag, den dritten Eintrag und die Anzahl der Einträge aus. Denk daran: Die erste Position ist 0. [ARRAYS]",
+    "description_en": "Create `items` containing Milk, Bread and Apple in square brackets. Display the first item, third item and item count. Remember: the first position is 0. [ARRAYS]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-list-edit",
+    "title": "Liste verändern",
+    "title_en": "Change a List",
+    "description": "Starte mit Wasser und Saft in `items`. Hänge mit `push()` Tee an. Ersetze dann den ersten Eintrag durch Milch. Gib den ersten und letzten Eintrag sowie die neue Anzahl aus. Erwartet: Milch, Tee, 3. [ARRAY METHODS]",
+    "description_en": "Start with Water and Juice in `items`. Append Tea using `push()`. Replace the first item with Milk. Display the first and last items and the new count. Expected: Milk, Tea, 3. [ARRAY METHODS]",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-count-up",
+    "title": "Von 1 bis 5",
+    "title_en": "Count from 1 to 5",
+    "description": "Gib mit einer `for`-Schleife die Zahlen 1 bis 5 aus, jede in einer eigenen Zeile. Python: Verwende `range(1, 6)`, weil die obere Grenze nicht mitgezählt wird. JavaScript: Starte bei 1 und wiederhole solange die Zahl `<= 5` ist. [FOR]",
+    "description_en": "Use a `for` loop to display 1 through 5 on separate lines. Python: use `range(1, 6)`, because the upper endpoint is excluded. JavaScript: start at 1 and repeat while the number is `<= 5`. [FOR]",
+    "level": "Aufbau",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-repeat-message",
+    "title": "Dreimal üben",
+    "title_en": "Practise Three Times",
+    "description": "Gib Ich übe! genau dreimal aus. Verwende eine `for`-Schleife statt drei einzelne Ausgabebefehle. Verändere danach die Wiederholungszahl auf 5.",
+    "description_en": "Display I am practising! exactly three times. Use a `for` loop instead of three separate output statements. Then change the repeat count to 5.",
+    "level": "Aufbau",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-countdown",
+    "title": "Countdown",
+    "description": "Gib mit einer `for`-Schleife die Zahlen von 10 bis 1 aus.",
+    "level": "Aufbau",
+    "language": "javascript",
+    "title_en": "Countdown",
+    "description_en": "Display the numbers from 10 down to 1 using a `for` loop."
+  },
+  {
+    "id": "js-basics-playlist",
+    "title": "Playlist ausgeben",
+    "title_en": "Display a Playlist",
+    "description": "Speichere Rock, Pop und Jazz in `songs`. Gib alle Einträge mit einer Schleife aus. Python: `for song in songs`. JavaScript: `for (const song of songs)`. Hänge einen vierten Eintrag an und prüfe, ob er automatisch mit ausgegeben wird.",
+    "description_en": "Store Rock, Pop and Jazz in `songs`. Display every entry with a loop. Python: `for song in songs`. JavaScript: `for (const song of songs)`. Append a fourth entry and check that the loop displays it automatically.",
+    "level": "Aufbau",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-list-total",
+    "title": "Zahlen aufsummieren",
+    "title_en": "Add Up Numbers",
+    "description": "Speichere 2, 4, 6 und 8 in `numbers`. Starte `total` bei 0 und addiere in einer Schleife jeden Eintrag dazu. Gib erst nach der Schleife das Ergebnis 20 aus. Verwende keine eingebaute Summenfunktion.",
+    "description_en": "Store 2, 4, 6 and 8 in `numbers`. Start `total` at 0 and add each item in a loop. Display 20 after the loop. Do not use a built-in sum function.",
+    "level": "Aufbau",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-multiplication",
+    "title": "Kleine Einmaleins-Tabelle",
+    "title_en": "A Small Times Table",
+    "description": "Gib die ersten fünf Aufgaben der 7er-Reihe aus: 1 x 7 = 7 bis 5 x 7 = 35. Verwende eine Schleife und berechne jedes Ergebnis. Speichere die 7 in einer Variable, damit du leicht die 3er-Reihe testen kannst.",
+    "description_en": "Display the first five entries of the 7 times table: 1 x 7 = 7 through 5 x 7 = 35. Use a loop and calculate each result. Store 7 in a variable so you can easily test the 3 times table.",
+    "level": "Aufbau",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-even",
+    "title": "Gerade oder ungerade?",
+    "description": "Prüfe mit `%`, ob eine Zahl gerade oder ungerade ist. Hinweis: Rest bei Division durch 2.",
+    "level": "Grundlagen",
+    "language": "javascript",
+    "title_en": "Even or Odd?",
+    "description_en": "Use `%` to check whether a number is even or odd. Hint: look at the remainder when dividing by 2."
+  },
+  {
+    "id": "js-grades",
+    "title": "Noten-Rechner",
+    "description": "Wandle Punkte (0–100) mit `if/else if/else` in Schulnoten um. Lege sinnvolle Grenzen fest. [ELSE IF]",
+    "level": "Aufbau",
+    "language": "javascript",
+    "title_en": "Grade Calculator",
+    "description_en": "Convert a score (0–100) to school grades using if/else if/else. Choose reasonable thresholds. [ELSE IF]"
+  },
+  {
+    "id": "js-basics-energy",
+    "title": "Energie verbrauchen",
+    "title_en": "Use Up Energy",
+    "description": "Starte mit `energy = 3`. Solange die Energie größer als 0 ist, gib sie aus und verringere sie um 1. Verwende `while`. Gib danach Pause. aus. Wichtig: Ändere die Energie in der Schleife, damit sie endet. [WHILE]",
+    "description_en": "Start with `energy = 3`. While energy is greater than 0, display it and decrease it by 1. Use `while`. Display Pause. afterwards. Change energy inside the loop so it terminates. [WHILE]",
+    "level": "Aufbau",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-profile-card",
+    "title": "Daten mit Namen",
+    "title_en": "Data with Named Keys",
+    "description": "Speichere Name Alex und Alter 16 gemeinsam in `profile`. Python: `{\"name\": \"Alex\", \"age\": 16}`. JavaScript: `{name: \"Alex\", age: 16}`. Gib beide Werte über ihre Schlüssel aus und ändere danach das Alter auf 17. [OBJECTS]",
+    "description_en": "Store Alex and age 16 together in `profile`. Python: `{\"name\": \"Alex\", \"age\": 16}`. JavaScript: `{name: \"Alex\", age: 16}`. Display both values by key, then change the age to 17. [OBJECTS]",
+    "level": "Aufbau",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-greet-function",
+    "title": "Meine erste Funktion",
+    "title_en": "My First Function",
+    "description": "Schreibe eine Funktion `say_hello`, die Hallo! ausgibt. Rufe sie danach zweimal auf. Python: Beginne mit `def say_hello():`. JavaScript: Beginne mit `function say_hello()`. Die Ausgabe soll beim Aufrufen erfolgen. [FUNCTIONS]",
+    "description_en": "Write a function `say_hello` that displays Hello! Call it twice afterwards. Python: start with `def say_hello():`. JavaScript: start with `function say_hello()`. Output should happen when the function is called. [FUNCTIONS]",
+    "level": "Aufbau",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-basics-greet-person",
+    "title": "Funktion mit Name",
+    "title_en": "A Function with a Name",
+    "description": "Schreibe `greet(name)`. Die Funktion soll die übergebene Person begrüßen. Rufe sie mit Alex und mit Sam auf. Verwende den Parameter statt eines fest eingebauten Namens. [PARAMETERS]",
+    "description_en": "Write `greet(name)`. The function should greet the person passed to it. Call it with Alex and Sam. Use the parameter instead of a hard-coded name. [PARAMETERS]",
+    "level": "Aufbau",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-guessing",
+    "title": "Zahlenraten",
+    "description": "Lass eine Zahl erraten. Gib ZU HOCH, ZU NIEDRIG oder RICHTIG aus. Wiederhole bis zur richtigen Antwort. [RANDOM]",
+    "level": "Fortgeschritten",
+    "language": "javascript",
+    "title_en": "Guess the Number",
+    "description_en": "Let the user guess a number. Display TOO HIGH, TOO LOW or CORRECT. Repeat until the correct answer is entered. [RANDOM]"
+  },
+  {
+    "id": "js-function",
+    "title": "Eigene Funktion",
+    "description": "Schreibe `function double(x)`, die eine Zahl verdoppelt und das Ergebnis mit `return` zurückgibt. [RETURN]",
+    "level": "Aufbau",
+    "language": "javascript",
+    "title_en": "Your Own Function",
+    "description_en": "Write `double(x)`, which doubles a number and returns the result using `return`. [RETURN]"
+  },
+  {
+    "id": "js-basics-rectangle-area",
+    "title": "Fläche als Rückgabewert",
+    "title_en": "Area as a Return Value",
+    "description": "Schreibe `area(width, height)`, die Breite mal Höhe mit `return` zurückgibt. Gib die Ergebnisse von `area(3, 4)` und `area(2, 5)` außerhalb der Funktion aus. Erwartet: 12 und 10.",
+    "description_en": "Write `area(width, height)` that returns width times height using `return`. Display `area(3, 4)` and `area(2, 5)` outside the function. Expected: 12 and 10.",
+    "level": "Aufbau",
+    "language": "javascript",
+    "visible": true
+  },
+  {
+    "id": "js-codebreaker",
+    "title": "Codebreaker",
+    "description": "Programmiere ein Codebreaker-Spiel: Der Computer wählt vier unterschiedliche Ziffern von 0 bis 9; eine führende Null ist erlaubt. Nach jedem Tipp zeige den Tipp und zwei Zahlen: Ziffern an der richtigen Position sowie richtige Ziffern an einer anderen Position. Beispiel: Geheimcode 4271, Tipp 1234 → 1 richtige Position (2) und 2 richtige Ziffern an anderer Position (1 und 4). Der echte Geheimcode bleibt bis zum Spielende verborgen. Tipp zum Start: Probiere 0123, dann bisher ungetestete Ziffern und verändere danach ihre Positionen. Maximal 10 gültige Tipps; falsche Länge, Nicht-Ziffern oder doppelte Ziffern kosten keinen Versuch. Bei richtigem Code gewinnst du; nach 10 gültigen Fehlversuchen zeige den Geheimcode.",
+    "level": "Experten",
+    "language": "javascript",
+    "title_en": "Codebreaker",
+    "description_en": "Build a Codebreaker game: the computer chooses four different digits from 0 to 9; a leading zero is allowed. After each guess, show the guess and two counts: digits in the correct position and correct digits in a different position. Example: secret 4271, guess 1234 → 1 correct position (2) and 2 correct digits elsewhere (1 and 4). Keep the real secret hidden until the end. Start with 0123, try previously untested digits, then rearrange them based on the feedback. Allow at most 10 valid guesses; wrong length, non-digits and repeated digits do not use an attempt. Win when the code matches; reveal the secret after 10 valid wrong guesses."
+  },
+  {
+    "id": "js-shapes",
+    "title": "Formen zeichnen",
+    "description": "Zeichne in Graphics zwei farbige Vierecke und zwei Kreise auf einer gemeinsamen Zeichenfläche. Verwende unterschiedliche Farben und Größen. Alle Formen sollen vollständig sichtbar bleiben. Zeige die Grafik mit Run. Hinweis: Verwende `graphics.canvas()` und die Methoden `fillRect()`, `arc()` und `fill()`. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. [CANVAS]",
+    "level": "Fortgeschritten",
+    "language": "javascript",
+    "title_en": "Draw Shapes",
+    "description_en": "Draw two coloured rectangles and two circles in Graphics on one canvas. Use different colours and sizes. Keep all shapes fully visible. Display the drawing with Run. Use graphics.canvas(), fillRect(), arc() and fill(). The starter already creates the canvas and its 2D context. [CANVAS]",
+    "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n",
+    "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n"
+  },
+  {
+    "id": "js-drag-circles",
+    "title": "Kreise verschieben",
+    "description": "Zeichne zwei Kreise. Beim Drücken auf einen Kreis wähle genau diesen aus, ziehe ihn mit Maus oder Finger und lasse ihn beim Loslassen an der neuen Stelle. Die Kreismitte darf dem Zeiger direkt folgen; ein einfacher Treffercheck genügt. Klicke außerhalb der Kreise: Es darf sich nichts bewegen. Beide Kreise müssen innerhalb der Zeichenfläche bleiben. Hinweis: Drücken → Bewegen → Loslassen, ohne Pan oder Zoom zu aktivieren. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. pointerdown, pointermove und pointerup sind mit press, move und release verbunden. `point(event)` liefert Pixelkoordinaten. [EVENTS]",
+    "level": "Fortgeschritten",
+    "language": "javascript",
+    "title_en": "Drag Circles",
+    "description_en": "Draw two circles. Press a circle to select only that circle, drag it with the mouse or a finger, and release it at its new position. The centre may follow the pointer directly; a simple hit check is enough. Clicking outside the circles must move nothing. Keep both circles inside the canvas. Hint: press → move → release, without enabling Pan or Zoom. The starter already creates the canvas and its 2D context. pointerdown, pointermove and pointerup are wired to press, move and release. `point(event)` supplies pixel coordinates. [EVENTS]",
+    "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Figur auswählen und Ziehen beginnen.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Die ausgewählte Figur verschieben.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: Ziehen beenden.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n",
+    "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Select a shape and start dragging.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Move the selected shape.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: End the drag.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n"
+  },
+  {
+    "id": "js-rotate-rectangle",
+    "title": "Viereck drehen",
+    "description": "Zeichne ein farbiges Viereck und einen Regler für den Winkel von 0 bis 360 Grad. Beim Verändern des Reglers dreht sich das Viereck um seinen Mittelpunkt. Es darf nicht wegwandern; nach 360 Grad sieht es wie bei 0 Grad aus. Verwende `translate()`, `rotate()`, `save()` und `restore()`. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. Der Winkel-Regler ruft `rotate(angle)` auf. [SLIDERS]",
+    "level": "Fortgeschritten",
+    "language": "javascript",
+    "title_en": "Rotate a Rectangle",
+    "description_en": "Draw a coloured rectangle and an angle slider from 0 to 360 degrees. Changing the slider rotates the rectangle around its centre. It must not drift; 360 degrees must look like 0 degrees. Use translate(), rotate(), save() and restore(). The starter already creates the canvas and its 2D context. The angle slider calls `rotate(angle)`. [SLIDERS]",
+    "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction rotate(angle) {\n  // TODO: Viereck mit diesem Winkel neu zeichnen.\n}\ncanvas.slider({label: \"Winkel\", min: 0, max: 360, value: 0, onChange: rotate});\nrotate(0);\n",
+    "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction rotate(angle) {\n  // TODO: Redraw the rectangle at this angle.\n}\ncanvas.slider({label: \"Angle\", min: 0, max: 360, value: 0, onChange: rotate});\nrotate(0);\n"
+  },
+  {
+    "id": "js-bouncing-ball",
+    "title": "Ball mit Schwerkraft",
+    "description": "Ein Kreis wird zum Ball: Zeichne einen Ball und einen Boden. Ziehe den Ball mit Maus oder Finger hoch. Während des Ziehens bleibt die Physik pausiert. Beim Loslassen fällt er durch Schwerkraft und springt vom Boden ab. Jeder Sprung wird kleiner, bis er liegen bleibt. Beim erneuten Aufheben starte seine Fallgeschwindigkeit wieder bei 0. Eine einfache Simulation reicht: nur vertikale Geschwindigkeit, keine Wurfbewegung und keine Kollision mit anderen Bällen. Beispiel: Geschwindigkeit += Schwerkraft × Zeitschritt; Höhe += Geschwindigkeit × Zeitschritt. Am Boden die Richtung umkehren und mit 0.75 dämpfen. Verwende `graphics.canvas()` und `canvas.animate()`. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. pointerdown, pointermove und pointerup sind mit press, move und release verbunden. `point(event)` liefert Pixelkoordinaten. `canvas.animate()` ruft `update(dt)` mit der vergangenen Zeit in Sekunden auf. [ANIMATION]",
+    "level": "Experten",
+    "language": "javascript",
+    "title_en": "Ball with Gravity",
+    "description_en": "Turn a circle into a ball: draw a ball and a floor. Drag the ball upwards with the mouse or a finger. Pause physics while dragging. On release, gravity makes it fall and bounce off the floor. Each bounce becomes smaller until it rests. Picking it up again resets its falling speed to 0. A simple simulation is enough: vertical speed only, no throwing and no collisions with other balls. Update speed and position with the time step; reverse the direction at the floor and damp it by 0.75. Use graphics.canvas() and canvas.animate(). The starter already creates the canvas and its 2D context. pointerdown, pointermove and pointerup are wired to press, move and release. `point(event)` supplies pixel coordinates. `canvas.animate()` calls `update(dt)` with elapsed seconds. [ANIMATION]",
+    "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Figur auswählen und Ziehen beginnen.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Die ausgewählte Figur verschieben.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: Ziehen beenden.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nfunction update(dt) {\n  // TODO: Bewegung berechnen und den Ball neu zeichnen.\n}\ncanvas.animate(update);\n",
+    "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Select a shape and start dragging.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Move the selected shape.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: End the drag.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nfunction update(dt) {\n  // TODO: Calculate movement and redraw the ball.\n}\ncanvas.animate(update);\n"
+  },
+  {
+    "id": "js-framerate",
+    "title": "Ball: unterschiedliche Frameraten",
+    "description": "Erweitere die vorherige Ball-Simulation: Berücksichtige unterschiedliche Frameraten, damit der Ball bei 10, 30 und 60 Bildern pro Sekunde ungefähr gleich schnell fällt. Nutze die seit dem letzten Physik-Update vergangene Zeit dt in Sekunden und verwende Geschwindigkeit += Schwerkraft * dt sowie Position += Geschwindigkeit * dt. Füge einen FPS-Regler (10–60) hinzu und vergleiche dieselbe Fallhöhe bei verschiedenen Einstellungen. Weniger FPS dürfen die Bewegung ruckeliger machen, aber nicht einfach langsamer. Die Zeitmessung muss auch beim Festhalten weiterlaufen. Lange Browserpausen sollen keine riesigen Positionssprünge verursachen. Kleine Unterschiede beim Aufprall sind bei dieser einfachen Simulation erlaubt. Hinweis: `canvas.animate()` liefert dt in Sekunden und begrenzt lange Pausen bereits. Sammle dt zwischen den Frames, bis der gewünschte FPS-Abstand erreicht ist. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. pointerdown, pointermove und pointerup sind mit press, move und release verbunden. `point(event)` liefert Pixelkoordinaten. `canvas.animate()` ruft `update(dt)` mit der vergangenen Zeit in Sekunden auf. [DELTA TIME]",
+    "level": "Experten",
+    "language": "javascript",
+    "title_en": "Ball: Different Frame Rates",
+    "description_en": "Extend the previous ball simulation to handle different frame rates so the ball falls at roughly the same speed at 10, 30 and 60 frames per second. Use elapsed time dt in seconds: velocity += gravity * dt; position += velocity * dt. Add an FPS slider (10–60) and compare drops from the same height. Lower FPS may look less smooth, but must not simply slow the motion down. Keep the clock running while dragging and prevent huge position jumps after long browser pauses. Small differences at impact are acceptable in this simple simulation. canvas.animate() already supplies dt and caps long pauses. Accumulate frame time until the selected FPS interval has elapsed. The starter already creates the canvas and its 2D context. pointerdown, pointermove and pointerup are wired to press, move and release. `point(event)` supplies pixel coordinates. `canvas.animate()` calls `update(dt)` with elapsed seconds. [DELTA TIME]",
+    "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Figur auswählen und Ziehen beginnen.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Die ausgewählte Figur verschieben.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: Ziehen beenden.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nlet fps = 30;\ncanvas.slider({label: \"FPS\", min: 10, max: 60, step: 1, value: 30, onChange: value => {fps = value;}});\n\nfunction update(dt) {\n  // TODO: Bewegung berechnen und den Ball neu zeichnen.\n}\ncanvas.animate(update);\n",
+    "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Select a shape and start dragging.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Move the selected shape.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: End the drag.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nlet fps = 30;\ncanvas.slider({label: \"FPS\", min: 10, max: 60, step: 1, value: 30, onChange: value => {fps = value;}});\n\nfunction update(dt) {\n  // TODO: Calculate movement and redraw the ball.\n}\ncanvas.animate(update);\n"
+  },
+  {
+    "id": "js-collision",
+    "title": "Ball: schräge Plattform und Kollisionen",
+    "description": "Erweitere den Ball aus der Framerate-Aufgabe um Kollisionen: Zeichne ein langes, schmales Viereck, das um etwa 20 Grad geneigt ist. Ziehe den Ball über die Plattform und lasse ihn fallen. Er soll an der schrägen Fläche und ihren Kanten abprallen, statt hindurchzufallen. Verwende jetzt eine Geschwindigkeit für x und y; nach dem Aufprall bewegt sich der Ball auch seitlich. Ziehen pausiert die Physik und setzt beide Geschwindigkeiten auf 0. Boden und Seitenränder begrenzen die Bewegung. Hinweis: Drehe den Ballpunkt in die ungedrehten Koordinaten des Vierecks, suche den nächsten Punkt auf dessen Oberfläche und spiegle die Geschwindigkeit an der Kollisionsrichtung. Dämpfe jeden Aufprall. Kleine Physik-Teilschritte verhindern Durchfallen bei niedrigen FPS. Teste Mitte, Kanten und Ecken der Plattform. Zeichenfläche und 2D-Kontext stehen bereits im Startcode. pointerdown, pointermove und pointerup sind mit press, move und release verbunden. `point(event)` liefert Pixelkoordinaten. `canvas.animate()` ruft `update(dt)` mit der vergangenen Zeit in Sekunden auf. [COLLISION]",
+    "level": "Experten",
+    "language": "javascript",
+    "title_en": "Ball: Tilted Platform and Collisions",
+    "description_en": "Extend the ball from the frame-rate challenge with collisions. Draw a long, thin rectangle tilted by about 20 degrees. Drag the ball above the platform and let it fall. It must bounce off the sloped surface and its edges instead of passing through. Use both x and y velocity; after impact the ball also moves sideways. Dragging pauses physics and resets both velocities to 0. The floor and side walls bound the motion. Hint: transform the ball into the rectangle's unrotated coordinates, find the nearest surface point, then reflect its velocity along the collision direction. Dampen each bounce. Small physics substeps prevent tunnelling at low FPS. Test the middle, edges and corners of the platform. The starter already creates the canvas and its 2D context. pointerdown, pointermove and pointerup are wired to press, move and release. `point(event)` supplies pixel coordinates. `canvas.animate()` calls `update(dt)` with elapsed seconds. [COLLISION]",
+    "starter_code": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Figur auswählen und Ziehen beginnen.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Die ausgewählte Figur verschieben.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: Ziehen beenden.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nfunction update(dt) {\n  // TODO: Bewegung berechnen und den Ball neu zeichnen.\n}\ncanvas.animate(update);\n",
+    "starter_code_en": "const canvas = graphics.canvas({width: 600, height: 360});\nconst ctx = canvas.getContext(\"2d\");\n\nfunction point(event) {\n  const box = canvas.getBoundingClientRect();\n  return {x: (event.clientX-box.left)*canvas.width/box.width,\n          y: (event.clientY-box.top)*canvas.height/box.height};\n}\n\nfunction press(event) {\n  const {x, y} = point(event);\n  canvas.setPointerCapture(event.pointerId);\n  // TODO: Select a shape and start dragging.\n}\n\nfunction move(event) {\n  const {x, y} = point(event);\n  // TODO: Move the selected shape.\n}\n\nfunction release(event) {\n  const {x, y} = point(event);\n  // TODO: End the drag.\n}\n\ncanvas.addEventListener(\"pointerdown\", press);\ncanvas.addEventListener(\"pointermove\", move);\ncanvas.addEventListener(\"pointerup\", release);\ncanvas.addEventListener(\"pointercancel\", release);\n\nfunction update(dt) {\n  // TODO: Calculate movement and redraw the ball.\n}\ncanvas.animate(update);\n"
+  }
+]

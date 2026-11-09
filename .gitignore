@@ -1,2 +1,5 @@
 node_modules/
 .pnpm-store/
+__pycache__/
+*.sqlite3
+learn.env

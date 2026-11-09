@@ -1,0 +1,20 @@
+services:
+  learn:
+    image: python:3.12-alpine
+    restart: unless-stopped
+    user: "1000:1000"
+    command: [python, -B, /app/learn_server.py]
+    ports: ["127.0.0.1:3192:8766"]
+    env_file: learn.env
+    environment:
+      PYJS_DB: /data/learn.sqlite3
+      PYJS_SECURE_COOKIE: "1"
+    volumes:
+      - ./current/learn_server.py:/app/learn_server.py:ro
+      - ./current/learn-defaults.json:/app/learn-defaults.json:ro
+      - ./current/learn-solutions.json:/app/learn-solutions.json:ro
+      - ./current/learn-solutions-en.json:/app/learn-solutions-en.json:ro
+      - ./current/learn-canvas-upgrade.json:/app/learn-canvas-upgrade.json:ro
+      - ./current/learn-comments-upgrade.json:/app/learn-comments-upgrade.json:ro
+      - ./current/learn-basics-upgrade.json:/app/learn-basics-upgrade.json:ro
+      - ./data:/data

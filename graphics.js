@@ -3,8 +3,16 @@ import example from "./examples/graphics.py";
 import javascriptExample from "./examples/graphics.js";
 import canvasSource from "./python_canvas.py";
 import {createPythonCanvasDisplay} from "./python-canvas.js";
-import {getLocale,t} from "./i18n.js";
+import {getLocale,t,registerTranslations} from "./i18n.js";
 import niceguiExample from "./examples/nicegui-animation.py";
+import canvasExample from "./examples/canvas.py";
+import {createNiceGUISourceView} from "./nicegui-source.js";
+
+registerTranslations([
+  ["Beispiele","Examples"],
+  ["Wähle oben NiceGUI, Canvas oder Matplotlib und führe das Beispiel aus.","Choose NiceGUI, Canvas or Matplotlib above and run the example."],
+  ["Lädt Code in den Editor. Rückgängig stellt deinen Code wieder her.","Loads code into the editor. Undo restores your code."],
+]);
 
 export function initializeGraphics({loadExample, onError, getLanguage=()=>"python"}) {
   const outputTab = document.querySelector("#outputTab");
@@ -41,14 +49,22 @@ export function initializeGraphics({loadExample, onError, getLanguage=()=>"pytho
   function updateLanguage() {
     const js=getLanguage()==="javascript";
     document.querySelector("#niceguiExample").hidden=js;
+    document.querySelector("#canvasExample").hidden=js;
+    document.querySelector("#graphicsExample").textContent=js?t("Load example"):"Matplotlib";
     document.querySelector("#graphicsLanguage").textContent=js?"JavaScript graphics":"Python graphics";
     document.querySelector("#graphicsEmpty h2").textContent=js?"Bring your JavaScript code to life":"Bring your Python code to life";
-    document.querySelector("#graphicsEmpty p").textContent=js?"Draw a chart with graphics.plot(), or draw on a Canvas. Pan, zoom, and add interactive sliders and buttons.":"Draw with pyjs_canvas or create charts with matplotlib.pyplot. Drag shapes, animate movement, and use sliders.";
+    document.querySelector("#graphicsEmpty p").textContent=js?"Draw a chart with graphics.plot(), or draw on a Canvas. Pan, zoom, and add interactive sliders and buttons.":t("Wähle oben NiceGUI, Canvas oder Matplotlib und führe das Beispiel aus.");
   }
   document.querySelector("#niceguiExample").addEventListener("click",()=>{
     if(getLanguage()!=="python")return;
     let code=niceguiExample;
     if(getLocale()==="en")for(const [de,en] of [["Hallo 5RA!","Hello!"],["Grün","Green"],["Lila","Purple"],["Animation starten","Start animation"]])code=code.replaceAll(de,en);
+    loadExample(code);
+  });
+  document.querySelector("#canvasExample").addEventListener("click",()=>{
+    if(getLanguage()!=="python")return;
+    let code=canvasExample;
+    if(getLocale()==="en")code=code.replace("Bewegter Ball","Moving ball");
     loadExample(code);
   });
   document.querySelector("#graphicsExample").addEventListener("click", () => {
@@ -164,7 +180,7 @@ export function initializeGraphics({loadExample, onError, getLanguage=()=>"pytho
       const cancel=element("button",undefined,t("Stoppen"));cancel.type="button";cancel.addEventListener("click",stop);
       const docs=element("a","nicegui-docs",t("NiceGUI 3.18 · Browser-Version · Dokumentation"));
       docs.href="https://nicegui.io/documentation";docs.target="_blank";docs.rel="noopener noreferrer";
-      header.append(heading,cancel);root.append(header,docs,frame);
+      header.append(heading,cancel);root.append(header,docs,frame,createNiceGUISourceView(frame));
       cards.set(id,{root,dispose});figures.append(root);updateCount();if(selectedTab!==bothTab)showTab(graphicsTab);
     },
     install(pyodide) {

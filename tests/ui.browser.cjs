@@ -82,7 +82,7 @@ async function main() {
     console.log("PASS: code-breaker win/loss, prompt messages, validation, empty input, cancel, rerun, stdin.");
 
     await page.getByRole("tab",{name:"Grafik",exact:true}).click();
-    await page.getByRole("button",{name:"Beispiel laden"}).click();
+    await page.locator("#graphicsExample").click();
     await page.getByRole("button",{name:/Ausführen/}).click();
     await page.waitForFunction(()=>["Done","Error"].includes(document.querySelector("#status").dataset.state), null, {timeout:240000});
     assert.equal(await status(), "Done");
@@ -139,7 +139,7 @@ async function main() {
     await page.getByRole("button",{name:/Helles Design/}).click();
     await page.getByRole("button",{name:"Python",exact:true}).click();
     await page.getByRole("tab",{name:"Grafik",exact:true}).click();
-    await page.getByRole("button",{name:"Beispiel laden"}).click();
+    await page.locator("#graphicsExample").click();
     await page.getByRole("button",{name:/Ausführen/}).click();
     await page.waitForFunction(()=>["Done","Error"].includes(document.querySelector("#status").dataset.state));
     assert.equal(await status(), "Done");

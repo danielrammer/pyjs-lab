@@ -42,8 +42,8 @@
       <pre id="output" role="tabpanel" aria-labelledby="outputTab" aria-live="polite" tabindex="0">Ready.</pre>
       <form id="pythonInputForm" hidden><label id="pythonInputLabel" for="pythonInputValue">Python input</label><div class="python-input-controls"><input id="pythonInputValue" type="text" autocomplete="off" maxlength="16000"><button type="submit" class="primary">Senden</button><button type="button" id="pythonInputCancel">Abbrechen</button></div></form>
       <div id="graphics" role="tabpanel" aria-labelledby="graphicsTab" hidden>
-        <div class="graphics-tools"><span id="graphicsLanguage">Python graphics</span><button id="niceguiExample">NiceGUI-Demo laden</button><button id="graphicsFullscreen">Full screen</button></div>
-        <div id="graphicsEmpty"><div class="graphics-empty-icon" aria-hidden="true">↗</div><h2>Bring your Python code to life</h2><p>Draw a chart with <code>matplotlib.pyplot</code> and run your code. Pan, zoom, and interact with Python sliders and buttons.</p><button id="graphicsExample">Load example</button><small>Loads a slider example into the editor. Undo restores your code.</small></div>
+        <div class="graphics-tools"><span id="graphicsLanguage">Python graphics</span><div class="graphics-examples" role="group" aria-label="Beispiele"><button id="niceguiExample">NiceGUI</button><button id="canvasExample">Canvas</button><button id="graphicsExample">Matplotlib</button></div><button id="graphicsFullscreen">Full screen</button></div>
+        <div id="graphicsEmpty"><div class="graphics-empty-icon" aria-hidden="true">↗</div><h2>Bring your Python code to life</h2><p>Wähle oben NiceGUI, Canvas oder Matplotlib und führe das Beispiel aus.</p><small>Lädt Code in den Editor. Rückgängig stellt deinen Code wieder her.</small></div>
         <div id="figures"></div>
       </div>
     </section>

@@ -48,7 +48,9 @@ Then open [http://localhost:8000](http://localhost:8000).
 
 ### NiceGUI in PYJS
 
-Use **Graphics → Load NiceGUI demo → Run**. No installation or account is needed
+Use **Graphics → NiceGUI → Run**. The adjacent **Canvas** and **Matplotlib**
+buttons load separate Python examples; loading does not execute them.
+No installation or account is needed
 on classroom computers. These are real `nicegui` objects, not the previous custom
 `pyjs_ui` prototype. Use the [NiceGUI documentation](https://nicegui.io/documentation)
 for supported element APIs:
@@ -61,6 +63,12 @@ ui.button('Green', on_click=lambda: label.style('background-color: green'))
 ```
 
 `examples/nicegui-animation.py` adds an async button handler with `asyncio.sleep`.
+Open **HTML & CSS** below a running NiceGUI app to inspect a formatted snapshot
+of the rendered `#app` DOM. **Refresh** captures subsequent changes. The CSS list
+shows actual style attributes represented as CSS rules, plus the loaded
+stylesheets (including imported sheets). Cross-origin sheets that the browser
+does not allow reading are identified. HTML and CSS can be copied separately.
+This shows the current browser result; it is not a standalone HTML app export.
 PYJS recognizes actual NiceGUI import statements, creates a fresh browser iframe,
 imports `nicegui_pyodide` first, and executes the editor code inside the adapter's
 `Client(page('/'))` context. The application uses NiceGUI's own UI elements,

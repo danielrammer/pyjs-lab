@@ -29,6 +29,13 @@ async function main(){
     });
     await page.goto(url);
     await page.locator(".cm-editor").waitFor();
+    await page.locator("#graphicsTab").click();
+    for(const [id,expected] of [["canvasExample","from pyjs_canvas import Canvas"],["graphicsExample","matplotlib.pyplot"],["niceguiExample","from nicegui import ui"]]){
+      await page.locator("#"+id).click();
+      assert((await page.locator(".cm-content").innerText()).includes(expected));
+      assert.equal(await page.locator(".figure-card").count(),0,"Loading must not execute code");
+    }
+    console.log("PASS: three separate Python examples load without executing");
     const status=()=>page.locator("#status").getAttribute("data-state");
     async function run(code){
       await page.locator(".cm-content").click();await page.keyboard.press("Control+A");await page.keyboard.insertText(code);
@@ -40,11 +47,23 @@ async function main(){
     await run(demo);
     assert.equal(await status(),"Done");
     let gui=page.frameLocator(".nicegui-frame");
+    await page.locator(".nicegui-source summary").click();
+    await page.waitForFunction(()=>document.querySelector('.nicegui-html-source')?.textContent.includes('Hallo 5RA!'));
+    assert((await page.locator(".nicegui-html-source").textContent()).includes("<button"));
+    assert.equal(await page.locator(".nicegui-html-source button").count(),0,"Source must be displayed as text");
+    assert((await page.locator(".nicegui-css-source").textContent()).includes("background-color: purple"));
+    await page.locator(".nicegui-css-select").selectOption({label:"nicegui.css"});
+    assert((await page.locator(".nicegui-css-source").textContent()).includes("{"));
+    await page.locator(".nicegui-css-select").selectOption("0");
     const green=gui.getByRole("button",{name:"Grün",exact:true});
     await green.click();
     await gui.getByText("Hallo 5RA!",{exact:true}).evaluate(el=>new Promise((resolve,reject)=>{
       const until=Date.now()+10000;const poll=()=>getComputedStyle(el).backgroundColor==="rgb(0, 128, 0)"?resolve():Date.now()>until?reject(new Error("color not updated")):setTimeout(poll,30);poll();
     }));
+    await page.locator(".nicegui-source-tools button").first().click();
+    assert((await page.locator(".nicegui-html-source").textContent()).includes("background-color: green"));
+    assert((await page.locator(".nicegui-css-source").textContent()).includes("background-color: green"));
+    console.log("PASS: rendered HTML, inline CSS, framework stylesheets, refreshed after color change");
     await gui.getByRole("button",{name:"Animation starten",exact:true}).click();
     await gui.getByRole("button",{name:"Lila",exact:true}).click();
     await gui.getByRole("button",{name:"Animation starten",exact:true}).waitFor({state:"visible"});
@@ -90,6 +109,13 @@ async function main(){
     assert.equal(await status(),"Done");
     assert((await page.locator("#output").innerText()).includes("Normal Python after NiceGUI"));
     console.log("PASS: Clear disposes GUI during animation; normal Python still works");
+    await page.locator("#graphicsTab").click();await page.locator("#canvasExample").click();
+    await run(await page.locator(".cm-content").innerText());
+    assert.equal(await status(),"Done");
+    const canvas=page.locator(".figure-canvas");await canvas.waitFor();
+    const first=await canvas.evaluate(el=>el.toDataURL());
+    await page.waitForFunction(before=>document.querySelector('.figure-canvas').toDataURL()!==before,first);
+    console.log("PASS: Canvas example draws and animates");
 
     await page.locator(".cm-content").click();await page.keyboard.press("Control+A");await page.keyboard.insertText(demo);
     await page.locator("#runButton").click();await page.locator(".nicegui-preview").waitFor();

@@ -73,3 +73,14 @@ main{grid-template-columns:minmax(160px,var(--editor-share,.6fr)) 12px minmax(16
 .nicegui-docs {display:block;font-size:12px;padding:8px 14px;line-height:1.5;}
 .nicegui-preview .figure-toolbar {align-items:center;justify-content:space-between;}
 .nicegui-preview .figure-title {margin:0;}
+.graphics-tools {flex-wrap:wrap;gap:8px;}
+.graphics-examples {display:flex;flex-wrap:wrap;gap:6px;}
+.nicegui-source {border-top:1px solid var(--border);padding:12px;min-width:0;}
+.nicegui-source summary {cursor:pointer;font-weight:600;font-size:13px;}
+.nicegui-source-hint,.nicegui-source-status {font-size:12px;line-height:1.6;color:var(--muted);overflow-wrap:anywhere;}
+.nicegui-source-tools {display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;}
+.nicegui-source-tools button {font-size:12px;padding:5px 8px;}
+.nicegui-source h4 {font-size:13px;margin:12px 0 6px;}
+.nicegui-source pre {max-height:280px;overflow:auto;white-space:pre;margin:6px 0 14px;padding:12px;border:1px solid var(--border);border-radius:6px;background:var(--panel);color:var(--text);font:12px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:2;}
+.nicegui-css-label {display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:13px;font-weight:600;}
+.nicegui-css-select {max-width:100%;min-width:0;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:5px;padding:6px;font:inherit;}

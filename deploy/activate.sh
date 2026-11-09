@@ -8,6 +8,8 @@ RELEASE="${1:?Pass the uploaded release name}"
 [[ "$RELEASE" =~ ^[0-9]{8}-[0-9]{6}$ ]] || exit 2
 test -f "$ROOT/releases/$RELEASE/index.html"
 test -f "$ROOT/releases/$RELEASE/app.bundle.js"
+test -f "$ROOT/releases/$RELEASE/nicegui-dist/PYJS-MANIFEST.json"
+test -f "$ROOT/releases/$RELEASE/nicegui-dist/entrypoint.py"
 mkdir -p "$ROOT/backups" "$ROOT/acme" "$ROOT/tls" "$ROOT/certbot-work" "$ROOT/certbot-logs"
 cp "$LIVE" "$ROOT/backups/nginx-$RELEASE.conf"
 cp "$STAGE" "$ROOT/backups/staged-nginx-$RELEASE.conf"

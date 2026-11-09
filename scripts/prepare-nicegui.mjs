@@ -1,0 +1,21 @@
+import {readFile,writeFile,copyFile,access} from "node:fs/promises";
+import {createHash} from "node:crypto";
+import path from "node:path";
+import {fileURLToPath} from "node:url";
+
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
+const dist=path.join(root,"nicegui-dist");
+await access(path.join(dist,"nicegui-3.18.0-py3-none-any.whl"));
+let html=await readFile(path.join(dist,"index.html"),"utf8");
+html=html.replace('"files": {"./app.py": "./app.py"}', '"files": {}');
+if(!html.includes('src="host.js"'))html=html.replace('<script type="module" offline', '<script src="host.js"></script>\n    <script type="module" offline');
+html=html.replace('Loading Pyodide and NiceGUI…','NiceGUI wird geladen …');
+await writeFile(path.join(dist,"index.html"),html);
+let entry=await readFile(path.join(dist,"entrypoint.py"),"utf8");
+entry=entry.split(/# app\.py imports|# PYJS host/)[0];
+entry+="# PYJS host\n"+await readFile(path.join(root,"nicegui-host/run.py"),"utf8");
+await writeFile(path.join(dist,"entrypoint.py"),entry);
+await copyFile(path.join(root,"nicegui-host/host.js"),path.join(dist,"host.js"));
+const hash=createHash("sha256").update(entry).digest("hex");
+await writeFile(path.join(dist,"PYJS-MANIFEST.json"),JSON.stringify({nicegui:"3.18.0",nicegui_pyodide:"0.1.1",adapter_commit:"026ad0642846a930a4f1f37dcf27d20156ca1812",entrypoint_sha256:hash},null,2)+"\n");
+console.log("Prepared NiceGUI 3.18.0 browser host");

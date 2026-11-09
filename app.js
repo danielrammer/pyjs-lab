@@ -17,6 +17,7 @@ import {createJavaScriptGraphics} from "./javascript-graphics.js";
 import {initializeFileActions} from "./file-actions.js";
 import {initializeLocale,t,onLocaleChange} from "./i18n.js";
 import {initializeAccounts} from "./accounts.js";
+import {createNiceGUIRunner,usesNiceGUI} from "./nicegui-runner.js";
 
 const config = window.TITLE_CONFIG || {productName: "PYJS"};
 document.querySelector("#productName").textContent = config.productName;
@@ -33,6 +34,16 @@ let completionMode = "AUTO";
 let colorTheme = document.documentElement.dataset.theme === "light" ? "light" : "dark";
 let convertOnSwitch = false;
 let pyodideInstance = null;
+let pyodideLoader = null;
+function loadMainThreadPython(){
+  if(window.loadPyodide)return window.loadPyodide();
+  if(!pyodideLoader)pyodideLoader=new Promise((resolve,reject)=>{
+    const script=document.createElement("script");script.src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js";
+    script.onload=()=>resolve();script.onerror=()=>{script.remove();pyodideLoader=null;reject(new Error("Python could not be loaded. Please run again."));};
+    document.head.append(script);
+  });
+  return pyodideLoader.then(()=>window.loadPyodide());
+}
 
 const languageCompartment = new Compartment();
 const completionCompartment = new Compartment();
@@ -105,11 +116,13 @@ const graphics = initializeGraphics({
   onError(error){append(error?.message || error,true);setStatus("Error");}
 });
 const javascriptGraphics=createJavaScriptGraphics(graphics,error=>{append(error.message,true);setStatus("Error")});
+const niceguiRunner=createNiceGUIRunner({graphics,append,setStatus,onError(error){append(error.message,true);setStatus("Error")}});
 const pythonWorker=window.crossOriginIsolated && typeof SharedArrayBuffer!=="undefined" ? createPythonWorker({append,setStatus,graphics,onError(error){append(error.message,true);setStatus("Error")}}) : null;
 
 async function runPython(code){
+  if(usesNiceGUI(code))return niceguiRunner.run(code);
   if(pythonWorker)return pythonWorker.run(code);
-  if(!pyodideInstance){setStatus("Loading Python …");pyodideInstance=await loadPyodide();graphics.install(pyodideInstance);pythonInput.install(pyodideInstance)}
+  if(!pyodideInstance){setStatus("Loading Python …");pyodideInstance=await loadMainThreadPython();graphics.install(pyodideInstance);pythonInput.install(pyodideInstance)}
   pythonInput.prepareRun();
   pyodideInstance.setStdout({batched:s=>append(s)});pyodideInstance.setStderr({batched:s=>append(s,true)});
   await pyodideInstance.loadPackagesFromImports(code,{messageCallback:()=>setStatus("Loading Python packages …"),errorCallback:s=>append(s,true)});

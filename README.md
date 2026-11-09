@@ -7,6 +7,7 @@ the same browser interface.
 
 - Python execution in the browser with Pyodide
 - Interactive Python charts, sliders, and buttons with Matplotlib
+- Real NiceGUI interfaces in the browser via the external nicegui-pyodide adapter
 - JavaScript execution without a backend
 - CodeMirror 6 editor with high-contrast syntax highlighting
 - Separate editor content for Python and JavaScript
@@ -44,6 +45,62 @@ python -m http.server 8000
 ```
 
 Then open [http://localhost:8000](http://localhost:8000).
+
+### NiceGUI in PYJS
+
+Use **Graphics → Load NiceGUI demo → Run**. No installation or account is needed
+on classroom computers. These are real `nicegui` objects, not the previous custom
+`pyjs_ui` prototype. Use the [NiceGUI documentation](https://nicegui.io/documentation)
+for supported element APIs:
+
+```python
+from nicegui import ui
+
+label = ui.label('Hello!').style('background-color: purple; color: white; padding: 24px')
+ui.button('Green', on_click=lambda: label.style('background-color: green'))
+```
+
+`examples/nicegui-animation.py` adds an async button handler with `asyncio.sleep`.
+PYJS recognizes actual NiceGUI import statements, creates a fresh browser iframe,
+imports `nicegui_pyodide` first, and executes the editor code inside the adapter's
+`Client(page('/'))` context. The application uses NiceGUI's own UI elements,
+events and methods. Output and callback errors return to the editor. Clear,
+Stop and a new run destroy the previous iframe and its Python runtime.
+Source code is passed locally between the editor and preview; execution does
+not upload it. Existing Learn save/sync actions retain their normal behavior.
+
+This is **not full server-mode NiceGUI compatibility**. Do not call `ui.run()`
+or `ui.run_with()`. Server routes (`@ui.page`), HTTP endpoints, server files,
+native mode and multiprocessing are unsupported. Use `ui.input()` rather than
+terminal `input()`. NiceGUI runs in a separate Python instance: variables and
+PYJS-specific graphics modules are not shared with ordinary Python runs.
+Additional packages are not automatically installed in this runtime.
+See the [adapter support matrix](https://github.com/evnchn/nicegui-pyodide#element-support-matrix).
+
+Pinned and tested development setup: NiceGUI **3.18.0**, nicegui-pyodide **0.1.1**
+at commit `026ad0642846a930a4f1f37dcf27d20156ca1812`, PyScript **2026.7.3** and
+Pyodide **314.0.3**. The adapter is a third-party extension, not an official
+NiceGUI browser backend. Browser tests cover colors, buttons, input, async
+animation, errors and reruns; classroom PCs and school network are untested.
+
+The NiceGUI runtime requires HTTP(S), not `file://`. Build its assets once on a
+development host (Docker example from the repository root):
+
+```bash
+docker run --rm -v "$PWD:/repo" -w /repo python:3.12-alpine sh scripts/build-nicegui.sh
+node scripts/prepare-nicegui.mjs
+pnpm build
+pnpm test:nicegui-browser
+```
+
+`nicegui-dist/` is a generated, ignored deployment artifact. The self-hosted
+build contains the GUI's Python interpreter, frontend and wheels; GUI runs
+require no external CDN requests. This does not make the full PYJS site offline:
+ordinary Python/Matplotlib runs still load their existing runtime from a CDN.
+Re-run `node scripts/prepare-nicegui.mjs` after editing `nicegui-host/`.
+Deploy requires this generated directory and verifies the entry point's hash.
+Do not upgrade NiceGUI without rebuilding the adapter's matched frontend and
+re-running the browser tests.
 
 ## DigitalOcean deployment
 

@@ -3,3 +3,12 @@ node_modules/
 __pycache__/
 *.sqlite3
 learn.env
+nicegui-dist/
+nicegui-runtime.tar.gz
+.env
+.env.*
+!.env.example
+*.sqlite3-wal
+*.sqlite3-shm
+playwright-report/
+test-results/

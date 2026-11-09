@@ -3,7 +3,8 @@ import example from "./examples/graphics.py";
 import javascriptExample from "./examples/graphics.js";
 import canvasSource from "./python_canvas.py";
 import {createPythonCanvasDisplay} from "./python-canvas.js";
-import {getLocale} from "./i18n.js";
+import {getLocale,t} from "./i18n.js";
+import niceguiExample from "./examples/nicegui-animation.py";
 
 export function initializeGraphics({loadExample, onError, getLanguage=()=>"python"}) {
   const outputTab = document.querySelector("#outputTab");
@@ -39,10 +40,17 @@ export function initializeGraphics({loadExample, onError, getLanguage=()=>"pytho
   }
   function updateLanguage() {
     const js=getLanguage()==="javascript";
+    document.querySelector("#niceguiExample").hidden=js;
     document.querySelector("#graphicsLanguage").textContent=js?"JavaScript graphics":"Python graphics";
     document.querySelector("#graphicsEmpty h2").textContent=js?"Bring your JavaScript code to life":"Bring your Python code to life";
     document.querySelector("#graphicsEmpty p").textContent=js?"Draw a chart with graphics.plot(), or draw on a Canvas. Pan, zoom, and add interactive sliders and buttons.":"Draw with pyjs_canvas or create charts with matplotlib.pyplot. Drag shapes, animate movement, and use sliders.";
   }
+  document.querySelector("#niceguiExample").addEventListener("click",()=>{
+    if(getLanguage()!=="python")return;
+    let code=niceguiExample;
+    if(getLocale()==="en")for(const [de,en] of [["Hallo 5RA!","Hello!"],["Grün","Green"],["Lila","Purple"],["Animation starten","Start animation"]])code=code.replaceAll(de,en);
+    loadExample(code);
+  });
   document.querySelector("#graphicsExample").addEventListener("click", () => {
     let code=getLanguage()==="javascript"?javascriptExample:example;
     if(getLocale()==="de")for(const [en,de] of [
@@ -128,7 +136,7 @@ export function initializeGraphics({loadExample, onError, getLanguage=()=>"pytho
       card.image.src = `data:image/png;base64,${png}`;
       card.image.width = width; card.image.height = height; card.area.style.aspectRatio = `${width} / ${height}`;
     },
-    remove_figure(id) { const card = cards.get(id); card?.root.remove(); cards.delete(id); updateCount(); },
+    remove_figure(id) { const card = cards.get(id); card?.dispose?.();card?.root.remove(); cards.delete(id); updateCount(); },
     set_message(id, message) { const card = cards.get(id); if (card) card.message.textContent = message; },
     set_cursor(id, cursor) { const card = cards.get(id); if (card) card.area.style.cursor = ({1:"default",2:"pointer",3:"crosshair",4:"move",5:"wait",6:"ew-resize",7:"ns-resize"})[cursor] || "default"; },
     set_mode(id, mode) { const card = cards.get(id); if (card) for (const [name, button] of Object.entries(card.modes)) button.setAttribute("aria-pressed", String(mode === name)); },
@@ -150,6 +158,15 @@ export function initializeGraphics({loadExample, onError, getLanguage=()=>"pytho
     bridge,
     updateLanguage,
     addCanvas,
+    addWebApp(id,title,frame,dispose,stop) {
+      const root=element("section","figure-card nicegui-preview");
+      const header=element("div","figure-toolbar"),heading=element("h3","figure-title",title);
+      const cancel=element("button",undefined,t("Stoppen"));cancel.type="button";cancel.addEventListener("click",stop);
+      const docs=element("a","nicegui-docs",t("NiceGUI 3.18 · Browser-Version · Dokumentation"));
+      docs.href="https://nicegui.io/documentation";docs.target="_blank";docs.rel="noopener noreferrer";
+      header.append(heading,cancel);root.append(header,docs,frame);
+      cards.set(id,{root,dispose});figures.append(root);updateCount();if(selectedTab!==bothTab)showTab(graphicsTab);
+    },
     install(pyodide) {
       pyodide.registerJsModule("_pyjs_graphics", bridge);
       pyodide.FS.writeFile("/home/pyodide/pyjs_graphics_backend.py", backendSource);
@@ -162,7 +179,7 @@ export function initializeGraphics({loadExample, onError, getLanguage=()=>"pytho
       if (!backend && pyodide.loadedPackages.matplotlib) { backend = pyodide.pyimport("pyjs_graphics_backend"); backend.configure(); }
     },
     clear() {
-      backend?.prepare_run(); canvasBackend?.prepare_run();canvasDisplay.clear();figures.replaceChildren(); cards.clear(); updateCount();
+      backend?.prepare_run(); canvasBackend?.prepare_run();canvasDisplay.clear();for(const card of cards.values())card.dispose?.();figures.replaceChildren(); cards.clear(); updateCount();
     },
     finish() { backend?.finish_run(); },
     showOutput() { if(selectedTab!==bothTab)showTab(outputTab); },

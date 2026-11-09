@@ -1,357 +1,357 @@
-(()=>{var g=`"""Matplotlib backend for PYJS: browser display, navigation and Python widgets."""
-import base64
-import io
-
-import _pyjs_graphics as display
-from matplotlib.backend_bases import (
-    FigureManagerBase, KeyEvent, LocationEvent, MouseEvent, NavigationToolbar2, TimerBase, _Backend,
-)
-from matplotlib.backends.backend_agg import FigureCanvasAgg
-from PIL import Image
-from pyodide.ffi import create_proxy
-from pyodide.ffi.wrappers import clear_timeout, set_timeout, clear_interval, set_interval
-
-
-class TimerPYJS(TimerBase):
-    def __init__(self, canvas, *args, **kwargs):
-        self._canvas = canvas
-        self._handle = None
-        super().__init__(*args, **kwargs)
-
-    def _timer_start(self):
-        self._timer_stop()
-        if not self._canvas._closed:
-            self._handle = set_interval(self._tick, self.interval)
-
-    def _timer_stop(self):
-        if self._handle is not None:
-            clear_interval(self._handle)
-            self._handle = None
-
-    def _timer_set_interval(self):
-        if self._handle is not None:
-            self._timer_start()
-
-    def _tick(self):
-        if self._canvas._closed:
-            self.stop()
-            return
-        if self.single_shot:
-            self.stop()
-        try:
-            self._on_timer()
-        except Exception:
-            self.stop()
-            import traceback
-            traceback.print_exc()
-
-
-class FigureCanvasPYJS(FigureCanvasAgg):
-    # Draw the whole figure, including widgets, after a change.
-    supports_blit = False
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self._identity = "pyjs-figure-" + str(id(self))
-        self._shown = False
-        self._closed = False
-        self._timer = None
-        self._animation_timers = []
-        self._callback = create_proxy(self._event)
-
-    def show(self):
-        if self._closed:
-            return
-        if not self._shown:
-            self._shown = True
-            display.add_figure(self._identity, self.manager.get_window_title(), self._callback)
-        self.draw()
-
-    def draw(self):
-        if self._closed:
-            return
-        super().draw()
-        if not self._shown:
-            return
-        width, height = self.get_width_height()
-        image = Image.frombytes("RGBA", (width, height), bytes(self.buffer_rgba()))
-        with io.BytesIO() as buffer:
-            image.save(buffer, format="PNG")
-            encoded = base64.b64encode(buffer.getvalue()).decode("ascii")
-        display.draw_figure(self._identity, encoded, width, height)
-
-    def draw_idle(self, *args, **kwargs):
-        if self._timer is None and not self._closed:
-            self._timer = set_timeout(self._draw_pending, 0)
-
-    def _draw_pending(self):
-        self._timer = None
-        self.draw()
-
-    def destroy(self):
-        if self._closed:
-            return
-        self._closed = True
-        for timer in self._animation_timers:
-            timer.stop()
-        self._animation_timers.clear()
-        if self._timer is not None:
-            clear_timeout(self._timer)
-            self._timer = None
-        display.remove_figure(self._identity)
-        self._callback.destroy()
-
-    def new_timer(self, interval=None, callbacks=None):
-        timer = TimerPYJS(self, interval=interval, callbacks=callbacks)
-        self._animation_timers.append(timer)
-        return timer
-
-    def _event(self, name, x=0, y=0, button=1, key="", step=0):
-        if self._closed:
-            return
-        if name in ("home", "back", "forward", "pan", "zoom"):
-            getattr(self.toolbar, name)()
-            display.set_mode(self._identity, self.toolbar.mode.name.lower())
-            return
-        width, height = self.get_width_height()
-        x, y = float(x) * width, (1 - float(y)) * height
-        if name in ("key_press_event", "key_release_event"):
-            event = KeyEvent(name, self, str(key), x, y)
-        elif name in ("figure_enter_event", "figure_leave_event"):
-            event = LocationEvent(name, self, x, y)
-        else:
-            mouse_button = int(button) if int(button) > 0 else None
-            event = MouseEvent(name, self, x, y, button=mouse_button, key=str(key) or None, step=float(step))
-        self.callbacks.process(name, event)
-        display.set_mode(self._identity, self.toolbar.mode.name.lower())
-
-
-class NavigationToolbarPYJS(NavigationToolbar2):
-    def set_message(self, message):
-        display.set_message(self.canvas._identity, str(message))
-
-    def set_cursor(self, cursor):
-        display.set_cursor(self.canvas._identity, int(cursor))
-
-    def draw_rubberband(self, event, x0, y0, x1, y1):
-        width, height = self.canvas.get_width_height()
-        display.draw_rubberband(self.canvas._identity, x0 / width, 1 - y0 / height, x1 / width, 1 - y1 / height)
-
-    def remove_rubberband(self):
-        display.remove_rubberband(self.canvas._identity)
-
-    def save_figure(self, *args):
-        display.download_figure(self.canvas._identity)
-
-
-class FigureManagerPYJS(FigureManagerBase):
-    def __init__(self, canvas, num):
-        super().__init__(canvas, num)
-        self._title = f"Figure {num}"
-        self.toolbar = NavigationToolbarPYJS(canvas)
-
-    def show(self):
-        self.canvas.show()
-
-    def destroy(self):
-        self.canvas.destroy()
-
-    def set_window_title(self, title):
-        self._title = str(title)
-
-    def get_window_title(self):
-        return self._title
-
-
-FigureCanvasPYJS.manager_class = FigureManagerPYJS
-
-
-@_Backend.export
-class _BackendPYJS(_Backend):
-    FigureCanvas = FigureCanvasPYJS
-    FigureManager = FigureManagerPYJS
-
-    @staticmethod
-    def show(*args, **kwargs):
-        from matplotlib._pylab_helpers import Gcf
-        for manager in Gcf.get_all_fig_managers():
-            manager.show()
-
-
-def configure():
-    import matplotlib
-    matplotlib.use("module://pyjs_graphics_backend", force=True)
-    from matplotlib import pyplot
-    pyplot.ioff()
-
-
-def prepare_run():
-    from matplotlib import pyplot
-    pyplot.close("all")
-
-
-def finish_run():
-    show()
-`;var y=`"""Connect Python input() to a browser prompt with the program's own message."""
-import builtins
-import _pyjs_input
-
-
-def input(prompt="", /):
-    value = _pyjs_input.read(str(prompt))
-    if value is None:
-        raise EOFError("Input cancelled.")
-    return str(value)
-
-
-def install():
-    builtins.input = input
-`;var h=`"""Small Canvas drawing API for Python programs running in PYJS."""
-import math
-from time import perf_counter
-
-import _pyjs_canvas as bridge
-from pyodide.ffi import create_proxy
-from pyodide.ffi.wrappers import clear_interval, set_interval
-
-_canvases = {}
-_serial = 0
-
-
-class Canvas:
-    """Pixel coordinates: x points right, y points down. Angles are degrees."""
-
-    def __init__(self, width=600, height=360, title="Python Canvas"):
-        global _serial
-        if any(type(n) is not int or not 100 <= n <= 2000 for n in (width, height)):
-            raise ValueError("Canvas dimensions must be integers between 100 and 2000.")
-        _serial += 1
-        self.width, self.height = width, height
-        self._id = f"py-canvas-{_serial}"
-        self._closed = False
-        self._events = {}
-        self._sliders = {}
-        self._timer = None
-        self._animation = None
-        self._fps = 60
-        self._proxy = create_proxy(self._event)
-        self._ctx = bridge.create(self._id, str(title), width, height, self._proxy)
-        _canvases[self._id] = self
-
-    def clear(self, color=None):
-        if self._closed:
-            return
-        self._ctx.clearRect(0, 0, self.width, self.height)
-        if color is not None:
-            self._ctx.fillStyle = str(color)
-            self._ctx.fillRect(0, 0, self.width, self.height)
-        bridge.present(self._id)
-
-    def circle(self, x, y, radius, color="royalblue"):
-        if self._closed:
-            return
-        if radius < 0:
-            raise ValueError("Circle radius must not be negative.")
-        ctx = self._ctx
-        ctx.fillStyle = str(color)
-        ctx.beginPath()
-        ctx.arc(float(x), float(y), float(radius), 0, 2 * math.pi)
-        ctx.fill()
-        bridge.present(self._id)
-
-    def rectangle(self, x, y, width, height, color="purple", angle=0):
-        if self._closed:
-            return
-        ctx = self._ctx
-        ctx.save()
-        try:
-            ctx.translate(float(x + width / 2), float(y + height / 2))
-            ctx.rotate(math.radians(angle))
-            ctx.fillStyle = str(color)
-            ctx.fillRect(float(-width / 2), float(-height / 2), float(width), float(height))
-        finally:
-            ctx.restore()
-        bridge.present(self._id)
-
-    def on(self, event, callback):
-        """Register press, move or release; callback receives x and y pixels."""
-        if event not in ("press", "move", "release"):
-            raise ValueError("Use press, move or release.")
-        if not callable(callback):
-            raise TypeError("The event callback must be callable.")
-        self._events[event] = callback
-
-    def slider(self, label, minimum, maximum, value, on_change, step=1):
-        if self._closed:
-            return
-        if not all(math.isfinite(n) for n in (minimum, maximum, value, step)) or not minimum < maximum or step <= 0 or not minimum <= value <= maximum:
-            raise ValueError("Invalid slider range or value.")
-        if not callable(on_change):
-            raise TypeError("The slider callback must be callable.")
-        identity = str(len(self._sliders))
-        self._sliders[identity] = on_change
-        bridge.slider(self._id, identity, str(label), minimum, maximum, step, value)
-
-    def animate(self, callback, fps=60):
-        """Call callback(dt) repeatedly. dt is elapsed time in seconds."""
-        if not callable(callback):
-            raise TypeError("The animation callback must be callable.")
-        self.stop()
-        self._animation = callback
-        self.set_fps(fps)
-
-    def set_fps(self, fps):
-        if not math.isfinite(fps) or not 1 <= fps <= 120:
-            raise ValueError("FPS must be between 1 and 120.")
-        self._fps = fps
-        if self._timer is not None:
-            clear_interval(self._timer)
-            self._timer = None
-        self._last_time = perf_counter()
-        if self._animation is not None and not self._closed:
-            self._timer = set_interval(self._tick, 1000 / fps)
-
-    def _tick(self):
-        if self._closed:
-            return
-        now = perf_counter()
-        dt = min(now - self._last_time, 0.25)
-        self._last_time = now
-        try:
-            self._animation(dt)
-        except Exception:
-            self.stop()
-            import traceback
-            traceback.print_exc()
-
-    def _event(self, event, *args):
-        if self._closed:
-            return
-        if event == "slider":
-            self._sliders[str(args[0])](float(args[1]))
-        elif event in self._events:
-            self._events[event](*(float(n) for n in args))
-
-    def stop(self):
-        if self._timer is not None:
-            clear_interval(self._timer)
-            self._timer = None
-        self._animation = None
-
-    def close(self):
-        if self._closed:
-            return
-        self._closed = True
-        self.stop()
-        bridge.close(self._id)
-        self._proxy.destroy()
-        self._events.clear()
-        self._sliders.clear()
-        self._ctx = None
-        _canvases.pop(self._id, None)
-
-
-def prepare_run():
-    for canvas in list(_canvases.values()):
-        canvas.close()
+(()=>{var g=`"""Matplotlib backend for PYJS: browser display, navigation and Python widgets."""\r
+import base64\r
+import io\r
+\r
+import _pyjs_graphics as display\r
+from matplotlib.backend_bases import (\r
+    FigureManagerBase, KeyEvent, LocationEvent, MouseEvent, NavigationToolbar2, TimerBase, _Backend,\r
+)\r
+from matplotlib.backends.backend_agg import FigureCanvasAgg\r
+from PIL import Image\r
+from pyodide.ffi import create_proxy\r
+from pyodide.ffi.wrappers import clear_timeout, set_timeout, clear_interval, set_interval\r
+\r
+\r
+class TimerPYJS(TimerBase):\r
+    def __init__(self, canvas, *args, **kwargs):\r
+        self._canvas = canvas\r
+        self._handle = None\r
+        super().__init__(*args, **kwargs)\r
+\r
+    def _timer_start(self):\r
+        self._timer_stop()\r
+        if not self._canvas._closed:\r
+            self._handle = set_interval(self._tick, self.interval)\r
+\r
+    def _timer_stop(self):\r
+        if self._handle is not None:\r
+            clear_interval(self._handle)\r
+            self._handle = None\r
+\r
+    def _timer_set_interval(self):\r
+        if self._handle is not None:\r
+            self._timer_start()\r
+\r
+    def _tick(self):\r
+        if self._canvas._closed:\r
+            self.stop()\r
+            return\r
+        if self.single_shot:\r
+            self.stop()\r
+        try:\r
+            self._on_timer()\r
+        except Exception:\r
+            self.stop()\r
+            import traceback\r
+            traceback.print_exc()\r
+\r
+\r
+class FigureCanvasPYJS(FigureCanvasAgg):\r
+    # Draw the whole figure, including widgets, after a change.\r
+    supports_blit = False\r
+\r
+    def __init__(self, *args, **kwargs):\r
+        super().__init__(*args, **kwargs)\r
+        self._identity = "pyjs-figure-" + str(id(self))\r
+        self._shown = False\r
+        self._closed = False\r
+        self._timer = None\r
+        self._animation_timers = []\r
+        self._callback = create_proxy(self._event)\r
+\r
+    def show(self):\r
+        if self._closed:\r
+            return\r
+        if not self._shown:\r
+            self._shown = True\r
+            display.add_figure(self._identity, self.manager.get_window_title(), self._callback)\r
+        self.draw()\r
+\r
+    def draw(self):\r
+        if self._closed:\r
+            return\r
+        super().draw()\r
+        if not self._shown:\r
+            return\r
+        width, height = self.get_width_height()\r
+        image = Image.frombytes("RGBA", (width, height), bytes(self.buffer_rgba()))\r
+        with io.BytesIO() as buffer:\r
+            image.save(buffer, format="PNG")\r
+            encoded = base64.b64encode(buffer.getvalue()).decode("ascii")\r
+        display.draw_figure(self._identity, encoded, width, height)\r
+\r
+    def draw_idle(self, *args, **kwargs):\r
+        if self._timer is None and not self._closed:\r
+            self._timer = set_timeout(self._draw_pending, 0)\r
+\r
+    def _draw_pending(self):\r
+        self._timer = None\r
+        self.draw()\r
+\r
+    def destroy(self):\r
+        if self._closed:\r
+            return\r
+        self._closed = True\r
+        for timer in self._animation_timers:\r
+            timer.stop()\r
+        self._animation_timers.clear()\r
+        if self._timer is not None:\r
+            clear_timeout(self._timer)\r
+            self._timer = None\r
+        display.remove_figure(self._identity)\r
+        self._callback.destroy()\r
+\r
+    def new_timer(self, interval=None, callbacks=None):\r
+        timer = TimerPYJS(self, interval=interval, callbacks=callbacks)\r
+        self._animation_timers.append(timer)\r
+        return timer\r
+\r
+    def _event(self, name, x=0, y=0, button=1, key="", step=0):\r
+        if self._closed:\r
+            return\r
+        if name in ("home", "back", "forward", "pan", "zoom"):\r
+            getattr(self.toolbar, name)()\r
+            display.set_mode(self._identity, self.toolbar.mode.name.lower())\r
+            return\r
+        width, height = self.get_width_height()\r
+        x, y = float(x) * width, (1 - float(y)) * height\r
+        if name in ("key_press_event", "key_release_event"):\r
+            event = KeyEvent(name, self, str(key), x, y)\r
+        elif name in ("figure_enter_event", "figure_leave_event"):\r
+            event = LocationEvent(name, self, x, y)\r
+        else:\r
+            mouse_button = int(button) if int(button) > 0 else None\r
+            event = MouseEvent(name, self, x, y, button=mouse_button, key=str(key) or None, step=float(step))\r
+        self.callbacks.process(name, event)\r
+        display.set_mode(self._identity, self.toolbar.mode.name.lower())\r
+\r
+\r
+class NavigationToolbarPYJS(NavigationToolbar2):\r
+    def set_message(self, message):\r
+        display.set_message(self.canvas._identity, str(message))\r
+\r
+    def set_cursor(self, cursor):\r
+        display.set_cursor(self.canvas._identity, int(cursor))\r
+\r
+    def draw_rubberband(self, event, x0, y0, x1, y1):\r
+        width, height = self.canvas.get_width_height()\r
+        display.draw_rubberband(self.canvas._identity, x0 / width, 1 - y0 / height, x1 / width, 1 - y1 / height)\r
+\r
+    def remove_rubberband(self):\r
+        display.remove_rubberband(self.canvas._identity)\r
+\r
+    def save_figure(self, *args):\r
+        display.download_figure(self.canvas._identity)\r
+\r
+\r
+class FigureManagerPYJS(FigureManagerBase):\r
+    def __init__(self, canvas, num):\r
+        super().__init__(canvas, num)\r
+        self._title = f"Figure {num}"\r
+        self.toolbar = NavigationToolbarPYJS(canvas)\r
+\r
+    def show(self):\r
+        self.canvas.show()\r
+\r
+    def destroy(self):\r
+        self.canvas.destroy()\r
+\r
+    def set_window_title(self, title):\r
+        self._title = str(title)\r
+\r
+    def get_window_title(self):\r
+        return self._title\r
+\r
+\r
+FigureCanvasPYJS.manager_class = FigureManagerPYJS\r
+\r
+\r
+@_Backend.export\r
+class _BackendPYJS(_Backend):\r
+    FigureCanvas = FigureCanvasPYJS\r
+    FigureManager = FigureManagerPYJS\r
+\r
+    @staticmethod\r
+    def show(*args, **kwargs):\r
+        from matplotlib._pylab_helpers import Gcf\r
+        for manager in Gcf.get_all_fig_managers():\r
+            manager.show()\r
+\r
+\r
+def configure():\r
+    import matplotlib\r
+    matplotlib.use("module://pyjs_graphics_backend", force=True)\r
+    from matplotlib import pyplot\r
+    pyplot.ioff()\r
+\r
+\r
+def prepare_run():\r
+    from matplotlib import pyplot\r
+    pyplot.close("all")\r
+\r
+\r
+def finish_run():\r
+    show()\r
+`;var y=`"""Connect Python input() to a browser prompt with the program's own message."""\r
+import builtins\r
+import _pyjs_input\r
+\r
+\r
+def input(prompt="", /):\r
+    value = _pyjs_input.read(str(prompt))\r
+    if value is None:\r
+        raise EOFError("Input cancelled.")\r
+    return str(value)\r
+\r
+\r
+def install():\r
+    builtins.input = input\r
+`;var h=`"""Small Canvas drawing API for Python programs running in PYJS."""\r
+import math\r
+from time import perf_counter\r
+\r
+import _pyjs_canvas as bridge\r
+from pyodide.ffi import create_proxy\r
+from pyodide.ffi.wrappers import clear_interval, set_interval\r
+\r
+_canvases = {}\r
+_serial = 0\r
+\r
+\r
+class Canvas:\r
+    """Pixel coordinates: x points right, y points down. Angles are degrees."""\r
+\r
+    def __init__(self, width=600, height=360, title="Python Canvas"):\r
+        global _serial\r
+        if any(type(n) is not int or not 100 <= n <= 2000 for n in (width, height)):\r
+            raise ValueError("Canvas dimensions must be integers between 100 and 2000.")\r
+        _serial += 1\r
+        self.width, self.height = width, height\r
+        self._id = f"py-canvas-{_serial}"\r
+        self._closed = False\r
+        self._events = {}\r
+        self._sliders = {}\r
+        self._timer = None\r
+        self._animation = None\r
+        self._fps = 60\r
+        self._proxy = create_proxy(self._event)\r
+        self._ctx = bridge.create(self._id, str(title), width, height, self._proxy)\r
+        _canvases[self._id] = self\r
+\r
+    def clear(self, color=None):\r
+        if self._closed:\r
+            return\r
+        self._ctx.clearRect(0, 0, self.width, self.height)\r
+        if color is not None:\r
+            self._ctx.fillStyle = str(color)\r
+            self._ctx.fillRect(0, 0, self.width, self.height)\r
+        bridge.present(self._id)\r
+\r
+    def circle(self, x, y, radius, color="royalblue"):\r
+        if self._closed:\r
+            return\r
+        if radius < 0:\r
+            raise ValueError("Circle radius must not be negative.")\r
+        ctx = self._ctx\r
+        ctx.fillStyle = str(color)\r
+        ctx.beginPath()\r
+        ctx.arc(float(x), float(y), float(radius), 0, 2 * math.pi)\r
+        ctx.fill()\r
+        bridge.present(self._id)\r
+\r
+    def rectangle(self, x, y, width, height, color="purple", angle=0):\r
+        if self._closed:\r
+            return\r
+        ctx = self._ctx\r
+        ctx.save()\r
+        try:\r
+            ctx.translate(float(x + width / 2), float(y + height / 2))\r
+            ctx.rotate(math.radians(angle))\r
+            ctx.fillStyle = str(color)\r
+            ctx.fillRect(float(-width / 2), float(-height / 2), float(width), float(height))\r
+        finally:\r
+            ctx.restore()\r
+        bridge.present(self._id)\r
+\r
+    def on(self, event, callback):\r
+        """Register press, move or release; callback receives x and y pixels."""\r
+        if event not in ("press", "move", "release"):\r
+            raise ValueError("Use press, move or release.")\r
+        if not callable(callback):\r
+            raise TypeError("The event callback must be callable.")\r
+        self._events[event] = callback\r
+\r
+    def slider(self, label, minimum, maximum, value, on_change, step=1):\r
+        if self._closed:\r
+            return\r
+        if not all(math.isfinite(n) for n in (minimum, maximum, value, step)) or not minimum < maximum or step <= 0 or not minimum <= value <= maximum:\r
+            raise ValueError("Invalid slider range or value.")\r
+        if not callable(on_change):\r
+            raise TypeError("The slider callback must be callable.")\r
+        identity = str(len(self._sliders))\r
+        self._sliders[identity] = on_change\r
+        bridge.slider(self._id, identity, str(label), minimum, maximum, step, value)\r
+\r
+    def animate(self, callback, fps=60):\r
+        """Call callback(dt) repeatedly. dt is elapsed time in seconds."""\r
+        if not callable(callback):\r
+            raise TypeError("The animation callback must be callable.")\r
+        self.stop()\r
+        self._animation = callback\r
+        self.set_fps(fps)\r
+\r
+    def set_fps(self, fps):\r
+        if not math.isfinite(fps) or not 1 <= fps <= 120:\r
+            raise ValueError("FPS must be between 1 and 120.")\r
+        self._fps = fps\r
+        if self._timer is not None:\r
+            clear_interval(self._timer)\r
+            self._timer = None\r
+        self._last_time = perf_counter()\r
+        if self._animation is not None and not self._closed:\r
+            self._timer = set_interval(self._tick, 1000 / fps)\r
+\r
+    def _tick(self):\r
+        if self._closed:\r
+            return\r
+        now = perf_counter()\r
+        dt = min(now - self._last_time, 0.25)\r
+        self._last_time = now\r
+        try:\r
+            self._animation(dt)\r
+        except Exception:\r
+            self.stop()\r
+            import traceback\r
+            traceback.print_exc()\r
+\r
+    def _event(self, event, *args):\r
+        if self._closed:\r
+            return\r
+        if event == "slider":\r
+            self._sliders[str(args[0])](float(args[1]))\r
+        elif event in self._events:\r
+            self._events[event](*(float(n) for n in args))\r
+\r
+    def stop(self):\r
+        if self._timer is not None:\r
+            clear_interval(self._timer)\r
+            self._timer = None\r
+        self._animation = None\r
+\r
+    def close(self):\r
+        if self._closed:\r
+            return\r
+        self._closed = True\r
+        self.stop()\r
+        bridge.close(self._id)\r
+        self._proxy.destroy()\r
+        self._events.clear()\r
+        self._sliders.clear()\r
+        self._ctx = None\r
+        _canvases.pop(self._id, None)\r
+\r
+\r
+def prepare_run():\r
+    for canvas in list(_canvases.values()):\r
+        canvas.close()\r
 `;var v="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/",d=new Map,b={read:()=>null},c=null,f=null,m=null,u=null,p=!1,_=new Map,r=(s,a={})=>postMessage({type:s,runId:u,...a});async function P(){return c||(c=(async()=>{r("status",{text:"Loading Python \u2026"}),importScripts(v+"pyodide.js");let s=await loadPyodide({indexURL:v}),a={};for(let e of["draw_figure","set_message","set_cursor","set_mode","draw_rubberband","remove_rubberband","download_figure"])a[e]=(...t)=>r("figure",{method:e,args:t});return a.add_figure=(e,t,l)=>{d.set(e,l),r("figure",{method:"add_figure",args:[e,t]})},a.remove_figure=e=>{d.delete(e),r("figure",{method:"remove_figure",args:[e]})},s.registerJsModule("_pyjs_graphics",a),s.registerJsModule("_pyjs_input",b),s.registerJsModule("_pyjs_canvas",{create(e,t,l,i,n){let o=new OffscreenCanvas(l,i);return _.set(e,{surface:o,pending:!1,dirty:!1}),d.set(e,n),r("canvas-create",{id:e,title:t,width:l,height:i}),o.getContext("2d")},present(e){let t=_.get(e);if(!t||(t.dirty=!0,t.pending))return;t.pending=!0;let l=async()=>{t.dirty=!1;try{let i=await createImageBitmap(t.surface);_.get(e)===t?postMessage({type:"canvas-frame",runId:u,id:e,bitmap:i},[i]):i.close()}catch(i){r("event-error",{message:i.message})}finally{t.dirty&&_.get(e)===t?setTimeout(l,0):t.pending=!1}};setTimeout(l,0)},slider(e,t,l,i,n,o,w){r("canvas-slider",{args:[e,t,l,i,n,o,w]})},close(e){_.delete(e),d.delete(e),r("canvas-close",{id:e})}}),s.FS.writeFile("/home/pyodide/pyjs_graphics_backend.py",g),s.FS.writeFile("/home/pyodide/pyjs_input.py",y),s.FS.writeFile("/home/pyodide/pyjs_canvas.py",h),m=s.pyimport("pyjs_canvas"),s.runPython("import os as _pyjs_os; _pyjs_os.environ['MPLBACKEND']='module://pyjs_graphics_backend'; del _pyjs_os"),s.setStdout({batched:e=>r("stdout",{text:e})}),s.setStderr({batched:e=>r("stderr",{text:e})}),s})().catch(s=>{throw c=null,s})),c}self.onmessage=async({data:s})=>{if(s.type==="event"){try{d.get(s.id)?.(...s.args)}catch(a){r("event-error",{message:a.message})}return}if(s.type==="clear"){f?.prepare_run(),m?.prepare_run();return}if(s.type==="run"){u=s.id,p=!1;try{let l=function(n){for(Atomics.store(e,0,0),Atomics.store(e,1,0),r("input",{prompt:String(n)});Atomics.load(e,0)===0;)Atomics.wait(e,0,0);if(Atomics.load(e,0)===2)return p=!0,null;let o=new TextDecoder().decode(t.slice(0,Atomics.load(e,1)));return r("stdout",{text:String(n)+o}),o},a=await P(),e=new Int32Array(s.inputBuffer,0,2),t=new Uint8Array(s.inputBuffer,8);b.read=l,a.setStdin({stdin:()=>l("Python input: "),isatty:!1});let i=a.pyimport("pyjs_input");try{i.install()}finally{i.destroy()}f?.prepare_run(),m?.prepare_run(),await a.loadPackagesFromImports(s.code,{messageCallback:()=>r("status",{text:"Loading Python packages \u2026"}),errorCallback:n=>r("stderr",{text:n})}),!f&&a.loadedPackages.matplotlib&&(f=a.pyimport("pyjs_graphics_backend"),f.configure()),r("status",{text:"Running \u2026"});try{await a.runPythonAsync(s.code)}finally{f?.finish_run()}r("result")}catch(a){r("error",{message:a.message,cancelled:p&&/EOFError: Input cancelled\.[\r\n]*$/.test(a.message)})}}};r("ready");})();

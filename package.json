@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test:nicegui-browser": "node tests/nicegui.browser.cjs",
+    "build:nicegui-host": "node scripts/prepare-nicegui.mjs",
     "test:compact-admin-browser": "node tests/compact-admin.browser.cjs",
     "test:toolbar-browser": "node tests/toolbar.browser.cjs",
     "test:accounts-browser": "node tests/accounts.browser.cjs",

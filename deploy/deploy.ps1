@@ -51,6 +51,8 @@ if ($LASTEXITCODE -ne 0) { throw "Cannot upload the Learn service." }
 if ($LASTEXITCODE -ne 0) { throw "Cannot upload the bilingual Learn catalog." }
 & $scp -i $IdentityFile (Join-Path $repoRoot "learn-basics-upgrade.json") "${remote}:$root/releases/$release/"
 if ($LASTEXITCODE -ne 0) { throw "Cannot upload the additional practice lessons." }
+& $scp -i $IdentityFile (Join-Path $repoRoot "learn-gui.json") "${remote}:$root/releases/$release/"
+if ($LASTEXITCODE -ne 0) { throw "Cannot upload the GUI lessons." }
 & $scp -i $IdentityFile (Join-Path $PSScriptRoot "compose.yaml") "${remote}:$root/compose.yaml"
 if ($LASTEXITCODE -ne 0) { throw "Cannot upload service configuration." }
 # Use PYJS branding for this public domain without changing the local school name.

@@ -21,6 +21,20 @@ def password_hash(password, salt=None):
     return salt + ":" + digest
 
 
+def add_gui_lessons(db, entries):
+    """Add the GUI category once; retain teacher edits, deletions and releases."""
+    if db.execute("SELECT 1 FROM migrations WHERE name='gui-lessons-v1'").fetchone():
+        return False
+    lessons = json.loads(Path(__file__).with_name("learn-gui.json").read_text(encoding="utf-8"))
+    identities = {entry["id"] for entry in entries}
+    additions = [entry for entry in lessons if entry["id"] not in identities]
+    position = max((i + 1 for i, entry in enumerate(entries)
+                    if entry.get("language", "python") == "python"), default=len(entries))
+    entries[position:position] = additions
+    db.execute("INSERT INTO migrations VALUES ('gui-lessons-v1')")
+    return bool(additions)
+
+
 def create_server(address, database, encoded_password, secure=True, static_dir=None):
     salt, digest = encoded_password.split(":")
     # Reject invalid configuration before accepting requests.
@@ -210,6 +224,7 @@ def create_server(address, database, encoded_password, secure=True, static_dir=N
                 entry["level"]=update["value"]
                 changed=True
         db.execute("INSERT INTO migrations VALUES ('graphics-levels-v1')")
+    changed = add_gui_lessons(db, entries) or changed
     for entry in entries:
         for field in ("starter_code", "starter_code_en"):
             if field not in entry:

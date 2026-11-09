@@ -17,4 +17,5 @@ services:
       - ./current/learn-canvas-upgrade.json:/app/learn-canvas-upgrade.json:ro
       - ./current/learn-comments-upgrade.json:/app/learn-comments-upgrade.json:ro
       - ./current/learn-basics-upgrade.json:/app/learn-basics-upgrade.json:ro
+      - ./current/learn-gui.json:/app/learn-gui.json:ro
       - ./data:/data

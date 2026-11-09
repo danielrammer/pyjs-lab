@@ -35,7 +35,7 @@ async function main(){
   }
   await page.locator('#uiLanguage').selectOption('de');await page.locator('.lang[data-language="python"]').click();await code('# Ready');
   async function learn(){await page.locator('#learnButton').click();await page.locator('.learn-level-heading button').first().waitFor();}
-  await learn();const publicState=await (await page.request.get(url+'/api/learn')).json();assert.equal(publicState.entries.length,82);
+  await learn();const publicState=await (await page.request.get(url+'/api/learn')).json();assert.equal(publicState.entries.length,94);
   assert(publicState.entries.every(entry=>!('solution' in entry)&&!('solution_en' in entry)));
   assert.equal(await page.locator('.learn-level-heading').count(),4);
   const basics=page.getByRole('button',{name:'Grundlagen (18)',exact:true});assert(await page.locator('.learn-level-heading button').evaluateAll(nodes=>nodes.every(node=>node.getAttribute('aria-expanded')==='false')));await basics.click();assert.equal(await basics.getAttribute('aria-expanded'),'true');await basics.click();assert.equal(await basics.getAttribute('aria-expanded'),'false');assert.equal(await page.getByRole('cell',{name:'Hello Python',exact:true}).count(),0);
@@ -54,7 +54,7 @@ async function main(){
   console.log('PASS grouped folding and all 12 starter scaffolds run in PYJS');
   await page.locator('#learnLanguage').selectOption('python');await page.locator('#learnManage').click();await page.getByLabel('Admin-Passwort').fill('test-password');await page.getByRole('button',{name:'Anmelden',exact:true}).click();
   const visible=page.getByLabel('Sichtbar',{exact:true}).first();await visible.waitFor();assert(await visible.isChecked());await visible.uncheck();await page.getByRole('button',{name:'Änderungen speichern',exact:true}).click();await page.getByText('Aufgaben gespeichert.',{exact:true}).waitFor();assert.equal(await page.getByRole('cell',{name:'Hello Python',exact:true}).count(),0);
-  assert.equal((await (await page.request.get(url+'/api/learn')).json()).entries.length,81);
+  assert.equal((await (await page.request.get(url+'/api/learn')).json()).entries.length,93);
   await page.locator('#learnManage').click();await page.getByLabel('Admin-Passwort').fill('test-password');await page.getByRole('button',{name:'Anmelden',exact:true}).click();await visible.waitFor();assert.equal(await visible.isChecked(),false);await visible.check();await page.getByRole('button',{name:'Änderungen speichern',exact:true}).click();await page.getByRole('cell',{name:'Hello Python',exact:true}).waitFor();
   assert.deepEqual(errors,[]);console.log('PASS task visibility can hide and restore a challenge independently of solution release');
  }finally{if(browser)await browser.close();if(server&&server.exitCode===null){const ended=new Promise(r=>server.once('exit',r));server.kill();await ended;}if(path.dirname(temporary)===path.resolve(os.tmpdir())&&path.basename(temporary).startsWith('pyjs-basics-'))fs.rmSync(temporary,{recursive:true,force:true});}

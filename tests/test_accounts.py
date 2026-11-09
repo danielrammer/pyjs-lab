@@ -68,7 +68,7 @@ class AccountTests(unittest.TestCase):
         self.assertEqual(status,200)
         self.assertEqual(data['users'][0]['progress'],{'python':1,'javascript':1})
         self.assertEqual(data['users'][0]['versions'],4)
-        self.assertEqual(data['totals'],{'python':41,'javascript':41})
+        self.assertEqual(data['totals'],{'python':53,'javascript':41})
         self.assertNotIn('password',data['users'][0])
         self.assertCountEqual(self.request(path)[1]['results'],versions)
         self.assertEqual(self.request('/api/admin/users/missing')[0],404)

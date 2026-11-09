@@ -79,7 +79,8 @@ export function initializeLearn({getLanguage=()=>"python",getWork,openWork}={}) 
       }
       lines.push(line);return lines;
     });
-    const starter=[...comments(`Challenge: ${localized(task,"title").replace(/[\r\n]+/g," ")}`),...comments(localized(task,"description")),"",localized(task,"starter_code") || "",""] .join("\n");
+    const codeText=key=>levelOf(task)==="GUI"?(task[key+"_en"]||task[key]):localized(task,key);
+    const starter=[...comments(`Challenge: ${codeText("title").replace(/[\r\n]+/g," ")}`),...comments(codeText("description")),"",localized(task,"starter_code") || "",""] .join("\n");
     openWork(saved || {language:task.language,code:starter,filename:`${task.id}.${task.language==="python"?"py":"js"}`});
     active={entry:task,lastSavedCode:saved?.code};challengeMessage.textContent="";updateChallengeBar();dialog.close();
   }

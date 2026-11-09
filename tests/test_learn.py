@@ -53,7 +53,7 @@ class LearnTests(unittest.TestCase):
 
     def test_protected_persistent_edits_and_conflicts(self):
         _, original = self.request("/api/learn")
-        self.assertEqual(len(original["entries"]), 82)
+        self.assertEqual(len(original["entries"]), 94)
         self.assertEqual(sum(entry["language"]=="javascript" for entry in original["entries"]),41)
         self.assertEqual(self.request("/api/learn", "PUT", original)[0], 401)
         self.assertEqual(self.request("/api/admin/login", "POST", {"password":"wrong"})[0], 401)
@@ -122,7 +122,7 @@ class LearnTests(unittest.TestCase):
             db.execute("DELETE FROM migrations WHERE name='basics-practice-v1'")
         db.close();self.start()
         upgraded=self.request("/api/admin/learn")[1]
-        self.assertEqual(len(upgraded["entries"]),82)
+        self.assertEqual(len(upgraded["entries"]),94)
         first=next(entry for entry in upgraded["entries"] if entry["id"]=="hello")
         self.assertEqual(first["description"],"Teacher assignment")
         self.assertFalse(first["visible"])
@@ -272,7 +272,7 @@ class LearnTests(unittest.TestCase):
         self.start()
         updated = self.request("/api/admin/learn")[1]
         rows = {entry["id"]: entry for entry in updated["entries"]}
-        self.assertEqual(len(rows), 82)
+        self.assertEqual(len(rows), 94)
         self.assertIn("input(", rows["level"]["solution"])
         self.assertNotEqual(rows["level"]["description"], old_description)
         self.assertTrue(rows["level"]["solution_released"])
@@ -306,7 +306,7 @@ class LearnTests(unittest.TestCase):
         db.close()
         self.start()
         migrated=self.request("/api/admin/learn")[1]
-        self.assertEqual(len(migrated["entries"]),82)
+        self.assertEqual(len(migrated["entries"]),94)
         self.assertEqual(migrated["entries"][0]["title"],"Edited Python task")
         self.assertEqual(migrated["entries"][0]["solution"],"print('Private edit')")
         self.assertTrue(migrated["entries"][0]["solution_released"])
@@ -318,7 +318,7 @@ class LearnTests(unittest.TestCase):
         migrated["entries"]=[entry for entry in migrated["entries"] if entry["id"]!="js-hello"]
         self.assertEqual(self.request("/api/learn","PUT",migrated)[0],200)
         self.stop();self.start()
-        self.assertEqual(len(self.request("/api/admin/learn")[1]["entries"]),81)
+        self.assertEqual(len(self.request("/api/admin/learn")[1]["entries"]),93)
 
 
 if __name__ == "__main__":
